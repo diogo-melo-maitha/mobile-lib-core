@@ -1,0 +1,35 @@
+{"protocolVersion":"0.1.1","runnerVersion":null,"pid":500,"type":"start","time":0}
+{"suite":{"id":0,"platform":"vm","path":"C:\\Users\\Rodrigo\\Desktop\\TradeMaster\\Projects\\Mobile\\mobile-lib-core\\test\\security\\cryptography_utils_test.dart"},"type":"suite","time":0}
+{"test":{"id":1,"name":"loading C:\\Users\\Rodrigo\\Desktop\\TradeMaster\\Projects\\Mobile\\mobile-lib-core\\test\\security\\cryptography_utils_test.dart","suiteID":0,"groupIDs":[],"metadata":{"skip":false,"skipReason":null},"line":null,"column":null,"url":null},"type":"testStart","time":1}
+{"suite":{"id":2,"platform":"vm","path":"C:\\Users\\Rodrigo\\Desktop\\TradeMaster\\Projects\\Mobile\\mobile-lib-core\\test\\security\\security_repository_test.dart"},"type":"suite","time":9}
+{"test":{"id":3,"name":"loading C:\\Users\\Rodrigo\\Desktop\\TradeMaster\\Projects\\Mobile\\mobile-lib-core\\test\\security\\security_repository_test.dart","suiteID":2,"groupIDs":[],"metadata":{"skip":false,"skipReason":null},"line":null,"column":null,"url":null},"type":"testStart","time":9}
+{"count":2,"type":"allSuites","time":10}
+
+[{"event":"test.startedProcess","params":{"observatoryUri":"http://127.0.0.1:60924/bNqlnlsqhaQ=/"}}]
+
+[{"event":"test.startedProcess","params":{"observatoryUri":"http://127.0.0.1:60925/BBqIpnZNk98=/"}}]
+{"testID":3,"result":"success","skipped":false,"hidden":true,"type":"testDone","time":1836}
+{"group":{"id":4,"suiteID":2,"parentID":null,"name":"","metadata":{"skip":false,"skipReason":null},"testCount":4,"line":null,"column":null,"url":null},"type":"group","time":1840}
+{"group":{"id":5,"suiteID":2,"parentID":4,"name":"security repository test","metadata":{"skip":false,"skipReason":null},"testCount":4,"line":22,"column":3,"url":"file:///C:/Users/Rodrigo/Desktop/TradeMaster/Projects/Mobile/mobile-lib-core/test/security/security_repository_test.dart"},"type":"group","time":1841}
+{"test":{"id":6,"name":"security repository test encryption key is properly save in secure storage","suiteID":2,"groupIDs":[4,5],"metadata":{"skip":false,"skipReason":null},"line":23,"column":5,"url":"file:///C:/Users/Rodrigo/Desktop/TradeMaster/Projects/Mobile/mobile-lib-core/test/security/security_repository_test.dart"},"type":"testStart","time":1841}
+{"testID":1,"result":"success","skipped":false,"hidden":true,"type":"testDone","time":1846}
+{"group":{"id":7,"suiteID":0,"parentID":null,"name":"","metadata":{"skip":false,"skipReason":null},"testCount":5,"line":null,"column":null,"url":null},"type":"group","time":1846}
+{"group":{"id":8,"suiteID":0,"parentID":7,"name":"Cryptography utils tests","metadata":{"skip":false,"skipReason":null},"testCount":5,"line":8,"column":3,"url":"file:///C:/Users/Rodrigo/Desktop/TradeMaster/Projects/Mobile/mobile-lib-core/test/security/cryptography_utils_test.dart"},"type":"group","time":1846}
+{"test":{"id":9,"name":"Cryptography utils tests encryption correctly returns result","suiteID":0,"groupIDs":[7,8],"metadata":{"skip":false,"skipReason":null},"line":9,"column":5,"url":"file:///C:/Users/Rodrigo/Desktop/TradeMaster/Projects/Mobile/mobile-lib-core/test/security/cryptography_utils_test.dart"},"type":"testStart","time":1846}
+{"testID":6,"result":"success","skipped":false,"hidden":false,"type":"testDone","time":1870}
+{"test":{"id":10,"name":"security repository test encrypt sensitive data is correctly using storage key","suiteID":2,"groupIDs":[4,5],"metadata":{"skip":false,"skipReason":null},"line":29,"column":5,"url":"file:///C:/Users/Rodrigo/Desktop/TradeMaster/Projects/Mobile/mobile-lib-core/test/security/security_repository_test.dart"},"type":"testStart","time":1870}
+{"testID":9,"result":"success","skipped":false,"hidden":false,"type":"testDone","time":1879}
+{"test":{"id":11,"name":"Cryptography utils tests decryption correctly translate cipher","suiteID":0,"groupIDs":[7,8],"metadata":{"skip":false,"skipReason":null},"line":17,"column":5,"url":"file:///C:/Users/Rodrigo/Desktop/TradeMaster/Projects/Mobile/mobile-lib-core/test/security/cryptography_utils_test.dart"},"type":"testStart","time":1879}
+{"testID":11,"result":"success","skipped":false,"hidden":false,"type":"testDone","time":1885}
+{"test":{"id":12,"name":"Cryptography utils tests decryption throws exception with incorrect mac","suiteID":0,"groupIDs":[7,8],"metadata":{"skip":false,"skipReason":null},"line":26,"column":5,"url":"file:///C:/Users/Rodrigo/Desktop/TradeMaster/Projects/Mobile/mobile-lib-core/test/security/cryptography_utils_test.dart"},"type":"testStart","time":1885}
+{"testID":10,"result":"success","skipped":false,"hidden":false,"type":"testDone","time":1888}
+{"test":{"id":13,"name":"security repository test encrypt sensitive data is correctly returning valid result","suiteID":2,"groupIDs":[4,5],"metadata":{"skip":false,"skipReason":null},"line":37,"column":5,"url":"file:///C:/Users/Rodrigo/Desktop/TradeMaster/Projects/Mobile/mobile-lib-core/test/security/security_repository_test.dart"},"type":"testStart","time":1888}
+{"testID":12,"result":"success","skipped":false,"hidden":false,"type":"testDone","time":1892}
+{"test":{"id":14,"name":"Cryptography utils tests decryption throws exception with incorrect nonce","suiteID":0,"groupIDs":[7,8],"metadata":{"skip":false,"skipReason":null},"line":33,"column":5,"url":"file:///C:/Users/Rodrigo/Desktop/TradeMaster/Projects/Mobile/mobile-lib-core/test/security/cryptography_utils_test.dart"},"type":"testStart","time":1892}
+{"testID":13,"result":"success","skipped":false,"hidden":false,"type":"testDone","time":1893}
+{"test":{"id":15,"name":"security repository test decrypt sensitive data is correctly using storage key and returns valid plainText","suiteID":2,"groupIDs":[4,5],"metadata":{"skip":false,"skipReason":null},"line":47,"column":5,"url":"file:///C:/Users/Rodrigo/Desktop/TradeMaster/Projects/Mobile/mobile-lib-core/test/security/security_repository_test.dart"},"type":"testStart","time":1894}
+{"testID":14,"result":"success","skipped":false,"hidden":false,"type":"testDone","time":1896}
+{"test":{"id":16,"name":"Cryptography utils tests decryption throws exception with incorrect key","suiteID":0,"groupIDs":[7,8],"metadata":{"skip":false,"skipReason":null},"line":40,"column":5,"url":"file:///C:/Users/Rodrigo/Desktop/TradeMaster/Projects/Mobile/mobile-lib-core/test/security/cryptography_utils_test.dart"},"type":"testStart","time":1896}
+{"testID":16,"result":"success","skipped":false,"hidden":false,"type":"testDone","time":1899}
+{"testID":15,"result":"success","skipped":false,"hidden":false,"type":"testDone","time":1907}
+{"success":true,"type":"done","time":2080}

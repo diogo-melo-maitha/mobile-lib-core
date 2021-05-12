@@ -1,6 +1,6 @@
 import 'dart:convert';
 import 'package:cryptography/cryptography.dart';
-import 'package:tm_lib_core/security/model/cryptography_result.dart';
+import 'model/cryptography_result.dart';
 
 /// cryptography library is being used initially for implementation simplicity, it is possible a future update to an internal implementation
 /// After scope definition of the project, this implementation may change, so, it will only have basic tests for now

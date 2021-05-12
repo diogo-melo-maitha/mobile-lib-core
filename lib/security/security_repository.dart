@@ -1,6 +1,6 @@
 import 'package:flutter_secure_storage/flutter_secure_storage.dart';
-import 'package:tm_lib_core/security/cryptography_utils.dart';
-import 'package:tm_lib_core/security/model/cryptography_result.dart';
+import 'cryptography_utils.dart';
+import 'model/cryptography_result.dart';
 
 class SecurityRepository {
   final String _coreEncryptionStorageKey = 'coreEncryptionStorageKey';

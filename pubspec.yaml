@@ -14,6 +14,7 @@ dependencies:
     sdk: flutter
 
 dev_dependencies:
+  remove_from_coverage: ^2.0.0
   build_runner: ^2.0.2
   mockito: ^5.0.7
   flutter_test:
