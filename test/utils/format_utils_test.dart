@@ -24,13 +24,13 @@ void main() {
     });
 
     test('maskDocument correctly mask string', () {
-      var text = '40540788816';
+      var text = '79185944017';
 
-      expect('405.407.888-16', FormatUtils.maskDocument(text));
+      expect('791.859.440-17', FormatUtils.maskDocument(text));
 
-      text = '40540788816242';
+      text = '26666877000100';
 
-      expect('40.540.788/8162-42', FormatUtils.maskDocument(text));
+      expect('26.666.877/0001-00', FormatUtils.maskDocument(text));
 
       text = 'shouldReturnText';
 
@@ -38,13 +38,13 @@ void main() {
     });
 
     test('maskPhoneNumber correctly mask string', () {
-      var text = '11953171707';
+      var text = '11923151707';
 
-      expect('(11) 95317 1707', FormatUtils.maskPhoneNumber(text));
+      expect('(11) 92315 1707', FormatUtils.maskPhoneNumber(text));
 
-      text = '1145161776';
+      text = '1145561775';
 
-      expect('(11) 4516 1776', FormatUtils.maskPhoneNumber(text));
+      expect('(11) 4515 1775', FormatUtils.maskPhoneNumber(text));
 
       text = 'shouldReturnText';
 
