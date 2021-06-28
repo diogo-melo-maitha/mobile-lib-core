@@ -7,7 +7,7 @@ import 'package:tm_lib_core/security/security_repository.dart';
 import 'security_repository_test.mocks.dart';
 
 @GenerateMocks([FlutterSecureStorage])
-main() {
+void main() {
   const String key = '(H+MbQeThWmZq4t7w!z%C&F)J@NcRfUj';
   const String plainText = 'plainText123';
 

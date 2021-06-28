@@ -1,7 +1,7 @@
 import 'package:flutter_test/flutter_test.dart';
 import 'package:tm_lib_core/security/cryptography_utils.dart';
 
-main() {
+void main() {
   const String key = '(H+MbQeThWmZq4t7w!z%C&F)J@NcRfUj';
   const String plainText = 'plainText123';
 
