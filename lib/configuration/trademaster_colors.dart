@@ -9,4 +9,7 @@ abstract class TrademasterColors {
   static const Color white = Color(0xFFFFFFFF);
 
   static const Color textOnSurface = Color(0xFF848688);
+
+  static const Color checkBoxPrimary = Color(0xffB8D0D3);
+  static const Color checkBoxBorder = Color(0xffDBE8EA);
 }
