@@ -8,6 +8,10 @@ abstract class TrademasterColors {
 
   static const Color white = Color(0xFFFFFFFF);
 
+  static const Color disabled = Color(0xffDBE8EA);
+
+  static const Color timerBackground = Color(0xffF4F4F4);
+
   static const Color textOnSurface = Color(0xFF848688);
 
   static const Color checkBoxPrimary = Color(0xffB8D0D3);
