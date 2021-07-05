@@ -42,7 +42,7 @@ void main() {
 
       expect('(11) 92315 1707', FormatUtils.maskPhoneNumber(text));
 
-      text = '1145561775';
+      text = '1145151775';
 
       expect('(11) 4515 1775', FormatUtils.maskPhoneNumber(text));
 
