@@ -1,7 +1,9 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
+
 import '../../configuration/trademaster_colors.dart';
+import '../../configuration/trademaster_fonts.dart';
 
 typedef OnChanged = void Function(String value);
 typedef OnSubmitted = void Function(String value);
@@ -22,7 +24,7 @@ class DefaultTextField extends StatelessWidget {
   final bool obscure;
   final bool enabled;
   final Widget widget;
-  final TextStyle? textStyle;
+  final TextStyle? inputStyle;
   final Color? cursorColor;
   final FocusNode? focusNode;
   final TextInputType? keyboardType;
@@ -46,7 +48,7 @@ class DefaultTextField extends StatelessWidget {
     this.obscure = false,
     this.enabled = true,
     this.widget = const Text(''),
-    this.textStyle,
+    this.inputStyle,
     this.cursorColor,
     this.focusNode,
     this.keyboardType,
@@ -56,6 +58,9 @@ class DefaultTextField extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    final TextStyle inputTextStyle = TrademasterFonts.regular16
+        .merge(const TextStyle(color: TrademasterColors.inputText));
+
     return Container(
       width: width,
       height: height,
@@ -63,7 +68,6 @@ class DefaultTextField extends StatelessWidget {
         mainAxisAlignment: MainAxisAlignment.center,
         children: [
           TextField(
-            key: const Key('textField'),
             cursorColor: cursorColor,
             focusNode: focusNode,
             keyboardType: keyboardType,
@@ -74,7 +78,9 @@ class DefaultTextField extends StatelessWidget {
             autofocus: autoFocus,
             obscureText: obscure,
             enabled: enabled,
-            style: textStyle ?? const TextStyle().merge(textStyle),
+            style: inputStyle == null
+                ? inputTextStyle
+                : inputTextStyle.merge(inputStyle),
             decoration: InputDecoration(
               enabledBorder: OutlineInputBorder(
                   borderRadius: BorderRadius.circular(radius),
@@ -89,7 +95,9 @@ class DefaultTextField extends StatelessWidget {
                   width: focusedBorderSize,
                 ),
               ),
-              labelStyle: labelStyle ?? const TextStyle().merge(labelStyle),
+              labelStyle: labelStyle == null
+                  ? TrademasterFonts.regular16
+                  : TrademasterFonts.regular16.merge(labelStyle),
               labelText: label,
               hintText: label,
               suffixIcon: widget,

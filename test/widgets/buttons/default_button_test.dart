@@ -11,14 +11,13 @@ void main() {
       await tester.pumpWidget(TestUtils.buildTestableWidget(DefaultButton(
         key: key,
         title: title,
-        titleColor: Colors.white,
         backgroundColor: Colors.blue,
         onPressed: () {},
         elevation: 1,
       )));
       expect(find.byKey(key), findsOneWidget);
     });
-    testWidgets('Testing customization backgroundColor', (tester) async {
+    testWidgets('Given backgroundColor is properly used', (tester) async {
       await tester.pumpWidget(TestUtils.buildTestableWidget(DefaultButton(
         key: key,
         title: title,
@@ -30,7 +29,7 @@ void main() {
       final decoration = ink.decoration as BoxDecoration;
       expect(decoration.color, Colors.blue);
     });
-    testWidgets('Testing customization title', (tester) async {
+    testWidgets('Given title is properly used', (tester) async {
       await tester.pumpWidget(TestUtils.buildTestableWidget(DefaultButton(
         key: key,
         title: 'TRADEMASTER',
@@ -41,23 +40,22 @@ void main() {
       final title = tester.widget<Text>(find.byType(Text));
       expect(title.data, 'TRADEMASTER');
     });
-    testWidgets('Testing customization titleColor', (tester) async {
+    testWidgets('Given textStyle is properly used', (tester) async {
       await tester.pumpWidget(TestUtils.buildTestableWidget(DefaultButton(
         key: key,
         title: title,
-        titleColor: Colors.red,
+        textStyle: const TextStyle(color: Colors.amber),
         backgroundColor: Colors.blue,
         onPressed: () {},
         elevation: 1,
       )));
       final titleColor = tester.widget<Text>(find.byType(Text));
-      expect((titleColor.style as TextStyle).color, Colors.red);
+      expect((titleColor.style as TextStyle).color, Colors.amber);
     });
-    testWidgets('Testing customization width', (tester) async {
+    testWidgets('Given width is properly used', (tester) async {
       await tester.pumpWidget(TestUtils.buildTestableWidget(DefaultButton(
         key: key,
         title: title,
-        titleColor: Colors.red,
         backgroundColor: Colors.blue,
         onPressed: () {},
         elevation: 1,
@@ -66,11 +64,10 @@ void main() {
       final ink = tester.widget<Ink>(find.byType(Ink));
       expect(ink.width, 400);
     });
-    testWidgets('Testing customization height', (tester) async {
+    testWidgets('Given height is properly used', (tester) async {
       await tester.pumpWidget(TestUtils.buildTestableWidget(DefaultButton(
         key: key,
         title: title,
-        titleColor: Colors.red,
         backgroundColor: Colors.blue,
         onPressed: () {},
         elevation: 1,
@@ -79,11 +76,10 @@ void main() {
       final ink = tester.widget<Ink>(find.byType(Ink));
       expect(ink.height, 400);
     });
-    testWidgets('Testing customization borderColor', (tester) async {
+    testWidgets('Given borderColor is properly used', (tester) async {
       await tester.pumpWidget(TestUtils.buildTestableWidget(DefaultButton(
         key: key,
         title: title,
-        titleColor: Colors.red,
         backgroundColor: Colors.blue,
         onPressed: () {},
         elevation: 1,
@@ -94,11 +90,10 @@ void main() {
       final decoration = ink.decoration as BoxDecoration;
       expect(decoration.border!.bottom.color, Colors.black);
     });
-    testWidgets('Testing customization borderSize', (tester) async {
+    testWidgets('Given borderSize is properly used', (tester) async {
       await tester.pumpWidget(TestUtils.buildTestableWidget(DefaultButton(
         key: key,
         title: title,
-        titleColor: Colors.red,
         backgroundColor: Colors.blue,
         onPressed: () {},
         elevation: 1,
@@ -110,11 +105,10 @@ void main() {
       final decoration = ink.decoration as BoxDecoration;
       expect(decoration.border!.bottom.width, 3);
     });
-    testWidgets('Testing customization radius', (tester) async {
+    testWidgets('Given radius is properly used', (tester) async {
       await tester.pumpWidget(TestUtils.buildTestableWidget(DefaultButton(
         key: key,
         title: title,
-        titleColor: Colors.red,
         backgroundColor: Colors.blue,
         onPressed: () {},
         elevation: 1,
@@ -127,11 +121,10 @@ void main() {
       final decoration = ink.decoration as BoxDecoration;
       expect((decoration.borderRadius as BorderRadius).bottomRight.x, 30);
     });
-    testWidgets('Testing customization elevation', (tester) async {
+    testWidgets('Given elevation is properly used', (tester) async {
       await tester.pumpWidget(TestUtils.buildTestableWidget(DefaultButton(
         key: key,
         title: title,
-        titleColor: Colors.red,
         backgroundColor: Colors.blue,
         onPressed: () {},
         elevation: 3,
@@ -143,15 +136,15 @@ void main() {
 
       final ink = tester.widget<Ink>(find.byType(Ink));
 
-      expect(((ink.decoration as BoxDecoration).boxShadow)!.single.blurRadius, 3);
+      expect(
+          ((ink.decoration as BoxDecoration).boxShadow)!.single.blurRadius, 3);
     });
 
-    testWidgets('Testing customization onPressed', (tester) async {
+    testWidgets('Given function onPressed is working', (tester) async {
       int functionCounter = 0;
       await tester.pumpWidget(TestUtils.buildTestableWidget(DefaultButton(
         key: key,
         title: title,
-        titleColor: Colors.red,
         backgroundColor: Colors.blue,
         onPressed: () {
           functionCounter++;
@@ -167,11 +160,10 @@ void main() {
       expect(functionCounter, 1);
       functionCounter = 0;
     });
-    testWidgets('Testing customization disabled', (tester) async {
+    testWidgets('Given bool disabled is properly used', (tester) async {
       await tester.pumpWidget(TestUtils.buildTestableWidget(DefaultButton(
         key: key,
         title: title,
-        titleColor: Colors.red,
         backgroundColor: Colors.blue,
         onPressed: () {},
         elevation: 1,
@@ -180,12 +172,14 @@ void main() {
         disabled: true,
       )));
 
-      final absorbPointer = tester.widget<AbsorbPointer>(find.byKey(const Key('absorbkey')));
+      final absorbPointer =
+          tester.widget<AbsorbPointer>(find.byKey(DefaultButton.absorbKey));
 
       expect(absorbPointer.absorbing, true);
     });
 
-    testWidgets('Testing customization backgroundColor when disabled is true', (tester) async {
+    testWidgets('Given backgroundColor is properly used when disabled is true',
+        (tester) async {
       await tester.pumpWidget(TestUtils.buildTestableWidget(DefaultButton(
         key: key,
         title: title,

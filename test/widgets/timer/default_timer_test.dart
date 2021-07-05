@@ -122,12 +122,12 @@ void main() {
         borderSize: 5,
         timeLimit: 1,
         timeCallback: () {},
-        textStyle: style,
+        textStyle: const TextStyle(color: Colors.red),
       )));
 
       final text = tester.widget<Text>(find.byType(Text));
 
-      expect(text.style, style);
+      expect((text.style as TextStyle).color, Colors.red);
     });
 
     testWidgets('Given function timeCallback is working', (tester) async {

@@ -1,11 +1,15 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
+
 import '../../configuration/trademaster_colors.dart';
+import '../../configuration/trademaster_fonts.dart';
 
 class DefaultButton extends StatelessWidget {
+  static const Key absorbKey = Key('absorbKey');
+
   final bool disabled;
   final String title;
-  final Color titleColor;
+  final TextStyle? textStyle;
   final double width;
   final double height;
   final Color backgroundColor;
@@ -28,14 +32,17 @@ class DefaultButton extends StatelessWidget {
     this.borderSize = 1.0,
     required this.onPressed,
     required this.title,
-    this.titleColor = TrademasterColors.white,
+    this.textStyle,
     this.elevation = 0,
   }) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
+    final TextStyle fontStyle = TrademasterFonts.bold13
+        .merge(const TextStyle(color: TrademasterColors.white));
+
     return AbsorbPointer(
-      key: const Key('absorbkey'),
+      key: absorbKey,
       absorbing: disabled,
       child: InkWell(
         onTap: onPressed,
@@ -47,7 +54,9 @@ class DefaultButton extends StatelessWidget {
             color: disabled == false ? backgroundColor : disabledColor,
             borderRadius: BorderRadius.circular(radius),
             border: Border.all(
-                color: borderColor ?? (disabled == false ? backgroundColor : disabledColor), width: borderSize),
+                color: borderColor ??
+                    (disabled == false ? backgroundColor : disabledColor),
+                width: borderSize),
             boxShadow: [
               BoxShadow(
                 color: Colors.grey,
@@ -64,7 +73,9 @@ class DefaultButton extends StatelessWidget {
                   textAlign: TextAlign.center,
                   overflow: TextOverflow.ellipsis,
                   maxLines: 1,
-                  style: TextStyle(color: titleColor),
+                  style: textStyle == null
+                      ? fontStyle
+                      : fontStyle.merge(textStyle),
                 ),
               ),
             ],

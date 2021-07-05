@@ -22,9 +22,9 @@ class CheckboxButton extends StatelessWidget {
     required this.title,
     this.titleColor = Colors.black,
     this.backgroundColor = TrademasterColors.white,
-    this.primaryColor = TrademasterColors.checkBoxPrimary,
+    this.primaryColor = TrademasterColors.ice,
     required this.onPressed,
-    this.borderColor = TrademasterColors.checkBoxBorder,
+    this.borderColor = TrademasterColors.disabled,
   }) : super(key: key);
 
   @override
@@ -49,7 +49,6 @@ class CheckboxButton extends StatelessWidget {
                 child: Checkbox(
                   value: checked,
                   onChanged: checkboxCallback,
-                  shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(5)),
                 ),
               ),
             ),

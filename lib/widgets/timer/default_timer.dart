@@ -1,6 +1,10 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
+
 import '../../configuration/trademaster_colors.dart';
+import '../../configuration/trademaster_fonts.dart';
+
+const Color timerBackgroundColor = Color(0xffF4F4F4);
 
 class DefaultTimer extends StatelessWidget {
   final double width;
@@ -12,24 +16,27 @@ class DefaultTimer extends StatelessWidget {
   final VoidCallback timeCallback;
   final int time;
   final int timeLimit;
-  final TextStyle textStyle;
+  final TextStyle? textStyle;
 
   const DefaultTimer({
     Key? key,
     this.width = 70,
     this.height = 40,
-    this.backgroundColor = TrademasterColors.timerBackground,
+    this.backgroundColor = timerBackgroundColor,
     this.borderColor,
     this.borderSize = 0,
     this.radius = 5,
     required this.timeCallback,
     required this.time,
     required this.timeLimit,
-    required this.textStyle,
+    this.textStyle,
   }) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
+    final TextStyle fontStyleText = TrademasterFonts.bold14
+        .merge(const TextStyle(color: TrademasterColors.textOnSurface));
+
     return InkWell(
       onTap: timeCallback,
       child: Container(
@@ -38,14 +45,17 @@ class DefaultTimer extends StatelessWidget {
         decoration: BoxDecoration(
           color: backgroundColor,
           borderRadius: BorderRadius.circular(radius),
-          border: Border.all(color: borderColor ?? backgroundColor, width: borderSize),
+          border: Border.all(
+              color: borderColor ?? backgroundColor, width: borderSize),
         ),
         child: Row(
           mainAxisAlignment: MainAxisAlignment.center,
           children: [
             Text(
               '$time' 's',
-              style: textStyle,
+              style: textStyle == null
+                  ? fontStyleText
+                  : fontStyleText.merge(textStyle),
             ),
           ],
         ),

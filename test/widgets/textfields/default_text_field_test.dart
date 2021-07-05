@@ -14,7 +14,7 @@ void main() {
         key: key,
         onChanged: (value) {},
         onSubmitted: (value) {},
-        textStyle: style,
+        inputStyle: style,
       )));
       expect(find.byKey(key), findsOneWidget);
     });
@@ -25,7 +25,7 @@ void main() {
         label: 'Trademaster',
         onChanged: (value) {},
         onSubmitted: (value) {},
-        textStyle: style,
+        inputStyle: style,
       )));
 
       final textField = tester.widget<TextField>(find.byType(TextField));
@@ -34,13 +34,28 @@ void main() {
       expect(decoration.labelText, 'Trademaster');
     });
 
+    testWidgets('Given labelStyle is properly used', (tester) async {
+      await tester.pumpWidget(TestUtils.buildTestableWidget(DefaultTextField(
+        key: key,
+        labelStyle: const TextStyle(color: Colors.red),
+        onChanged: (value) {},
+        onSubmitted: (value) {},
+        inputStyle: style,
+      )));
+
+      final textField = tester.widget<TextField>(find.byType(TextField));
+      final decoration = textField.decoration as InputDecoration;
+
+      expect((decoration.labelStyle as TextStyle).color, Colors.red);
+    });
+
     testWidgets('Given borderSize is properly used', (tester) async {
       await tester.pumpWidget(TestUtils.buildTestableWidget(DefaultTextField(
         key: key,
         borderSize: 5,
         onChanged: (value) {},
         onSubmitted: (value) {},
-        textStyle: style,
+        inputStyle: style,
       )));
 
       final textField = tester.widget<TextField>(find.byType(TextField));
@@ -57,7 +72,7 @@ void main() {
         borderColor: Colors.red,
         onChanged: (value) {},
         onSubmitted: (value) {},
-        textStyle: style,
+        inputStyle: style,
       )));
 
       final textField = tester.widget<TextField>(find.byType(TextField));
@@ -74,7 +89,7 @@ void main() {
         focusedBorderSize: 5,
         onChanged: (value) {},
         onSubmitted: (value) {},
-        textStyle: style,
+        inputStyle: style,
       )));
 
       final textField = tester.widget<TextField>(find.byType(TextField));
@@ -91,7 +106,7 @@ void main() {
         focusedBorderColor: Colors.green,
         onChanged: (value) {},
         onSubmitted: (value) {},
-        textStyle: style,
+        inputStyle: style,
       )));
 
       final textField = tester.widget<TextField>(find.byType(TextField));
@@ -108,7 +123,7 @@ void main() {
         radius: 10,
         onChanged: (value) {},
         onSubmitted: (value) {},
-        textStyle: style,
+        inputStyle: style,
       )));
 
       final textField = tester.widget<TextField>(find.byType(TextField));
@@ -126,7 +141,7 @@ void main() {
         width: 10,
         onChanged: (value) {},
         onSubmitted: (value) {},
-        textStyle: style,
+        inputStyle: style,
       )));
 
       final container = tester.widget<Container>(find.byType(Container));
@@ -141,7 +156,7 @@ void main() {
         height: 100,
         onChanged: (value) {},
         onSubmitted: (value) {},
-        textStyle: style,
+        inputStyle: style,
       )));
 
       final container = tester.widget<Container>(find.byType(Container));
@@ -149,14 +164,14 @@ void main() {
       expect(container.constraints!.maxHeight, 100);
     });
 
-    testWidgets('Given autofocus is properly used', (tester) async {
+    testWidgets('Given autoFocus is properly used', (tester) async {
       await tester.pumpWidget(TestUtils.buildTestableWidget(DefaultTextField(
         key: key,
         autoFocus: true,
         radius: 10,
         onChanged: (value) {},
         onSubmitted: (value) {},
-        textStyle: style,
+        inputStyle: style,
       )));
 
       final textField = tester.widget<TextField>(find.byType(TextField));
@@ -164,14 +179,14 @@ void main() {
       expect(textField.autofocus, true);
     });
 
-    testWidgets('Given obscure is properly used', (tester) async {
+    testWidgets('Given bool obscure is properly used', (tester) async {
       await tester.pumpWidget(TestUtils.buildTestableWidget(DefaultTextField(
         key: key,
         obscure: true,
         radius: 10,
         onChanged: (value) {},
         onSubmitted: (value) {},
-        textStyle: style,
+        inputStyle: style,
       )));
 
       final textField = tester.widget<TextField>(find.byType(TextField));
@@ -179,14 +194,14 @@ void main() {
       expect(textField.obscureText, true);
     });
 
-    testWidgets('Given bool enabled  is properly used', (tester) async {
+    testWidgets('Given bool enabled is properly used', (tester) async {
       await tester.pumpWidget(TestUtils.buildTestableWidget(DefaultTextField(
         key: key,
         enabled: false,
         radius: 10,
         onChanged: (value) {},
         onSubmitted: (value) {},
-        textStyle: style,
+        inputStyle: style,
       )));
 
       final textField = tester.widget<TextField>(find.byType(TextField));
@@ -194,13 +209,13 @@ void main() {
       expect(textField.enabled, false);
     });
 
-    testWidgets('Given widget  is properly used', (tester) async {
+    testWidgets('Given widget is properly used', (tester) async {
       await tester.pumpWidget(TestUtils.buildTestableWidget(DefaultTextField(
         key: key,
         radius: 10,
         onChanged: (value) {},
         onSubmitted: (value) {},
-        textStyle: style,
+        inputStyle: style,
         widget: const Icon(Icons.label),
       )));
 
@@ -211,7 +226,7 @@ void main() {
       expect(suffixIcon, tester.widget<Icon>(find.byType(Icon)));
     });
 
-    testWidgets('Given textStyle is properly used', (tester) async {
+    testWidgets('Given inputStyle is properly used', (tester) async {
       await tester.pumpWidget(TestUtils.buildTestableWidget(DefaultTextField(
         key: key,
         enabled: false,
@@ -219,12 +234,12 @@ void main() {
         radius: 10,
         onChanged: (value) {},
         onSubmitted: (value) {},
-        textStyle: const TextStyle(color: Colors.black),
+        inputStyle: const TextStyle(color: Colors.amber),
       )));
 
       final textField = tester.widget<TextField>(find.byType(TextField));
 
-      expect(textField.style, const TextStyle(color: Colors.black));
+      expect((textField.style as TextStyle).color, Colors.amber);
     });
 
     testWidgets('Given function onChanged is working', (tester) async {
@@ -238,7 +253,7 @@ void main() {
           onChangedText = text;
         },
         onSubmitted: (text) {},
-        textStyle: style,
+        inputStyle: style,
       )));
       final textField = tester.widget<TextField>(find.byType(TextField));
       textField.onChanged!(editedText);
@@ -257,7 +272,7 @@ void main() {
         onSubmitted: (text) {
           onChangedText = text;
         },
-        textStyle: style,
+        inputStyle: style,
       )));
       final textField = tester.widget<TextField>(find.byType(TextField));
       textField.onSubmitted!(editedText);
@@ -274,7 +289,7 @@ void main() {
         radius: 10,
         onChanged: (value) {},
         onSubmitted: (value) {},
-        textStyle: const TextStyle(color: Colors.black),
+        inputStyle: const TextStyle(color: Colors.black),
       )));
 
       final textField = tester.widget<TextField>(find.byType(TextField));
@@ -295,7 +310,7 @@ void main() {
         radius: 10,
         onChanged: (value) {},
         onSubmitted: (value) {},
-        textStyle: const TextStyle(color: Colors.black),
+        inputStyle: const TextStyle(color: Colors.black),
       )));
 
       expect(tester.testTextInput.isVisible, isTrue);
@@ -310,7 +325,7 @@ void main() {
         radius: 10,
         onChanged: (value) {},
         onSubmitted: (value) {},
-        textStyle: const TextStyle(color: Colors.black),
+        inputStyle: const TextStyle(color: Colors.black),
       )));
 
       final textField = tester.widget<TextField>(find.byType(TextField));
@@ -327,7 +342,7 @@ void main() {
         radius: 10,
         onChanged: (value) {},
         onSubmitted: (value) {},
-        textStyle: const TextStyle(color: Colors.black),
+        inputStyle: const TextStyle(color: Colors.black),
       )));
 
       final textField = tester.widget<TextField>(find.byType(TextField));
@@ -336,7 +351,8 @@ void main() {
     });
 
     testWidgets('Given inputFormatters is properly used', (tester) async {
-      final TextInputFormatter testRegex = FilteringTextInputFormatter.deny(RegExp(r'[/\\]'));
+      final TextInputFormatter testRegex =
+          FilteringTextInputFormatter.deny(RegExp(r'[/\\]'));
       await tester.pumpWidget(TestUtils.buildTestableWidget(DefaultTextField(
         key: key,
         autoFocus: true,
@@ -344,7 +360,7 @@ void main() {
         radius: 10,
         onChanged: (value) {},
         onSubmitted: (value) {},
-        textStyle: const TextStyle(color: Colors.black),
+        inputStyle: const TextStyle(color: Colors.black),
       )));
 
       final textField = tester.widget<TextField>(find.byType(TextField));
