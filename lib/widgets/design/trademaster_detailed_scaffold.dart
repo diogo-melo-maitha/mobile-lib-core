@@ -15,7 +15,7 @@ class TrademasterDetailedScaffold extends StatelessWidget {
       body: Stack(
         children: [
           SvgPicture.asset(
-            'assets/images/line_top.svg',
+            'assets/images/line_bot.svg',
             package: 'tm_lib_core',
             alignment: Alignment.bottomRight,
             width: MediaQuery.of(context).size.width,
