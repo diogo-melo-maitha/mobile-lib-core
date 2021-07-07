@@ -30,6 +30,7 @@ class DefaultTextField extends StatelessWidget {
   final TextInputType? keyboardType;
   final TextEditingController? textEditingController;
   final List<TextInputFormatter>? inputFormatters;
+  final String? errorText;
 
   const DefaultTextField({
     Key? key,
@@ -54,16 +55,16 @@ class DefaultTextField extends StatelessWidget {
     this.keyboardType,
     this.textEditingController,
     this.inputFormatters,
+    this.errorText,
   }) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
-    final TextStyle inputTextStyle = TrademasterFonts.regular16
-        .merge(const TextStyle(color: TrademasterColors.inputText));
+    final TextStyle inputTextStyle =
+        TrademasterFonts.regular16.merge(const TextStyle(color: TrademasterColors.inputText));
 
     return Container(
       width: width,
-      height: height,
       child: Column(
         mainAxisAlignment: MainAxisAlignment.center,
         children: [
@@ -78,16 +79,15 @@ class DefaultTextField extends StatelessWidget {
             autofocus: autoFocus,
             obscureText: obscure,
             enabled: enabled,
-            style: inputStyle == null
-                ? inputTextStyle
-                : inputTextStyle.merge(inputStyle),
+            style: inputStyle == null ? inputTextStyle : inputTextStyle.merge(inputStyle),
             decoration: InputDecoration(
               enabledBorder: OutlineInputBorder(
-                  borderRadius: BorderRadius.circular(radius),
-                  borderSide: BorderSide(
-                    color: borderColor,
-                    width: borderSize,
-                  )),
+                borderRadius: BorderRadius.circular(radius),
+                borderSide: BorderSide(
+                  color: borderColor,
+                  width: borderSize,
+                ),
+              ),
               focusedBorder: OutlineInputBorder(
                 borderRadius: BorderRadius.circular(radius),
                 borderSide: BorderSide(
@@ -95,11 +95,17 @@ class DefaultTextField extends StatelessWidget {
                   width: focusedBorderSize,
                 ),
               ),
-              labelStyle: labelStyle == null
-                  ? TrademasterFonts.regular16
-                  : TrademasterFonts.regular16.merge(labelStyle),
+              labelStyle:
+                  labelStyle == null ? TrademasterFonts.regular16 : TrademasterFonts.regular16.merge(labelStyle),
               labelText: label,
               hintText: label,
+              errorText: errorText,
+              errorBorder: OutlineInputBorder(
+                borderRadius: BorderRadius.circular(radius),
+                borderSide: const BorderSide(
+                  color: Colors.red,
+                ),
+              ),
               suffixIcon: widget,
             ),
           ),

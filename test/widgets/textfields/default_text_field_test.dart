@@ -367,5 +367,20 @@ void main() {
 
       expect(textField.inputFormatters, [testRegex]);
     });
+
+    testWidgets('Given errorText is properly used', (tester) async {
+      await tester.pumpWidget(TestUtils.buildTestableWidget(DefaultTextField(
+        key: key,
+        errorText: 'Texto vazio',
+        onChanged: (value) {},
+        onSubmitted: (value) {},
+        inputStyle: style,
+      )));
+
+      final textField = tester.widget<TextField>(find.byType(TextField));
+      final decoration = textField.decoration as InputDecoration;
+
+      expect(decoration.errorText, 'Texto vazio');
+    });
   });
 }
