@@ -6,9 +6,9 @@ import 'package:tm_lib_core/utils/test_utils.dart';
 void main() {
   const key = Key('key');
 
-  group('DefaultToolbar tests', () {
-    testWidgets('DefaultToolbar is properly created', (tester) async {
-      await tester.pumpWidget(TestUtils.buildTestableWidget(DefaultToolbar(
+  group('TmDefaultToolbar tests', () {
+    testWidgets('TmDefaultToolbar is properly created', (tester) async {
+      await tester.pumpWidget(TmTestUtils.buildTestableWidget(TmDefaultToolbar(
         key: key,
         onPressed: () {},
       )));
@@ -16,7 +16,7 @@ void main() {
     });
 
     testWidgets('Given title is properly used', (tester) async {
-      await tester.pumpWidget(TestUtils.buildTestableWidget(DefaultToolbar(
+      await tester.pumpWidget(TmTestUtils.buildTestableWidget(TmDefaultToolbar(
         key: key,
         title: 'TRADEMASTER',
         onPressed: () {},
@@ -28,7 +28,7 @@ void main() {
     });
 
     testWidgets('Given textStyle is properly used', (tester) async {
-      await tester.pumpWidget(TestUtils.buildTestableWidget(DefaultToolbar(
+      await tester.pumpWidget(TmTestUtils.buildTestableWidget(TmDefaultToolbar(
         key: key,
         textStyle: const TextStyle(color:Colors.red),
         onPressed: () {},
@@ -40,7 +40,7 @@ void main() {
     });
 
     testWidgets('Given iconSize is properly used', (tester) async {
-      await tester.pumpWidget(TestUtils.buildTestableWidget(DefaultToolbar(
+      await tester.pumpWidget(TmTestUtils.buildTestableWidget(TmDefaultToolbar(
         key: key,
         iconSize: 40,
         onPressed: () {},
@@ -52,7 +52,7 @@ void main() {
     });
 
     testWidgets('Given textStyle is properly used', (tester) async {
-      await tester.pumpWidget(TestUtils.buildTestableWidget(DefaultToolbar(
+      await tester.pumpWidget(TmTestUtils.buildTestableWidget(TmDefaultToolbar(
         key: key,
         onPressed: () {},
         textStyle: const TextStyle(color: Colors.black),
@@ -65,7 +65,7 @@ void main() {
 
     testWidgets('Given function onPressed is working', (tester) async {
       int functionCounter = 0;
-      await tester.pumpWidget(TestUtils.buildTestableWidget(DefaultToolbar(
+      await tester.pumpWidget(TmTestUtils.buildTestableWidget(TmDefaultToolbar(
         key: key,
         onPressed: () {
           functionCounter++;

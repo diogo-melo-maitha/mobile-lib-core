@@ -6,7 +6,7 @@ import '../../configuration/trademaster_fonts.dart';
 
 const Color timerBackgroundColor = Color(0xffF4F4F4);
 
-class DefaultTimer extends StatelessWidget {
+class TmDefaultTimer extends StatelessWidget {
   final double width;
   final double height;
   final Color backgroundColor;
@@ -18,7 +18,7 @@ class DefaultTimer extends StatelessWidget {
   final int timeLimit;
   final TextStyle? textStyle;
 
-  const DefaultTimer({
+  const TmDefaultTimer({
     Key? key,
     this.width = 70,
     this.height = 40,
@@ -34,8 +34,8 @@ class DefaultTimer extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    final TextStyle fontStyleText = TrademasterFonts.bold14
-        .merge(const TextStyle(color: TrademasterColors.textOnSurface));
+    final TextStyle fontStyleText = TmFonts.bold14
+        .merge(const TextStyle(color: TmColors.textOnSurface));
 
     return InkWell(
       onTap: timeCallback,

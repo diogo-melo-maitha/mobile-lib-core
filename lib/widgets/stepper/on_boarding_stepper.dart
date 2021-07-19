@@ -4,7 +4,7 @@ import 'package:flutter/material.dart';
 import '../../configuration/trademaster_colors.dart';
 import '../../configuration/trademaster_fonts.dart';
 
-class OnBoardingStepper extends StatelessWidget {
+class TmOnBoardingStepper extends StatelessWidget {
   static const Key backShapeKey = Key('backShapeKey');
   static const Key frontShapeKey = Key('frontShapeKey');
   static const Key firstTextKey = Key('firstTextKey');
@@ -16,18 +16,18 @@ class OnBoardingStepper extends StatelessWidget {
   ///State is controlled using numbers from 1 to 5, where 1 is 0% and 5 is 100%
   final int state;
 
-  const OnBoardingStepper({
+  const TmOnBoardingStepper({
     Key? key,
-    this.backColor = TrademasterColors.disabled,
-    this.filledColor = TrademasterColors.accent,
+    this.backColor = TmColors.disabled,
+    this.filledColor = TmColors.accent,
     required this.state,
   }) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
-    final TextStyle filledTextStyle = TrademasterFonts.bold12.merge(const TextStyle(color: TrademasterColors.accent));
+    final TextStyle filledTextStyle = TmFonts.bold12.merge(const TextStyle(color: TmColors.accent));
     final TextStyle disabledTextStyle =
-        TrademasterFonts.bold12.merge(const TextStyle(color: TrademasterColors.disabledText));
+        TmFonts.bold12.merge(const TextStyle(color: TmColors.disabledText));
 
     return Container(
       width: 335,

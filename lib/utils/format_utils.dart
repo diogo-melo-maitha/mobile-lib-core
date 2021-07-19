@@ -1,6 +1,6 @@
 import 'package:mask_text_input_formatter/mask_text_input_formatter.dart';
 
-class FormatUtils {
+class TmFormatUtils {
   static const cpfMask = '###.###.###-##';
   static const cnpjMask = '##.###.###/####-##';
   static const mobilePhoneMask = '(##) ##### ####';

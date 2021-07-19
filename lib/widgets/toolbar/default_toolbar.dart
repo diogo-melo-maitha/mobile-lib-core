@@ -5,29 +5,35 @@ import 'package:flutter_svg/svg.dart';
 import '../../configuration/trademaster_colors.dart';
 import '../../configuration/trademaster_fonts.dart';
 
-class DefaultToolbar extends StatelessWidget {
+class TmDefaultToolbar extends StatelessWidget {
   final String title;
   final double iconSize;
   final TextStyle? textStyle;
   final VoidCallback? onPressed;
+  final Widget rightWidget;
 
-  const DefaultToolbar({
+  const TmDefaultToolbar({
     Key? key,
-    this.title = '',
+    this.title = ' ',
     this.onPressed,
     this.textStyle,
     this.iconSize = 38,
+    this.rightWidget = const Text(' '),
   }) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
-    final TextStyle toolbarText = TrademasterFonts.semiBold17
-        .merge(const TextStyle(color: TrademasterColors.primary));
+    final TextStyle toolbarText = TmFonts.semiBold17.merge(const TextStyle(color: TmColors.primary));
 
     return Container(
       width: double.infinity,
       child: Padding(
-        padding: const EdgeInsets.only(top: 6, bottom: 16),
+        padding: const EdgeInsets.only(
+          top: 6,
+          bottom: 16,
+          left: 24,
+          right: 24,
+        ),
         child: Row(
           mainAxisAlignment: MainAxisAlignment.spaceBetween,
           children: [
@@ -49,13 +55,9 @@ class DefaultToolbar extends StatelessWidget {
             ),
             Text(
               title,
-              style: textStyle == null
-                  ? toolbarText
-                  : toolbarText.merge(textStyle),
+              style: textStyle == null ? toolbarText : toolbarText.merge(textStyle),
             ),
-            SizedBox(
-              width: iconSize + 8,
-            ),
+            rightWidget,
           ],
         ),
       ),

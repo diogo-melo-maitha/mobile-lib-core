@@ -4,13 +4,12 @@ import 'package:flutter/material.dart';
 import '../../configuration/trademaster_colors.dart';
 import '../../configuration/trademaster_fonts.dart';
 
-class DefaultButton extends StatelessWidget {
+class TmDefaultButton extends StatelessWidget {
   static const Key absorbKey = Key('absorbKey');
 
   final bool disabled;
   final String title;
   final TextStyle? textStyle;
-  final double width;
   final double height;
   final Color backgroundColor;
   final Color disabledColor;
@@ -20,13 +19,12 @@ class DefaultButton extends StatelessWidget {
   final double radius;
   final double elevation;
 
-  const DefaultButton({
+  const TmDefaultButton({
     Key? key,
     this.disabled = false,
-    this.width = 335.0,
     this.height = 54.0,
-    this.backgroundColor = TrademasterColors.primary,
-    this.disabledColor = TrademasterColors.primaryDisabled,
+    this.backgroundColor = TmColors.primary,
+    this.disabledColor = TmColors.primaryDisabled,
     this.radius = 50.0,
     this.borderColor,
     this.borderSize = 1.0,
@@ -38,8 +36,8 @@ class DefaultButton extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    final TextStyle fontStyle = TrademasterFonts.bold13
-        .merge(const TextStyle(color: TrademasterColors.white));
+    final TextStyle fontStyle = TmFonts.bold13
+        .merge(const TextStyle(color: TmColors.white));
 
     return AbsorbPointer(
       key: absorbKey,
@@ -47,9 +45,9 @@ class DefaultButton extends StatelessWidget {
       child: InkWell(
         onTap: onPressed,
         borderRadius: BorderRadius.circular(radius),
-        child: Ink(
-          width: width,
+        child: Container(
           height: height,
+          width: MediaQuery.of(context).size.width,
           decoration: BoxDecoration(
             color: disabled == false ? backgroundColor : disabledColor,
             borderRadius: BorderRadius.circular(radius),
@@ -64,21 +62,16 @@ class DefaultButton extends StatelessWidget {
               ),
             ],
           ),
-          child: Row(
-            mainAxisAlignment: MainAxisAlignment.center,
-            children: [
-              Expanded(
-                child: Text(
-                  title,
-                  textAlign: TextAlign.center,
-                  overflow: TextOverflow.ellipsis,
-                  maxLines: 1,
-                  style: textStyle == null
-                      ? fontStyle
-                      : fontStyle.merge(textStyle),
-                ),
-              ),
-            ],
+          child: Center(
+            child: Text(
+              title,
+              textAlign: TextAlign.center,
+              overflow: TextOverflow.ellipsis,
+              maxLines: 1,
+              style: textStyle == null
+                  ? fontStyle
+                  : fontStyle.merge(textStyle),
+            ),
           ),
         ),
       ),

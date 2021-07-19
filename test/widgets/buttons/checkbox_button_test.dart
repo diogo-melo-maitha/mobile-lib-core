@@ -7,11 +7,11 @@ void main() {
   const key = Key('key');
   const String title = 'title';
 
-  group('CheckboxButton tests', () {
-    testWidgets('CheckboxButton is properly created', (tester) async {
+  group('TmCheckboxButton tests', () {
+    testWidgets('TmCheckboxButton is properly created', (tester) async {
       await tester.pumpWidget(
-        TestUtils.buildTestableWidget(
-          CheckboxButton(
+        TmTestUtils.buildTestableWidget(
+          TmCheckboxButton(
             key: key,
             backgroundColor: Colors.white,
             checkboxCallback: (value) {},
@@ -26,8 +26,8 @@ void main() {
 
     testWidgets('Given backgroundColor is properly used', (tester) async {
       await tester.pumpWidget(
-        TestUtils.buildTestableWidget(
-          CheckboxButton(
+        TmTestUtils.buildTestableWidget(
+          TmCheckboxButton(
             key: key,
             checkboxCallback: (value) {},
             onPressed: () {},
@@ -45,8 +45,8 @@ void main() {
 
     testWidgets('Given title is properly used', (tester) async {
       await tester.pumpWidget(
-        TestUtils.buildTestableWidget(
-          CheckboxButton(
+        TmTestUtils.buildTestableWidget(
+          TmCheckboxButton(
             key: key,
             checkboxCallback: (value) {},
             onPressed: () {},
@@ -63,8 +63,8 @@ void main() {
 
     testWidgets('Given titleColor is properly used', (tester) async {
       await tester.pumpWidget(
-        TestUtils.buildTestableWidget(
-          CheckboxButton(
+        TmTestUtils.buildTestableWidget(
+          TmCheckboxButton(
             key: key,
             checkboxCallback: (value) {},
             onPressed: () {},
@@ -81,8 +81,8 @@ void main() {
 
     testWidgets('Given borderColor is properly used', (tester) async {
       await tester.pumpWidget(
-        TestUtils.buildTestableWidget(
-          CheckboxButton(
+        TmTestUtils.buildTestableWidget(
+          TmCheckboxButton(
             key: key,
             checkboxCallback: (value) {},
             onPressed: () {},
@@ -102,8 +102,8 @@ void main() {
     testWidgets('Given function onPressed is working', (tester) async {
       int functionCounter = 0;
       await tester.pumpWidget(
-        TestUtils.buildTestableWidget(
-          CheckboxButton(
+        TmTestUtils.buildTestableWidget(
+          TmCheckboxButton(
             key: key,
             checkboxCallback: (value) {},
             onPressed: () {
@@ -126,8 +126,8 @@ void main() {
     testWidgets('Given function checkboxCallback is working', (tester) async {
       bool checkBool = false;
       await tester.pumpWidget(
-        TestUtils.buildTestableWidget(
-          CheckboxButton(
+        TmTestUtils.buildTestableWidget(
+          TmCheckboxButton(
             key: key,
             checkboxCallback: (value) {
               checkBool = true;

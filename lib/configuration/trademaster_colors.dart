@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 
-abstract class TrademasterColors {
+abstract class TmColors {
   static const Color primary = Color(0xFF09A2B6);
   static const Color accent = Color(0xFF64C19B);
 
@@ -15,5 +15,7 @@ abstract class TrademasterColors {
   static const Color inputText = Color(0xff383A3C);
 
   static const Color textOnSurface = Color(0xFF848688);
+
+  static const Color error = Color(0xffde3822);
 
 }

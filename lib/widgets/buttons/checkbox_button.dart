@@ -5,7 +5,7 @@ import '../../configuration/trademaster_colors.dart';
 
 typedef CheckboxCallback = void Function(bool? value);
 
-class CheckboxButton extends StatelessWidget {
+class TmCheckboxButton extends StatelessWidget {
   final bool checked;
   final CheckboxCallback checkboxCallback;
   final String title;
@@ -15,16 +15,16 @@ class CheckboxButton extends StatelessWidget {
   final VoidCallback onPressed;
   final Color borderColor;
 
-  const CheckboxButton({
+  const TmCheckboxButton({
     Key? key,
     this.checked = false,
     required this.checkboxCallback,
     required this.title,
     this.titleColor = Colors.black,
-    this.backgroundColor = TrademasterColors.white,
-    this.primaryColor = TrademasterColors.ice,
+    this.backgroundColor = TmColors.white,
+    this.primaryColor = TmColors.ice,
     required this.onPressed,
-    this.borderColor = TrademasterColors.disabled,
+    this.borderColor = TmColors.disabled,
   }) : super(key: key);
 
   @override

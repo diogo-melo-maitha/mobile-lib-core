@@ -1,6 +1,6 @@
 import 'package:intl/intl.dart';
 
-extension DateTimeExtension on DateTime {
+extension TmDateTimeExtension on DateTime {
   String toMonthYearFormat() {
     final DateFormat formatter = DateFormat('MM/yyyy');
     return formatter.format(this);
