@@ -2,8 +2,8 @@ import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 
-import '../../configuration/trademaster_colors.dart';
-import '../../configuration/trademaster_fonts.dart';
+import '../../configuration/tm_colors.dart';
+import '../../configuration/tm_fonts.dart';
 
 typedef OnChanged = void Function(String value);
 typedef OnSubmitted = void Function(String value);

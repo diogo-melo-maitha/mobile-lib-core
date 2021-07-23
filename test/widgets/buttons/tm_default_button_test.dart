@@ -1,5 +1,5 @@
 import 'package:flutter_test/flutter_test.dart';
-import 'package:tm_lib_core/widgets/buttons/default_button.dart';
+import 'package:tm_lib_core/widgets/buttons/tm_default_button.dart';
 import 'package:flutter/material.dart';
 import 'package:tm_lib_core/utils/test_utils.dart';
 
@@ -8,7 +8,7 @@ void main() {
   const String title = 'CADASTRE SUA EMPRESA';
   group('TmDefaultButton tests', () {
     testWidgets('TmDefaultButton is properly created', (tester) async {
-      await tester.pumpWidget(TmTestUtils.buildTestableWidget(TmDefaultButton(
+      await tester.pumpWidget(TestUtils.buildTestableWidget(TmDefaultButton(
         key: key,
         title: title,
         backgroundColor: Colors.blue,
@@ -18,7 +18,7 @@ void main() {
       expect(find.byKey(key), findsOneWidget);
     });
     testWidgets('Given backgroundColor is properly used', (tester) async {
-      await tester.pumpWidget(TmTestUtils.buildTestableWidget(TmDefaultButton(
+      await tester.pumpWidget(TestUtils.buildTestableWidget(TmDefaultButton(
         key: key,
         title: title,
         backgroundColor: Colors.blue,
@@ -30,7 +30,7 @@ void main() {
       expect(decoration.color, Colors.blue);
     });
     testWidgets('Given title is properly used', (tester) async {
-      await tester.pumpWidget(TmTestUtils.buildTestableWidget(TmDefaultButton(
+      await tester.pumpWidget(TestUtils.buildTestableWidget(TmDefaultButton(
         key: key,
         title: 'TRADEMASTER',
         backgroundColor: Colors.blue,
@@ -41,7 +41,7 @@ void main() {
       expect(title.data, 'TRADEMASTER');
     });
     testWidgets('Given textStyle is properly used', (tester) async {
-      await tester.pumpWidget(TmTestUtils.buildTestableWidget(TmDefaultButton(
+      await tester.pumpWidget(TestUtils.buildTestableWidget(TmDefaultButton(
         key: key,
         title: title,
         textStyle: const TextStyle(color: Colors.amber),
@@ -53,7 +53,7 @@ void main() {
       expect((titleColor.style as TextStyle).color, Colors.amber);
     });
     testWidgets('Given height is properly used', (tester) async {
-      await tester.pumpWidget(TmTestUtils.buildTestableWidget(TmDefaultButton(
+      await tester.pumpWidget(TestUtils.buildTestableWidget(TmDefaultButton(
         key: key,
         title: title,
         backgroundColor: Colors.blue,
@@ -65,7 +65,7 @@ void main() {
       expect(container.constraints!.maxHeight, 400);
     });
     testWidgets('Given borderColor is properly used', (tester) async {
-      await tester.pumpWidget(TmTestUtils.buildTestableWidget(TmDefaultButton(
+      await tester.pumpWidget(TestUtils.buildTestableWidget(TmDefaultButton(
         key: key,
         title: title,
         backgroundColor: Colors.blue,
@@ -79,7 +79,7 @@ void main() {
       expect(decoration.border!.bottom.color, Colors.black);
     });
     testWidgets('Given borderSize is properly used', (tester) async {
-      await tester.pumpWidget(TmTestUtils.buildTestableWidget(TmDefaultButton(
+      await tester.pumpWidget(TestUtils.buildTestableWidget(TmDefaultButton(
         key: key,
         title: title,
         backgroundColor: Colors.blue,
@@ -94,7 +94,7 @@ void main() {
       expect(decoration.border!.bottom.width, 3);
     });
     testWidgets('Given radius is properly used', (tester) async {
-      await tester.pumpWidget(TmTestUtils.buildTestableWidget(TmDefaultButton(
+      await tester.pumpWidget(TestUtils.buildTestableWidget(TmDefaultButton(
         key: key,
         title: title,
         backgroundColor: Colors.blue,
@@ -110,7 +110,7 @@ void main() {
       expect((decoration.borderRadius as BorderRadius).bottomRight.x, 30);
     });
     testWidgets('Given elevation is properly used', (tester) async {
-      await tester.pumpWidget(TmTestUtils.buildTestableWidget(TmDefaultButton(
+      await tester.pumpWidget(TestUtils.buildTestableWidget(TmDefaultButton(
         key: key,
         title: title,
         backgroundColor: Colors.blue,
@@ -130,7 +130,7 @@ void main() {
 
     testWidgets('Given function onPressed is working', (tester) async {
       int functionCounter = 0;
-      await tester.pumpWidget(TmTestUtils.buildTestableWidget(TmDefaultButton(
+      await tester.pumpWidget(TestUtils.buildTestableWidget(TmDefaultButton(
         key: key,
         title: title,
         backgroundColor: Colors.blue,
@@ -149,7 +149,7 @@ void main() {
       functionCounter = 0;
     });
     testWidgets('Given bool disabled is properly used', (tester) async {
-      await tester.pumpWidget(TmTestUtils.buildTestableWidget(TmDefaultButton(
+      await tester.pumpWidget(TestUtils.buildTestableWidget(TmDefaultButton(
         key: key,
         title: title,
         backgroundColor: Colors.blue,
@@ -161,25 +161,25 @@ void main() {
       )));
 
       final absorbPointer =
-          tester.widget<AbsorbPointer>(find.byKey(TmDefaultButton.absorbKey));
+      tester.widget<AbsorbPointer>(find.byKey(TmDefaultButton.absorbKey));
 
       expect(absorbPointer.absorbing, true);
     });
 
     testWidgets('Given backgroundColor is properly used when disabled is true',
-        (tester) async {
-      await tester.pumpWidget(TmTestUtils.buildTestableWidget(TmDefaultButton(
-        key: key,
-        title: title,
-        disabledColor: Colors.white,
-        backgroundColor: Colors.blue,
-        onPressed: () {},
-        elevation: 1,
-        disabled: true,
-      )));
-      final container = tester.widget<Container>(find.byType(Container));
-      final decoration = container.decoration as BoxDecoration;
-      expect(decoration.color, Colors.white);
-    });
+            (tester) async {
+          await tester.pumpWidget(TestUtils.buildTestableWidget(TmDefaultButton(
+            key: key,
+            title: title,
+            disabledColor: Colors.white,
+            backgroundColor: Colors.blue,
+            onPressed: () {},
+            elevation: 1,
+            disabled: true,
+          )));
+          final container = tester.widget<Container>(find.byType(Container));
+          final decoration = container.decoration as BoxDecoration;
+          expect(decoration.color, Colors.white);
+        });
   });
 }

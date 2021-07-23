@@ -27,34 +27,6 @@ void main() {
       expect(iconButton.iconSize, 40);
     });
 
-    testWidgets('Given centerWidget is properly used', (tester) async {
-      await tester.pumpWidget(TestUtils.buildTestableWidget(TmDefaultToolbar(
-        key: key,
-        onPressed: () {},
-        centerWidget: TextButton(
-          onPressed: () {},
-          child: const Text('Botão'),
-        ),
-      )));
-
-      expect(find.byType(TextButton), findsOneWidget);
-
-    });
-
-    testWidgets('Given rightWidget is properly used', (tester) async {
-      await tester.pumpWidget(TestUtils.buildTestableWidget(TmDefaultToolbar(
-        key: key,
-        onPressed: () {},
-        rightWidget: TextButton(
-          onPressed: () {},
-          child: const Text('Botão Direita'),
-        ),
-      )));
-
-      expect(find.byType(TextButton), findsOneWidget);
-
-    });
-
     testWidgets('Given function onPressed is working', (tester) async {
       int functionCounter = 0;
       await tester.pumpWidget(TestUtils.buildTestableWidget(TmDefaultToolbar(

@@ -1,8 +1,8 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 
-import '../../configuration/trademaster_colors.dart';
-import '../../configuration/trademaster_fonts.dart';
+import '../../configuration/tm_colors.dart';
+import '../../configuration/tm_fonts.dart';
 
 class TmDefaultButton extends StatelessWidget {
   static const Key absorbKey = Key('absorbKey');

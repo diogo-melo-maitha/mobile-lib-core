@@ -1,6 +1,6 @@
 import 'package:permission_handler/permission_handler.dart';
 
-class TmPermissionUtils {
+class PermissionUtils {
   static Future<bool> requestStoragePermission() async {
     return await Permission.storage.request() == PermissionStatus.granted;
   }

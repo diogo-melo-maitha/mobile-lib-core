@@ -1,6 +1,6 @@
 import 'package:mask_text_input_formatter/mask_text_input_formatter.dart';
 
-class TmFormatUtils {
+class FormatUtils {
   static const cpfMask = '###.###.###-##';
   static const cnpjMask = '##.###.###/####-##';
   static const mobilePhoneMask = '(##) ##### ####';
@@ -9,7 +9,8 @@ class TmFormatUtils {
 
   static bool isEmailValid(String email) {
     try {
-      const String p = r"^[a-zA-Z0-9.a-zA-Z0-9.!#$%&'*+-/=?^_`{|}~]+@[a-zA-Z0-9]+\.[a-zA-Z]+";
+      const String p =
+          r"^[a-zA-Z0-9.a-zA-Z0-9.!#$%&'*+-/=?^_`{|}~]+@[a-zA-Z0-9]+\.[a-zA-Z]+";
       final RegExp regExp = RegExp(p);
       return email.isNotEmpty && regExp.hasMatch(email);
     } catch (_) {
@@ -27,10 +28,12 @@ class TmFormatUtils {
 
     switch (documentNumber.length) {
       case 11:
-        final documentMask = MaskTextInputFormatter(mask: cpfMask, filter: {'#': RegExp(r'[0-9]')});
+        final documentMask = MaskTextInputFormatter(
+            mask: cpfMask, filter: {'#': RegExp(r'[0-9]')});
         return documentMask.maskText(documentNumber);
       case 14:
-        final documentMask = MaskTextInputFormatter(mask: cnpjMask, filter: {'#': RegExp(r'[0-9]')});
+        final documentMask = MaskTextInputFormatter(
+            mask: cnpjMask, filter: {'#': RegExp(r'[0-9]')});
         return documentMask.maskText(documentNumber);
       default:
         return document;
@@ -42,10 +45,12 @@ class TmFormatUtils {
 
     switch (phoneNumber.length) {
       case 11:
-        final phoneMask = MaskTextInputFormatter(mask: mobilePhoneMask, filter: {'#': RegExp(r'[0-9]')});
+        final phoneMask = MaskTextInputFormatter(
+            mask: mobilePhoneMask, filter: {'#': RegExp(r'[0-9]')});
         return phoneMask.maskText(phoneNumber);
       case 10:
-        final phoneMask = MaskTextInputFormatter(mask: residentialPhoneMask, filter: {'#': RegExp(r'[0-9]')});
+        final phoneMask = MaskTextInputFormatter(
+            mask: residentialPhoneMask, filter: {'#': RegExp(r'[0-9]')});
         return phoneMask.maskText(phoneNumber);
       default:
         return phone;
@@ -57,7 +62,8 @@ class TmFormatUtils {
 
     switch (postalCode.length) {
       case 8:
-        final phoneMask = MaskTextInputFormatter(mask: postalCodeMask, filter: {'#': RegExp(r'[0-9]')});
+        final phoneMask = MaskTextInputFormatter(
+            mask: postalCodeMask, filter: {'#': RegExp(r'[0-9]')});
         return phoneMask.maskText(postalCode);
       default:
         return code;

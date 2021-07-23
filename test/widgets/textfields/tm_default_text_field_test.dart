@@ -1,6 +1,6 @@
 import 'package:flutter/services.dart';
 import 'package:flutter_test/flutter_test.dart';
-import 'package:tm_lib_core/widgets/textfields/default_text_field.dart';
+import 'package:tm_lib_core/widgets/textfields/tm_default_text_field.dart';
 import 'package:flutter/material.dart';
 import 'package:tm_lib_core/utils/test_utils.dart';
 
@@ -10,7 +10,7 @@ void main() {
 
   group('DefaultTextInput tests', () {
     testWidgets('DefaultTextInput is properly created', (tester) async {
-      await tester.pumpWidget(TmTestUtils.buildTestableWidget(TmDefaultTextField(
+      await tester.pumpWidget(TestUtils.buildTestableWidget(TmDefaultTextField(
         key: key,
         onChanged: (value) {},
         onSubmitted: (value) {},
@@ -20,7 +20,7 @@ void main() {
     });
 
     testWidgets('Given label is properly used', (tester) async {
-      await tester.pumpWidget(TmTestUtils.buildTestableWidget(TmDefaultTextField(
+      await tester.pumpWidget(TestUtils.buildTestableWidget(TmDefaultTextField(
         key: key,
         label: 'Trademaster',
         onChanged: (value) {},
@@ -35,7 +35,7 @@ void main() {
     });
 
     testWidgets('Given labelStyle is properly used', (tester) async {
-      await tester.pumpWidget(TmTestUtils.buildTestableWidget(TmDefaultTextField(
+      await tester.pumpWidget(TestUtils.buildTestableWidget(TmDefaultTextField(
         key: key,
         labelStyle: const TextStyle(color: Colors.red),
         onChanged: (value) {},
@@ -50,7 +50,7 @@ void main() {
     });
 
     testWidgets('Given borderSize is properly used', (tester) async {
-      await tester.pumpWidget(TmTestUtils.buildTestableWidget(TmDefaultTextField(
+      await tester.pumpWidget(TestUtils.buildTestableWidget(TmDefaultTextField(
         key: key,
         borderSize: 5,
         onChanged: (value) {},
@@ -67,7 +67,7 @@ void main() {
     });
 
     testWidgets('Given borderColor is properly used', (tester) async {
-      await tester.pumpWidget(TmTestUtils.buildTestableWidget(TmDefaultTextField(
+      await tester.pumpWidget(TestUtils.buildTestableWidget(TmDefaultTextField(
         key: key,
         borderColor: Colors.red,
         onChanged: (value) {},
@@ -84,7 +84,7 @@ void main() {
     });
 
     testWidgets('Given focusedBorderSize is properly used', (tester) async {
-      await tester.pumpWidget(TmTestUtils.buildTestableWidget(TmDefaultTextField(
+      await tester.pumpWidget(TestUtils.buildTestableWidget(TmDefaultTextField(
         key: key,
         focusedBorderSize: 5,
         onChanged: (value) {},
@@ -101,7 +101,7 @@ void main() {
     });
 
     testWidgets('Given focusedBorderColor is properly used', (tester) async {
-      await tester.pumpWidget(TmTestUtils.buildTestableWidget(TmDefaultTextField(
+      await tester.pumpWidget(TestUtils.buildTestableWidget(TmDefaultTextField(
         key: key,
         focusedBorderColor: Colors.green,
         onChanged: (value) {},
@@ -118,7 +118,7 @@ void main() {
     });
 
     testWidgets('Given Radius is properly used', (tester) async {
-      await tester.pumpWidget(TmTestUtils.buildTestableWidget(TmDefaultTextField(
+      await tester.pumpWidget(TestUtils.buildTestableWidget(TmDefaultTextField(
         key: key,
         radius: 10,
         onChanged: (value) {},
@@ -135,7 +135,7 @@ void main() {
     });
 
     testWidgets('Given horizontalSymmetricPadding is properly used', (tester) async {
-      await tester.pumpWidget(TmTestUtils.buildTestableWidget(TmDefaultTextField(
+      await tester.pumpWidget(TestUtils.buildTestableWidget(TmDefaultTextField(
         key: key,
         radius: 10,
         horizontalSymmetricPadding: 30,
@@ -150,7 +150,7 @@ void main() {
     });
 
     testWidgets('Given autoFocus is properly used', (tester) async {
-      await tester.pumpWidget(TmTestUtils.buildTestableWidget(TmDefaultTextField(
+      await tester.pumpWidget(TestUtils.buildTestableWidget(TmDefaultTextField(
         key: key,
         autoFocus: true,
         radius: 10,
@@ -165,7 +165,7 @@ void main() {
     });
 
     testWidgets('Given bool obscure is properly used', (tester) async {
-      await tester.pumpWidget(TmTestUtils.buildTestableWidget(TmDefaultTextField(
+      await tester.pumpWidget(TestUtils.buildTestableWidget(TmDefaultTextField(
         key: key,
         obscure: true,
         radius: 10,
@@ -180,7 +180,7 @@ void main() {
     });
 
     testWidgets('Given bool enabled is properly used', (tester) async {
-      await tester.pumpWidget(TmTestUtils.buildTestableWidget(TmDefaultTextField(
+      await tester.pumpWidget(TestUtils.buildTestableWidget(TmDefaultTextField(
         key: key,
         enabled: false,
         radius: 10,
@@ -195,7 +195,7 @@ void main() {
     });
 
     testWidgets('Given widget is properly used', (tester) async {
-      await tester.pumpWidget(TmTestUtils.buildTestableWidget(TmDefaultTextField(
+      await tester.pumpWidget(TestUtils.buildTestableWidget(TmDefaultTextField(
         key: key,
         radius: 10,
         onChanged: (value) {},
@@ -212,7 +212,7 @@ void main() {
     });
 
     testWidgets('Given inputStyle is properly used', (tester) async {
-      await tester.pumpWidget(TmTestUtils.buildTestableWidget(TmDefaultTextField(
+      await tester.pumpWidget(TestUtils.buildTestableWidget(TmDefaultTextField(
         key: key,
         enabled: false,
         autoFocus: true,
@@ -230,7 +230,7 @@ void main() {
     testWidgets('Given function onChanged is working', (tester) async {
       const String editedText = 'editedText';
       String onChangedText = '';
-      await tester.pumpWidget(TmTestUtils.buildTestableWidget(TmDefaultTextField(
+      await tester.pumpWidget(TestUtils.buildTestableWidget(TmDefaultTextField(
         key: key,
         enabled: false,
         radius: 10,
@@ -249,7 +249,7 @@ void main() {
     testWidgets('Given function onSubmitted is working', (tester) async {
       const String editedText = 'editedText';
       String onChangedText = '';
-      await tester.pumpWidget(TmTestUtils.buildTestableWidget(TmDefaultTextField(
+      await tester.pumpWidget(TestUtils.buildTestableWidget(TmDefaultTextField(
         key: key,
         enabled: false,
         radius: 10,
@@ -266,7 +266,7 @@ void main() {
     });
 
     testWidgets('Given cursorColor is properly used', (tester) async {
-      await tester.pumpWidget(TmTestUtils.buildTestableWidget(TmDefaultTextField(
+      await tester.pumpWidget(TestUtils.buildTestableWidget(TmDefaultTextField(
         key: key,
         enabled: false,
         autoFocus: true,
@@ -287,7 +287,7 @@ void main() {
 
       final FocusNode focusNode = FocusNode(debugLabel: 'Editable Text Node');
 
-      await tester.pumpWidget(TmTestUtils.buildTestableWidget(TmDefaultTextField(
+      await tester.pumpWidget(TestUtils.buildTestableWidget(TmDefaultTextField(
         key: key,
         autoFocus: true,
         cursorColor: Colors.blue,
@@ -303,7 +303,7 @@ void main() {
     });
 
     testWidgets('Given keyboardType is properly used', (tester) async {
-      await tester.pumpWidget(TmTestUtils.buildTestableWidget(TmDefaultTextField(
+      await tester.pumpWidget(TestUtils.buildTestableWidget(TmDefaultTextField(
         key: key,
         autoFocus: true,
         keyboardType: TextInputType.number,
@@ -320,7 +320,7 @@ void main() {
 
     testWidgets('Given textEditingController is properly used', (tester) async {
       final TextEditingController _controller = TextEditingController();
-      await tester.pumpWidget(TmTestUtils.buildTestableWidget(TmDefaultTextField(
+      await tester.pumpWidget(TestUtils.buildTestableWidget(TmDefaultTextField(
         key: key,
         autoFocus: true,
         textEditingController: _controller,
@@ -337,8 +337,8 @@ void main() {
 
     testWidgets('Given inputFormatters is properly used', (tester) async {
       final TextInputFormatter testRegex =
-          FilteringTextInputFormatter.deny(RegExp(r'[/\\]'));
-      await tester.pumpWidget(TmTestUtils.buildTestableWidget(TmDefaultTextField(
+      FilteringTextInputFormatter.deny(RegExp(r'[/\\]'));
+      await tester.pumpWidget(TestUtils.buildTestableWidget(TmDefaultTextField(
         key: key,
         autoFocus: true,
         inputFormatters: [testRegex],
@@ -351,21 +351,6 @@ void main() {
       final textField = tester.widget<TextField>(find.byType(TextField));
 
       expect(textField.inputFormatters, [testRegex]);
-    });
-
-    testWidgets('Given errorText is properly used', (tester) async {
-      await tester.pumpWidget(TmTestUtils.buildTestableWidget(TmDefaultTextField(
-        key: key,
-        errorText: 'Texto vazio',
-        onChanged: (value) {},
-        onSubmitted: (value) {},
-        inputStyle: style,
-      )));
-
-      final textField = tester.widget<TextField>(find.byType(TextField));
-      final decoration = textField.decoration as InputDecoration;
-
-      expect(decoration.errorText, 'Texto vazio');
     });
   });
 }

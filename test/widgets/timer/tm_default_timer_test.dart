@@ -1,5 +1,5 @@
 import 'package:flutter_test/flutter_test.dart';
-import 'package:tm_lib_core/widgets/timer/default_timer.dart';
+import 'package:tm_lib_core/widgets/timer/tm_default_timer.dart';
 import 'package:flutter/material.dart';
 import 'package:tm_lib_core/utils/test_utils.dart';
 
@@ -9,7 +9,7 @@ void main() {
 
   group('TmDefaultTimer tests', () {
     testWidgets('TmDefaultTimer is properly created', (tester) async {
-      await tester.pumpWidget(TmTestUtils.buildTestableWidget(TmDefaultTimer(
+      await tester.pumpWidget(TestUtils.buildTestableWidget(TmDefaultTimer(
         key: key,
         time: 50,
         timeLimit: 1,
@@ -20,7 +20,7 @@ void main() {
     });
 
     testWidgets('Given width is properly used', (tester) async {
-      await tester.pumpWidget(TmTestUtils.buildTestableWidget(TmDefaultTimer(
+      await tester.pumpWidget(TestUtils.buildTestableWidget(TmDefaultTimer(
         key: key,
         time: 50,
         width: 90,
@@ -35,7 +35,7 @@ void main() {
       expect(constraints!.maxWidth, 90);
     });
     testWidgets('Given height is properly used', (tester) async {
-      await tester.pumpWidget(TmTestUtils.buildTestableWidget(TmDefaultTimer(
+      await tester.pumpWidget(TestUtils.buildTestableWidget(TmDefaultTimer(
         key: key,
         time: 50,
         height: 400,
@@ -51,7 +51,7 @@ void main() {
     });
 
     testWidgets('Given backgroundColor is properly used', (tester) async {
-      await tester.pumpWidget(TmTestUtils.buildTestableWidget(TmDefaultTimer(
+      await tester.pumpWidget(TestUtils.buildTestableWidget(TmDefaultTimer(
         key: key,
         time: 50,
         backgroundColor: Colors.green,
@@ -67,7 +67,7 @@ void main() {
     });
 
     testWidgets('Given borderColor is properly used', (tester) async {
-      await tester.pumpWidget(TmTestUtils.buildTestableWidget(TmDefaultTimer(
+      await tester.pumpWidget(TestUtils.buildTestableWidget(TmDefaultTimer(
         key: key,
         time: 50,
         borderColor: Colors.amberAccent,
@@ -83,7 +83,7 @@ void main() {
     });
 
     testWidgets('Given borderSize is properly used', (tester) async {
-      await tester.pumpWidget(TmTestUtils.buildTestableWidget(TmDefaultTimer(
+      await tester.pumpWidget(TestUtils.buildTestableWidget(TmDefaultTimer(
         key: key,
         time: 50,
         borderSize: 5,
@@ -99,7 +99,7 @@ void main() {
     });
 
     testWidgets('Given radius is properly used', (tester) async {
-      await tester.pumpWidget(TmTestUtils.buildTestableWidget(TmDefaultTimer(
+      await tester.pumpWidget(TestUtils.buildTestableWidget(TmDefaultTimer(
         key: key,
         time: 50,
         borderSize: 5,
@@ -116,7 +116,7 @@ void main() {
     });
 
     testWidgets('Given textStyle is properly used', (tester) async {
-      await tester.pumpWidget(TmTestUtils.buildTestableWidget(TmDefaultTimer(
+      await tester.pumpWidget(TestUtils.buildTestableWidget(TmDefaultTimer(
         key: key,
         time: 50,
         borderSize: 5,
@@ -132,7 +132,7 @@ void main() {
 
     testWidgets('Given function timeCallback is working', (tester) async {
       int testCounter = 0;
-      await tester.pumpWidget(TmTestUtils.buildTestableWidget(TmDefaultTimer(
+      await tester.pumpWidget(TestUtils.buildTestableWidget(TmDefaultTimer(
         key: key,
         time: 50,
         borderSize: 5,
@@ -151,7 +151,7 @@ void main() {
     });
 
     testWidgets('Given time is properly used', (tester) async {
-      await tester.pumpWidget(TmTestUtils.buildTestableWidget(TmDefaultTimer(
+      await tester.pumpWidget(TestUtils.buildTestableWidget(TmDefaultTimer(
         key: key,
         time: 30,
         borderSize: 5,

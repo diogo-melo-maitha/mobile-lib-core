@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 
-class TmTestUtils {
+class TestUtils {
   static Widget buildTestableWidget(Widget widget) {
     return MaterialApp(
       home: Scaffold(

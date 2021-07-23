@@ -1,7 +1,7 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
-import '../../configuration/trademaster_colors.dart';
+import '../../configuration/tm_colors.dart';
 
 typedef CheckboxCallback = void Function(bool? value);
 

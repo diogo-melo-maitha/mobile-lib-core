@@ -1,13 +1,13 @@
 import 'package:flutter_test/flutter_test.dart';
 import 'package:flutter/material.dart';
 import 'package:tm_lib_core/utils/test_utils.dart';
-import 'package:tm_lib_core/widgets/texts/header_text.dart';
+import 'package:tm_lib_core/widgets/texts/tm_header_text.dart';
 
 void main() {
   const key = Key('key');
   group('DefaultButton tests', () {
     testWidgets('TmHeaderText is properly created', (tester) async {
-      await tester.pumpWidget(TmTestUtils.buildTestableWidget(const TmHeaderText(
+      await tester.pumpWidget(TestUtils.buildTestableWidget(const TmHeaderText(
         key: key,
         bodyText: '',
         titleText: '',
@@ -16,7 +16,7 @@ void main() {
     });
 
     testWidgets('Given bodyText is properly used', (tester) async {
-      await tester.pumpWidget(TmTestUtils.buildTestableWidget(const TmHeaderText(
+      await tester.pumpWidget(TestUtils.buildTestableWidget(const TmHeaderText(
         key: key,
         bodyText: 'Abc',
         titleText: '',
@@ -26,7 +26,7 @@ void main() {
     });
 
     testWidgets('Given titleText is properly used', (tester) async {
-      await tester.pumpWidget(TmTestUtils.buildTestableWidget(const TmHeaderText(
+      await tester.pumpWidget(TestUtils.buildTestableWidget(const TmHeaderText(
         key: key,
         bodyText: '',
         titleText: 'Trade',
@@ -36,7 +36,7 @@ void main() {
     });
 
     testWidgets('Given titleTextStyle is properly used', (tester) async {
-      await tester.pumpWidget(TmTestUtils.buildTestableWidget(const TmHeaderText(
+      await tester.pumpWidget(TestUtils.buildTestableWidget(const TmHeaderText(
         key: key,
         bodyText: '',
         titleText: '',
@@ -48,7 +48,7 @@ void main() {
     });
 
     testWidgets('Given titleTextStyle is properly used', (tester) async {
-      await tester.pumpWidget(TmTestUtils.buildTestableWidget(const TmHeaderText(
+      await tester.pumpWidget(TestUtils.buildTestableWidget(const TmHeaderText(
         key: key,
         bodyText: '',
         titleText: '',
@@ -62,7 +62,7 @@ void main() {
     testWidgets(
         'Given titleLeftPadding and titleRightPadding are properly used',
         (tester) async {
-      await tester.pumpWidget(TmTestUtils.buildTestableWidget(const TmHeaderText(
+      await tester.pumpWidget(TestUtils.buildTestableWidget(const TmHeaderText(
         key: key,
         bodyText: '',
         titleText: '',
@@ -72,12 +72,12 @@ void main() {
       final padding =
           tester.widget<Padding>(find.byKey(TmHeaderText.titlePaddingKey));
       expect((padding.padding as EdgeInsets).left, 30);
-      expect((padding.padding as EdgeInsets).right, (20/375)*800);
+      expect((padding.padding as EdgeInsets).right, (20 / 375) * 800);
     });
 
     testWidgets('Given bodyLeftPadding and bodyRightPadding are properly used',
         (tester) async {
-      await tester.pumpWidget(TmTestUtils.buildTestableWidget(const TmHeaderText(
+      await tester.pumpWidget(TestUtils.buildTestableWidget(const TmHeaderText(
         key: key,
         bodyText: '',
         titleText: '',
@@ -87,7 +87,7 @@ void main() {
       final padding =
           tester.widget<Padding>(find.byKey(TmHeaderText.bodyPaddingKey));
       expect((padding.padding as EdgeInsets).left, 40);
-      expect((padding.padding as EdgeInsets).right, (10/375)*800);
+      expect((padding.padding as EdgeInsets).right, (10 / 375) * 800);
     });
   });
 }
