@@ -6,8 +6,6 @@ import 'package:flutter_svg/svg.dart';
 class TmDefaultToolbar extends StatelessWidget {
   final double iconSize;
   final double centerWidgetLeftPadding;
-
-  //final TextStyle? textStyle;
   final VoidCallback? onPressed;
   final Widget centerWidget;
   final Widget rightWidget;
@@ -15,7 +13,6 @@ class TmDefaultToolbar extends StatelessWidget {
   const TmDefaultToolbar({
     Key? key,
     this.onPressed,
-    //this.textStyle,
     this.iconSize = 38,
     this.centerWidgetLeftPadding = 0,
     this.centerWidget = const Text(''),
@@ -24,8 +21,6 @@ class TmDefaultToolbar extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    //final TextStyle toolbarText = TmFonts.semiBold17.merge(const TextStyle(color: TmColors.primary));
-
     return Container(
       width: double.infinity,
       child: Padding(
@@ -49,11 +44,10 @@ class TmDefaultToolbar extends StatelessWidget {
               ),
             ),
             Expanded(
-              child: Padding(
-                padding: EdgeInsets.only(left: centerWidgetLeftPadding),
-                child: centerWidget,
-              ),
-            ),
+                child: Padding(
+                  padding: EdgeInsets.only(left: centerWidgetLeftPadding),
+                  child: centerWidget,
+                )),
             rightWidget,
           ],
         ),

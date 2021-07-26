@@ -15,6 +15,30 @@ void main() {
       expect(find.byKey(key), findsOneWidget);
     });
 
+    // testWidgets('Given title is properly used', (tester) async {
+    //   await tester.pumpWidget(TmTestUtils.buildTestableWidget(TmDefaultToolbar(
+    //     key: key,
+    //     title: 'TRADEMASTER',
+    //     onPressed: () {},
+    //   )));
+    //
+    //   final title = tester.widget<Text>(find.byType(Text));
+    //
+    //   expect(title.data, 'TRADEMASTER');
+    // });
+    //
+    // testWidgets('Given textStyle is properly used', (tester) async {
+    //   await tester.pumpWidget(TmTestUtils.buildTestableWidget(TmDefaultToolbar(
+    //     key: key,
+    //     textStyle: const TextStyle(color:Colors.red),
+    //     onPressed: () {},
+    //   )));
+    //
+    //   final title = tester.widget<Text>(find.byType(Text));
+    //
+    //   expect((title.style as TextStyle).color, Colors.red);
+    // });
+
     testWidgets('Given iconSize is properly used', (tester) async {
       await tester.pumpWidget(TestUtils.buildTestableWidget(TmDefaultToolbar(
         key: key,
@@ -38,7 +62,6 @@ void main() {
       )));
 
       expect(find.byType(TextButton), findsOneWidget);
-
     });
 
     testWidgets('Given rightWidget is properly used', (tester) async {
@@ -52,7 +75,6 @@ void main() {
       )));
 
       expect(find.byType(TextButton), findsOneWidget);
-
     });
 
     testWidgets('Given function onPressed is working', (tester) async {
