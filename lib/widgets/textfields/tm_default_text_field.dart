@@ -4,8 +4,8 @@ import 'package:flutter/services.dart';
 
 import '../../configuration/tm_colors.dart';
 import '../../configuration/tm_fonts.dart';
+import '../../utils/function_type_utils.dart';
 
-typedef OnChanged = void Function(String value);
 typedef OnSubmitted = void Function(String value);
 typedef IsTextValid = bool Function(String value);
 
@@ -110,6 +110,13 @@ class _TmDefaultTextFieldState extends State<TmDefaultTextField> {
                 borderSide: BorderSide(
                   color: widget.focusedBorderColor,
                   width: widget.focusedBorderSize,
+                ),
+              ),
+              disabledBorder: OutlineInputBorder(
+                borderRadius: BorderRadius.circular(widget.radius),
+                borderSide: BorderSide(
+                  color: widget.borderColor,
+                  width: widget.borderSize,
                 ),
               ),
               labelStyle: mLabelStyle,
