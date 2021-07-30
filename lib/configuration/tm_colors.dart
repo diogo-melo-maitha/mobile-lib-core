@@ -17,5 +17,6 @@ abstract class TmColors {
   static const Color textOnSurface = Color(0xFF848688);
 
   static const Color error = Color(0xffde3822);
+  static const Color success = Color(0xff64C19B);
 
 }
