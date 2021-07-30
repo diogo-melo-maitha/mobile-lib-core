@@ -18,6 +18,7 @@ export 'package:tm_lib_core/widgets/design/tm_design_top_lines_secondary.dart';
 export 'package:tm_lib_core/widgets/design/tm_design_bottom_lines.dart';
 export 'package:tm_lib_core/widgets/design/tm_design_bottom_lines_logo.dart';
 export 'package:tm_lib_core/widgets/design/tm_design_bottom_lines_logo_secondary.dart';
+export 'package:tm_lib_core/widgets/design/tm_design_lighter_top_lines.dart';
 export 'package:tm_lib_core/widgets/dropDown/dropdown_button.dart';
 export 'package:tm_lib_core/widgets/design/tm_design_lighter_top_lines.dart';
 export 'package:tm_lib_core/widgets/toast/tm_toast.dart';

@@ -43,6 +43,12 @@ abstract class TmFonts {
     fontFamily: 'Open Sans',
   );
 
+  static TextStyle semiBold16 = const TextStyle(
+    fontSize: 16,
+    fontWeight: FontWeight.w600,
+    fontFamily: 'Open Sans',
+  );
+
   static TextStyle semiBold17 = const TextStyle(
     fontSize: 17,
     fontWeight: FontWeight.w600,
