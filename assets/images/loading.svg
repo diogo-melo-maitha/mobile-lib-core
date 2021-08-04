@@ -1,0 +1,14 @@
+<svg width="50" height="50" xmlns="http://www.w3.org/2000/svg">
+ <g>
+  <title>Layer 1</title>
+  <rect stroke="#b8d0d3" fill="#b8d0d3" x="23.0947" y="1.29797" width="3" height="12" id="svg_1" rx="2"/>
+  <rect transform="rotate(45.0737 38.2233 11.2997)" fill="#b8d0d3" x="36.72332" y="5.29965" width="3" height="12" id="svg_2" rx="2" stroke="#b8d0d3"/>
+  <rect fill="#b8d0d3" x="23.09473" y="36.64368" width="3" height="12" id="svg_5" rx="2" stroke="#b8d0d3"/>
+  <rect transform="rotate(135 37.7769 38.4608)" fill="#b8d0d3" x="36.2769" y="32.46084" width="3" height="12" id="svg_6" rx="2" stroke="#b8d0d3"/>
+  <rect transform="rotate(45.0737 10.5785 37.8656)" fill="#b8d0d3" x="9.07851" y="31.8656" width="3" height="12" id="svg_7" rx="2" stroke="#b8d0d3"/>
+  <rect transform="rotate(135 11.2481 12.0065)" fill="#b8d0d3" x="9.74815" y="6.0065" width="3" height="12" id="svg_8" rx="2" stroke="#b8d0d3"/>
+  <rect transform="rotate(90 6.70831 24.8588)" fill="#b8d0d3" x="5.20831" y="18.85876" width="3" height="12" id="svg_9" rx="2" stroke="#b8d0d3"/>
+  <rect transform="rotate(90 43.2817 24.8588)" fill="#b8d0d3" x="41.7817" y="18.85876" width="3" height="12" id="svg_11" rx="2" stroke="#b8d0d3"/>
+ </g>
+
+</svg>
