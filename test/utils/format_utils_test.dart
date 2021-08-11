@@ -9,6 +9,32 @@ void main() {
       expect('Hello World', FormatUtils.removeSpecialCharacters(text));
     });
 
+    test('isPasswordValid is properly validating passwords', () {
+      var password = 'Aaaa@2';
+
+      expect(true, FormatUtils.isPasswordValid(password));
+
+      password = 'aaaa@2';
+
+      expect(false, FormatUtils.isPasswordValid(password));
+
+      password = 'Aaaaa@';
+
+      expect(false, FormatUtils.isPasswordValid(password));
+
+      password = 'Aaaaa2';
+
+      expect(false, FormatUtils.isPasswordValid(password));
+
+      password = 'Aaa@2';
+
+      expect(false, FormatUtils.isPasswordValid(password));
+
+      password = '';
+
+      expect(false, FormatUtils.isPasswordValid(password));
+    });
+
     test('isEmailValid is properly validating emails', () {
       var email = 'email@email.com';
 

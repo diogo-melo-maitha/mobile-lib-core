@@ -4,6 +4,8 @@ import 'package:flutter_modular/flutter_modular.dart';
 import 'package:flutter_svg/svg.dart';
 
 class TmDefaultToolbar extends StatelessWidget {
+  static const Key popButtonKey = Key('popButtonKey');
+
   final double iconSize;
   final double centerWidgetLeftPadding;
   final VoidCallback? onPressed;
@@ -33,6 +35,7 @@ class TmDefaultToolbar extends StatelessWidget {
           mainAxisAlignment: MainAxisAlignment.spaceBetween,
           children: [
             IconButton(
+              key: TmDefaultToolbar.popButtonKey,
               splashRadius: 0.1,
               iconSize: iconSize,
               onPressed: onPressed ?? Modular.to.pop,

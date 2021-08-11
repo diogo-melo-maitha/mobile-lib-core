@@ -18,6 +18,17 @@ class FormatUtils {
     }
   }
 
+  static bool isPasswordValid(String password) {
+    try {
+      const String p =
+          r'^(?=.*\d)(?=.*[a-z])(?=.*[A-Z])(?=.*[$*&@#!@%\-_=+[{\]\)\ˆ\(\/}|;:,<.>?])[0-9a-zA-Z$*&@#!@%\-_=+[{\]\)\ˆ\(\/}|;:,<.>?]{6,}$';
+      final RegExp regExp = RegExp(p);
+      return password.isNotEmpty && regExp.hasMatch(password);
+    } catch (_) {
+      return false;
+    }
+  }
+
   static String removeSpecialCharacters(String text) {
     final RegExp regex = RegExp(r'[^\s\w]');
     return text.replaceAll(regex, '');

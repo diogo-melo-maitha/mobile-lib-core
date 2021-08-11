@@ -22,3 +22,4 @@ export 'package:tm_lib_core/widgets/design/tm_design_lighter_top_lines.dart';
 export 'package:tm_lib_core/widgets/dropDown/dropdown_button.dart';
 export 'package:tm_lib_core/widgets/design/tm_design_lighter_top_lines.dart';
 export 'package:tm_lib_core/widgets/toast/tm_toast.dart';
+export 'package:tm_lib_core/widgets/layoutColumn/tm_layout_column.dart';
