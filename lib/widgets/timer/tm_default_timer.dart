@@ -45,7 +45,6 @@ class _TmDefaultTimerState extends State<TmDefaultTimer> {
   @override
   void initState() {
     _startTimer();
-    // TODO: implement initState
     super.initState();
   }
 

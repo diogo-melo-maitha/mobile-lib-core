@@ -1,14 +1,14 @@
 import 'package:flutter/material.dart';
 
 abstract class TmFonts {
-  static TextStyle regular14 = const TextStyle(
-    fontSize: 14,
+  static TextStyle regular12 = const TextStyle(
+    fontSize: 12,
     fontWeight: FontWeight.w400,
     fontFamily: 'Open Sans',
   );
 
-  static TextStyle regular12 = const TextStyle(
-    fontSize: 12,
+  static TextStyle regular14 = const TextStyle(
+    fontSize: 14,
     fontWeight: FontWeight.w400,
     fontFamily: 'Open Sans',
   );

@@ -7,10 +7,14 @@ void main() {
   const key = Key('key');
 
   group('TmPercentageSlider tests', () {
+    final TextEditingController percentageController = TextEditingController();
+
     testWidgets('TmPercentageSlider is properly created', (tester) async {
       await tester.pumpWidget(TestUtils.buildTestableWidget(TmPercentageSlider(
         key: key,
         sliderCallback: (value) {},
+        textEditingController: percentageController,
+        onChangedTextField: (value) {},
       )));
       expect(find.byKey(key), findsOneWidget);
     });
@@ -20,6 +24,8 @@ void main() {
         key: key,
         initialValue: 70,
         sliderCallback: (value) {},
+        textEditingController: percentageController,
+        onChangedTextField: (value) {},
       )));
       final slider = tester.widget<Slider>(find.byType(Slider));
 
@@ -31,6 +37,8 @@ void main() {
         key: key,
         max: 200,
         sliderCallback: (value) {},
+        textEditingController: percentageController,
+        onChangedTextField: (value) {},
       )));
       final slider = tester.widget<Slider>(find.byType(Slider));
 
@@ -42,6 +50,8 @@ void main() {
         key: key,
         min: 20,
         sliderCallback: (value) {},
+        textEditingController: percentageController,
+        onChangedTextField: (value) {},
       )));
       final slider = tester.widget<Slider>(find.byType(Slider));
 
@@ -54,6 +64,8 @@ void main() {
         sliderActiveColor: Colors.green,
         sliderInactiveColor: Colors.red,
         sliderCallback: (value) {},
+        textEditingController: percentageController,
+        onChangedTextField: (value) {},
       )));
       final sliderTheme = tester.widget<SliderTheme>(find.byType(SliderTheme));
 
@@ -70,6 +82,8 @@ void main() {
           onChangedValue = value;
         },
         max: 150,
+        textEditingController: percentageController,
+        onChangedTextField: (value) {},
       )));
       final slider = tester.widget<Slider>(find.byType(Slider));
       slider.onChanged!(editedValue);
@@ -86,6 +100,8 @@ void main() {
           onChangedValue = editedValue;
         },
         max: 150,
+        textEditingController: percentageController,
+        onChangedTextField: (value) {},
       )));
       await tester.tap(find.byKey(TmPercentageSlider.plusButtonKey));
       await tester.pump();
@@ -101,6 +117,8 @@ void main() {
           onChangedValue = editedValue;
         },
         max: 150,
+        textEditingController: percentageController,
+        onChangedTextField: (value) {},
       )));
       await tester.tap(find.byKey(TmPercentageSlider.minusButtonKey));
       await tester.pump();
@@ -116,6 +134,8 @@ void main() {
           onChangedValue = editedValue;
         },
         max: 150,
+        textEditingController: percentageController,
+        onChangedTextField: (value) {},
       )));
       await tester.drag(find.byType(Slider), const Offset(100, 0));
       await tester.pump();
@@ -127,6 +147,8 @@ void main() {
         key: key,
         title: 'Trademaster',
         sliderCallback: (value) {},
+        textEditingController: percentageController,
+        onChangedTextField: (value) {},
       )));
       final titleText = tester.widget<Text>(find.byKey(TmPercentageSlider.titleTextKey));
 
@@ -138,6 +160,8 @@ void main() {
         key: key,
         subTitle: 'Top',
         sliderCallback: (value) {},
+        textEditingController: percentageController,
+        onChangedTextField: (value) {},
       )));
       final subtitleText = tester.widget<Text>(find.byKey(TmPercentageSlider.subtitleTextKey));
 
@@ -149,6 +173,8 @@ void main() {
         key: key,
         titleTextStyle: const TextStyle(color: Colors.black),
         sliderCallback: (value) {},
+        textEditingController: percentageController,
+        onChangedTextField: (value) {},
       )));
       final titleText = tester.widget<Text>(find.byKey(TmPercentageSlider.titleTextKey));
 
@@ -160,21 +186,12 @@ void main() {
         key: key,
         subtitleTextStyle: const TextStyle(color: Colors.green),
         sliderCallback: (value) {},
+        textEditingController: percentageController,
+        onChangedTextField: (value) {},
       )));
       final subtitleText = tester.widget<Text>(find.byKey(TmPercentageSlider.subtitleTextKey));
 
       expect((subtitleText.style as TextStyle).color, Colors.green);
-    });
-
-    testWidgets('Given numberStyle is properly used', (tester) async {
-      await tester.pumpWidget(TestUtils.buildTestableWidget(TmPercentageSlider(
-        key: key,
-        numberStyle: const TextStyle(color: Colors.amber),
-        sliderCallback: (value) {},
-      )));
-      final numberText = tester.widget<Text>(find.byKey(TmPercentageSlider.numberTextKey));
-
-      expect((numberText.style as TextStyle).color, Colors.amber);
     });
 
     testWidgets('Given iconSize is properly used on plus button', (tester) async {
@@ -182,6 +199,8 @@ void main() {
         key: key,
         iconSize: 40,
         sliderCallback: (value) {},
+        textEditingController: percentageController,
+        onChangedTextField: (value) {},
       )));
       final iconButton = tester.widget<IconButton>(find.byKey(TmPercentageSlider.plusButtonKey));
 
@@ -193,6 +212,8 @@ void main() {
         key: key,
         iconSize: 30,
         sliderCallback: (value) {},
+        textEditingController: percentageController,
+        onChangedTextField: (value) {},
       )));
       final iconButton = tester.widget<IconButton>(find.byKey(TmPercentageSlider.minusButtonKey));
 
@@ -204,6 +225,8 @@ void main() {
         key: key,
         iconColor: Colors.green,
         sliderCallback: (value) {},
+        textEditingController: percentageController,
+        onChangedTextField: (value) {},
       )));
       final iconButton = tester.widget<IconButton>(find.byKey(TmPercentageSlider.plusButtonKey));
       final container = iconButton.icon as Container;
@@ -217,6 +240,8 @@ void main() {
         key: key,
         iconColor: Colors.red,
         sliderCallback: (value) {},
+        textEditingController: percentageController,
+        onChangedTextField: (value) {},
       )));
       final iconButton = tester.widget<IconButton>(find.byKey(TmPercentageSlider.minusButtonKey));
       final container = iconButton.icon as Container;
