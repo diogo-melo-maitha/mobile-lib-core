@@ -61,6 +61,12 @@ abstract class TmFonts {
     fontFamily: 'Open Sans',
   );
 
+  static TextStyle semiBold18 = const TextStyle(
+    fontSize: 18,
+    fontWeight: FontWeight.w600,
+    fontFamily: 'Open Sans',
+  );
+
   static TextStyle semiBold20 = const TextStyle(
     fontSize: 20,
     fontWeight: FontWeight.w600,
@@ -93,6 +99,12 @@ abstract class TmFonts {
 
   static TextStyle bold18 = const TextStyle(
     fontSize: 18,
+    fontWeight: FontWeight.w700,
+    fontFamily: 'Open Sans',
+  );
+
+  static TextStyle bold20 = const TextStyle(
+    fontSize: 20,
     fontWeight: FontWeight.w700,
     fontFamily: 'Open Sans',
   );

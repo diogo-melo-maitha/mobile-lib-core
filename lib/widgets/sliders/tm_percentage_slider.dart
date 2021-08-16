@@ -148,30 +148,40 @@ class _TmPercentageSliderState extends State<TmPercentageSlider> {
                         ),
                       )),
                   Expanded(
-                    child: TextField(
-                      inputFormatters: [
-                        FilteringTextInputFormatter.allow(RegExp(r'[0-9]+|\s')),
-                      ],
-                      keyboardType: TextInputType.number,
-                      focusNode: _focus,
-                      textAlign: TextAlign.center,
-                      style: widget.numberStyle == null
-                          ? percentageFontStyle
-                          : percentageFontStyle.merge(widget.numberStyle),
-                      controller: widget.textEditingController,
-                      onChanged: (value) {
-                        if (value == '') {
-                          onChangedTextField('0');
-                        } else {
-                          onChangedTextField(value);
-                        }
-                      },
-                      decoration: const InputDecoration(
-                        enabledBorder: OutlineInputBorder(
-                          borderSide: BorderSide.none,
-                        ),
-                        focusedBorder: OutlineInputBorder(
-                          borderSide: BorderSide.none,
+                    child: Padding(
+                      padding: EdgeInsets.only(right: MediaQuery.of(context).size.width * 0.02),
+                      child: TextField(
+                        inputFormatters: [
+                          FilteringTextInputFormatter.allow(RegExp(r'[0-9]+|\s')),
+                        ],
+                        keyboardType: TextInputType.number,
+                        focusNode: _focus,
+                        textAlign: TextAlign.center,
+                        style: widget.numberStyle == null
+                            ? percentageFontStyle
+                            : percentageFontStyle.merge(widget.numberStyle),
+                        controller: widget.textEditingController,
+                        onChanged: (value) {
+                          if (value == '') {
+                            onChangedTextField('0');
+                          } else {
+                            onChangedTextField(value);
+                          }
+                        },
+                        decoration: InputDecoration(
+                          contentPadding: const EdgeInsets.only(left: 20),
+                          suffixIcon: Text(
+                              '%',
+                              style: widget.numberStyle == null
+                                  ? percentageFontStyle
+                                  : percentageFontStyle.merge(widget.numberStyle),
+                            ),
+                          enabledBorder: const OutlineInputBorder(
+                            borderSide: BorderSide.none,
+                          ),
+                          focusedBorder: const OutlineInputBorder(
+                            borderSide: BorderSide.none,
+                          ),
                         ),
                       ),
                     ),
