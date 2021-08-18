@@ -86,5 +86,33 @@ void main() {
 
       expect(text, FormatUtils.maskPostalCode(text));
     });
+
+    test('isCPFValid is properly validating cpfs', () {
+      var cpf = '21219641006';
+      expect(FormatUtils.isCPFValid(cpf), true);
+
+      cpf = '17734532493';
+      expect(FormatUtils.isCPFValid(cpf), false);
+
+      cpf = '503.100.700-15';
+      expect(FormatUtils.isCPFValid(cpf), true);
+
+      cpf = '177.345.324-93';
+      expect(FormatUtils.isCPFValid(cpf), false);
+    });
+
+    test('isCNPJValid is properly validating cnpjs', () {
+      var cnpj = '92881156000147';
+      expect(FormatUtils.isCNPJValid(cnpj), true);
+
+      cnpj = '92881156000141';
+      expect(FormatUtils.isCNPJValid(cnpj), false);
+
+      cnpj = '92.881.156/0001-47';
+      expect(FormatUtils.isCNPJValid(cnpj), true);
+
+      cnpj = '92.881.156/0001-41';
+      expect(FormatUtils.isCNPJValid(cnpj), false);
+    });
   });
 }
