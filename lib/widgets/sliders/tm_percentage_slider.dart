@@ -33,6 +33,8 @@ class TmPercentageSlider extends StatefulWidget {
   final Color iconColor;
   final TextEditingController textEditingController;
   final OnChangeTextField onChangedTextField;
+  final double leftPadding;
+  final double rightPadding;
 
   const TmPercentageSlider({
     Key? key,
@@ -51,6 +53,8 @@ class TmPercentageSlider extends StatefulWidget {
     required this.sliderCallback,
     required this.textEditingController,
     required this.onChangedTextField,
+    this.leftPadding = 26,
+    this.rightPadding = 26,
   }) : super(key: key);
 
   @override
@@ -115,9 +119,9 @@ class _TmPercentageSliderState extends State<TmPercentageSlider> {
   Widget build(BuildContext context) {
     return Padding(
       key: TmPercentageSlider.widgetPaddingKey,
-      padding: const EdgeInsets.only(
-        left: 26,
-        right: 26,
+      padding: EdgeInsets.only(
+        left: widget.leftPadding,
+        right: widget.rightPadding,
       ),
       child: SizedBox(
         width: 323,
@@ -168,18 +172,11 @@ class _TmPercentageSliderState extends State<TmPercentageSlider> {
                             onChangedTextField(value);
                           }
                         },
-                        decoration: InputDecoration(
-                          contentPadding: const EdgeInsets.only(left: 20),
-                          suffixIcon: Text(
-                              '%',
-                              style: widget.numberStyle == null
-                                  ? percentageFontStyle
-                                  : percentageFontStyle.merge(widget.numberStyle),
-                            ),
-                          enabledBorder: const OutlineInputBorder(
+                        decoration: const InputDecoration(
+                          enabledBorder: OutlineInputBorder(
                             borderSide: BorderSide.none,
                           ),
-                          focusedBorder: const OutlineInputBorder(
+                          focusedBorder: OutlineInputBorder(
                             borderSide: BorderSide.none,
                           ),
                         ),

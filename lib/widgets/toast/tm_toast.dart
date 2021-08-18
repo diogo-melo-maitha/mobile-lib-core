@@ -7,7 +7,7 @@ import '../../configuration/tm_colors.dart';
 import '../../configuration/tm_fonts.dart';
 
 class TmToast {
-  static void showSuccess({required String title, required BuildContext context}) {
+  static void showSuccess({required String title, required BuildContext context, VoidCallback? onTap}) {
     _buildFlushBar(
       icon: const FaIcon(
         FontAwesomeIcons.checkCircle,
@@ -17,10 +17,11 @@ class TmToast {
       title: title,
       backgroundColor: TmColors.success,
       textColor: TmColors.white,
+      onTap: onTap,
     ).show(context);
   }
 
-  static void showError({required String title, required BuildContext context}) {
+  static void showError({required String title, required BuildContext context, VoidCallback? onTap}) {
     _buildFlushBar(
       icon: const FaIcon(
         FontAwesomeIcons.timesCircle,
@@ -30,10 +31,11 @@ class TmToast {
       title: title,
       backgroundColor: TmColors.error,
       textColor: TmColors.white,
+      onTap: onTap,
     ).show(context);
   }
 
-  static void showWarning({required String title, required BuildContext context}) {
+  static void showWarning({required String title, required BuildContext context, VoidCallback? onTap}) {
     _buildFlushBar(
       icon: SvgPicture.asset(
         'assets/images/exclamation_outlined.svg',
@@ -43,10 +45,11 @@ class TmToast {
       title: title,
       backgroundColor: const Color(0xffFFDE84),
       textColor: const Color(0xff0B5964),
+      onTap: onTap,
     ).show(context);
   }
 
-  static void showNeutral({required String title, required BuildContext context}) {
+  static void showNeutral({required String title, required BuildContext context, VoidCallback? onTap}) {
     _buildFlushBar(
       icon: const Icon(
         Icons.info_outline,
@@ -56,6 +59,7 @@ class TmToast {
       title: title,
       backgroundColor: TmColors.disabledText,
       textColor: TmColors.white,
+      onTap: onTap,
     ).show(context);
   }
 
@@ -65,6 +69,7 @@ class TmToast {
     required BuildContext context,
     required String title,
     required Color backgroundColor,
+    VoidCallback? onTap,
   }) {
     return Flushbar(
       messageText: Padding(
@@ -90,6 +95,9 @@ class TmToast {
       ),
       onTap: (flushbar) {
         Navigator.pop(context);
+        if (onTap != null) {
+          onTap();
+        }
       },
       margin: const EdgeInsets.symmetric(horizontal: 10),
       padding: const EdgeInsets.all(10),
