@@ -39,7 +39,7 @@ class TmDropdownButton extends StatefulWidget {
 class _TmDropdownButtonState extends State<TmDropdownButton> {
   TextStyle dropDownTextStyle = TmFonts.regular16.merge(const TextStyle(color: Color(0xff383A3C)));
   TextEditingController dropdownController = TextEditingController();
-  late String value = widget.list[widget.initialValueIndex];
+  late String? hint = widget.label;
 
   @override
   Widget build(BuildContext context) {
@@ -47,6 +47,7 @@ class _TmDropdownButtonState extends State<TmDropdownButton> {
     return Stack(
       children: [
         TmDefaultTextField(
+          enabled: false,
           horizontalSymmetricPadding: widget.horizontalSymmetricPadding,
           label: widget.label,
           borderColor: widget.borderColor,
@@ -60,33 +61,36 @@ class _TmDropdownButtonState extends State<TmDropdownButton> {
             height: 60,
             width: double.infinity,
             child: DropdownButtonHideUnderline(
-              child: DropdownButton<String>(
-                menuMaxHeight: widget.menuMaxHeight,
-                isExpanded: true,
-                isDense: true,
-                icon: const Padding(
-                  padding: EdgeInsets.symmetric(horizontal: 20),
-                  child: Icon(Icons.keyboard_arrow_down),
+              child: ButtonTheme(
+                alignedDropdown: true,
+                child: DropdownButton<String>(
+                  menuMaxHeight: widget.menuMaxHeight,
+                  isExpanded: true,
+                  isDense: true,
+                  icon: const Padding(
+                    padding: EdgeInsets.symmetric(horizontal: 10),
+                    child: Icon(Icons.keyboard_arrow_down),
+                  ),
+                  iconDisabledColor: widget.borderColor,
+                  iconEnabledColor: widget.borderColor,
+                  style: widget.textStyle != null ? TmFonts.regular16.merge(widget.textStyle) : dropDownTextStyle,
+                  hint: Text(hint ?? ''),
+                  onChanged: (value) {
+                    widget.onChanged(value!);
+                    return setState(() {
+                      hint = value;
+                    });
+                  },
+                  items: widget.list.map((valueItem) {
+                    return DropdownMenuItem<String>(
+                      value: valueItem,
+                      child: Padding(
+                        padding: const EdgeInsets.only(left: 20),
+                        child: Text(valueItem),
+                      ),
+                    );
+                  }).toList(),
                 ),
-                iconDisabledColor: widget.borderColor,
-                iconEnabledColor: widget.borderColor,
-                style: widget.textStyle != null ? TmFonts.regular16.merge(widget.textStyle) : dropDownTextStyle,
-                value: value,
-                onChanged: (value) {
-                  widget.onChanged(value!);
-                  return setState(() {
-                    this.value = value;
-                  });
-                },
-                items: widget.list.map((valueItem) {
-                  return DropdownMenuItem<String>(
-                    value: valueItem,
-                    child: Padding(
-                      padding: const EdgeInsets.only(left: 20),
-                      child: Text(valueItem),
-                    ),
-                  );
-                }).toList(),
               ),
             ),
           ),

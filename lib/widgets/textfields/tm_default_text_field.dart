@@ -46,7 +46,7 @@ class TmDefaultTextField extends StatefulWidget {
     this.radius = 5,
     this.horizontalSymmetricPadding = 20,
     this.borderColor = TmColors.disabled,
-    this.focusedBorderColor = TmColors.primary,
+    this.focusedBorderColor = TmColors.disabled,
     this.autoFocus = false,
     this.obscure = false,
     this.enabled = true,
@@ -71,6 +71,8 @@ class _TmDefaultTextFieldState extends State<TmDefaultTextField> {
   final TextStyle labelTextStyle = TmFonts.regular16.merge(const TextStyle(color: TmColors.primary));
   late TextStyle? mLabelStyle =
       widget.labelStyle ?? TmFonts.regular16.merge(const TextStyle(color: TmColors.textOnSurface));
+  Color? mFocusedBorderColor;
+  Color? mBorderColor;
 
   String? mErrorText;
   late TextEditingController mTextEditingController = widget.textEditingController ?? TextEditingController();
@@ -91,7 +93,7 @@ class _TmDefaultTextFieldState extends State<TmDefaultTextField> {
             keyboardType: widget.keyboardType,
             controller: mTextEditingController,
             inputFormatters: widget.inputFormatters,
-            onChanged: widget.onChanged,
+            onChanged: onChanged,
             onSubmitted: widget.onSubmitted,
             autofocus: widget.autoFocus,
             obscureText: widget.obscure,
@@ -101,14 +103,15 @@ class _TmDefaultTextFieldState extends State<TmDefaultTextField> {
               enabledBorder: OutlineInputBorder(
                 borderRadius: BorderRadius.circular(widget.radius),
                 borderSide: BorderSide(
-                  color: widget.borderColor,
-                  width: widget.borderSize,
+                  color: mTextEditingController.text.isNotEmpty ? TmColors.primary : widget.borderColor,
+                  //mBorderColor ?? widget.borderColor,
+                  width: mTextEditingController.text.isNotEmpty ? 2 : widget.borderSize,
                 ),
               ),
               focusedBorder: OutlineInputBorder(
                 borderRadius: BorderRadius.circular(widget.radius),
                 borderSide: BorderSide(
-                  color: widget.focusedBorderColor,
+                  color: mTextEditingController.text.isNotEmpty ? TmColors.primary : widget.focusedBorderColor,
                   width: widget.focusedBorderSize,
                 ),
               ),
@@ -140,6 +143,21 @@ class _TmDefaultTextFieldState extends State<TmDefaultTextField> {
         ],
       ),
     );
+  }
+
+  void onChanged(String value){
+    configureFocusedBorderColor();
+    widget.onChanged!(value);
+  }
+
+  void configureFocusedBorderColor() {
+    setState(() {
+      if (mTextEditingController.text.isNotEmpty) {
+         mFocusedBorderColor = TmColors.primary;
+      } else {
+        mFocusedBorderColor = widget.focusedBorderColor;
+      }
+    });
   }
 
   void configureFocusNode() {

@@ -17,13 +17,13 @@ class TmDesignBottomLinesLogoSecondary extends StatelessWidget {
             width: double.infinity,
           ),
           Padding(
-            padding: const EdgeInsets.only(bottom: 16),
+            padding: const EdgeInsets.only(bottom: 25),
             child: Align(
               alignment: Alignment.bottomCenter,
               child: Image.asset(
                 'assets/images/logo-trademaster.png',
                 height: 22,
-                width: 132,
+                width: 123,
               ),
             ),
           )

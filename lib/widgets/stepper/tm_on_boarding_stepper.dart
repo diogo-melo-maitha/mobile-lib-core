@@ -39,10 +39,13 @@ class TmOnBoardingStepper extends StatelessWidget {
             mainAxisAlignment: MainAxisAlignment.spaceBetween,
             children: [
               Text('EMPRESA', key: firstTextKey, style: filledTextStyle),
-              Text(
-                'DONO/SÓCIO',
-                key: secondTextKey,
-                style: state == 1 || state == 2 ? disabledTextStyle : filledTextStyle,
+              Padding(
+                padding: const EdgeInsets.only(right: 10),
+                child: Text(
+                  'DONO/SÓCIO',
+                  key: secondTextKey,
+                  style: state == 1 || state == 2 ? disabledTextStyle : filledTextStyle,
+                ),
               ),
               Text('SENHA', key: thirdTextKey, style: disabledTextStyle),
             ],
@@ -61,7 +64,7 @@ class TmOnBoardingStepper extends StatelessWidget {
                         ),
                         Positioned(right: 4, left: 4, bottom: 7, top: 7, child: buildBackShape(context)),
                         Positioned(
-                            width: buildFrontShape(context).constraints!.maxWidth - 20,
+                            width: buildFrontShape(context).constraints!.maxWidth - 6,
                             bottom: 7,
                             top: 7,
                             child: buildFrontShape(context)),

@@ -1,123 +1,44 @@
 import 'package:flutter/material.dart';
+import 'package:google_fonts/google_fonts.dart';
 
 abstract class TmFonts {
-  static TextStyle regular12 = const TextStyle(
-    fontSize: 12,
-    fontWeight: FontWeight.w400,
-    fontFamily: 'Open Sans',
-  );
+  static TextStyle regular12 = GoogleFonts.openSans(fontSize: 12, fontWeight: FontWeight.w400);
 
-  static TextStyle regular14 = const TextStyle(
-    fontSize: 14,
-    fontWeight: FontWeight.w400,
-    fontFamily: 'Open Sans',
-  );
+  static TextStyle regular14 = GoogleFonts.openSans(fontSize: 14, fontWeight: FontWeight.w400);
 
-  static TextStyle regular16 = const TextStyle(
-    fontSize: 16,
-    fontWeight: FontWeight.w400,
-    fontFamily: 'Open Sans',
-  );
+  static TextStyle regular16 = GoogleFonts.openSans(fontSize: 16, fontWeight: FontWeight.w400);
 
-  static TextStyle regular17 = const TextStyle(
-    fontSize: 17,
-    fontWeight: FontWeight.w400,
-    fontFamily: 'Open Sans',
-  );
+  static TextStyle regular17 = GoogleFonts.openSans(fontSize: 17, fontWeight: FontWeight.w400);
 
-  static TextStyle regular18 = const TextStyle(
-    fontSize: 18,
-    fontWeight: FontWeight.w400,
-    fontFamily: 'Open Sans',
-  );
+  static TextStyle regular18 = GoogleFonts.openSans(fontSize: 18, fontWeight: FontWeight.w400);
 
-  static TextStyle regular32 = const TextStyle(
-    fontSize: 32,
-    fontWeight: FontWeight.w400,
-    fontFamily: 'Open Sans',
-  );
+  static TextStyle regular32 = GoogleFonts.openSans(fontSize: 32, fontWeight: FontWeight.w400);
 
-  static TextStyle regular48 = const TextStyle(
-    fontSize: 48,
-    fontWeight: FontWeight.w400,
-    fontFamily: 'Open Sans',
-  );
+  static TextStyle regular48 = GoogleFonts.openSans(fontSize: 48, fontWeight: FontWeight.w400);
 
-  static TextStyle semiBold12 = const TextStyle(
-    fontSize: 12,
-    fontWeight: FontWeight.w600,
-    fontFamily: 'Open Sans',
-  );
+  static TextStyle semiBold12 = GoogleFonts.openSans(fontSize: 12, fontWeight: FontWeight.w600);
 
-  static TextStyle semiBold16 = const TextStyle(
-    fontSize: 16,
-    fontWeight: FontWeight.w600,
-    fontFamily: 'Open Sans',
-  );
+  static TextStyle semiBold16 = GoogleFonts.openSans(fontSize: 16, fontWeight: FontWeight.w600);
 
-  static TextStyle semiBold17 = const TextStyle(
-    fontSize: 17,
-    fontWeight: FontWeight.w600,
-    fontFamily: 'Open Sans',
-  );
+  static TextStyle semiBold17 = GoogleFonts.openSans(fontSize: 17, fontWeight: FontWeight.w600);
 
-  static TextStyle semiBold18 = const TextStyle(
-    fontSize: 18,
-    fontWeight: FontWeight.w600,
-    fontFamily: 'Open Sans',
-  );
+  static TextStyle semiBold18 = GoogleFonts.openSans(fontSize: 18, fontWeight: FontWeight.w600);
 
-  static TextStyle semiBold20 = const TextStyle(
-    fontSize: 20,
-    fontWeight: FontWeight.w600,
-    fontFamily: 'Open Sans',
-  );
+  static TextStyle semiBold20 = GoogleFonts.openSans(fontSize: 20, fontWeight: FontWeight.w600);
 
-  static TextStyle semiBold24 = const TextStyle(
-    fontSize: 24,
-    fontWeight: FontWeight.w600,
-    fontFamily: 'Open Sans',
-  );
+  static TextStyle semiBold24 = GoogleFonts.openSans(fontSize: 24, fontWeight: FontWeight.w600);
 
-  static TextStyle bold12 = const TextStyle(
-    fontSize: 12,
-    fontWeight: FontWeight.w700,
-    fontFamily: 'Open Sans',
-  );
+  static TextStyle bold12 = GoogleFonts.openSans(fontSize: 12, fontWeight: FontWeight.w700);
 
-  static TextStyle bold13 = const TextStyle(
-    fontSize: 13,
-    fontWeight: FontWeight.w700,
-    fontFamily: 'Open Sans',
-  );
+  static TextStyle bold13 = GoogleFonts.openSans(fontSize: 13, fontWeight: FontWeight.w700);
 
-  static TextStyle bold14 = const TextStyle(
-    fontSize: 14,
-    fontWeight: FontWeight.w700,
-    fontFamily: 'Open Sans',
-  );
+  static TextStyle bold14 = GoogleFonts.openSans(fontSize: 14, fontWeight: FontWeight.w700);
 
-  static TextStyle bold16 = const TextStyle(
-    fontSize: 16,
-    fontWeight: FontWeight.w700,
-    fontFamily: 'Open Sans',
-  );
+  static TextStyle bold16 = GoogleFonts.openSans(fontSize: 16, fontWeight: FontWeight.w700);
 
-  static TextStyle bold17 = const TextStyle(
-    fontSize: 17,
-    fontWeight: FontWeight.w700,
-    fontFamily: 'Open Sans',
-  );
+  static TextStyle bold17 = GoogleFonts.openSans(fontSize: 17, fontWeight: FontWeight.w700);
 
-  static TextStyle bold18 = const TextStyle(
-    fontSize: 18,
-    fontWeight: FontWeight.w700,
-    fontFamily: 'Open Sans',
-  );
+  static TextStyle bold18 = GoogleFonts.openSans(fontSize: 18, fontWeight: FontWeight.w700);
 
-  static TextStyle bold20 = const TextStyle(
-    fontSize: 20,
-    fontWeight: FontWeight.w700,
-    fontFamily: 'Open Sans',
-  );
+  static TextStyle bold20 = GoogleFonts.openSans(fontSize: 20, fontWeight: FontWeight.w700);
 }
