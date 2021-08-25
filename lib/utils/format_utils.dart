@@ -33,7 +33,7 @@ class FormatUtils {
 
   static String removeSpecialCharacters(String text) {
     final RegExp regex = RegExp(r'[^\s\w]');
-    return text.replaceAll(regex, '');
+    return text.replaceAll(regex, '').replaceAll(' ', '');
   }
 
   static String maskDocument(String document) {

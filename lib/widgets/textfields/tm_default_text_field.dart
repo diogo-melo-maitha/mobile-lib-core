@@ -1,4 +1,5 @@
 import 'package:flutter/cupertino.dart';
+import 'package:flutter/gestures.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 
@@ -33,6 +34,11 @@ class TmDefaultTextField extends StatefulWidget {
   final List<TextInputFormatter>? inputFormatters;
   final String? errorText;
   final TextInputAction textInputAction;
+  final Function()? onErrorClick;
+  final TextDecoration? textDecoration;
+  final bool? showError;
+  final String? clickableError;
+  final VoidCallback? onTap;
 
   const TmDefaultTextField({
     Key? key,
@@ -59,6 +65,11 @@ class TmDefaultTextField extends StatefulWidget {
     this.inputFormatters,
     this.errorText,
     this.textInputAction = TextInputAction.done,
+    this.onErrorClick,
+    this.textDecoration,
+    this.showError,
+    this.clickableError,
+    this.onTap,
   }) : super(key: key);
 
   @override
@@ -69,25 +80,29 @@ class _TmDefaultTextFieldState extends State<TmDefaultTextField> {
   final FocusNode _focus = FocusNode();
   final TextStyle inputTextStyle = TmFonts.regular16.merge(const TextStyle(color: TmColors.inputText));
   final TextStyle labelTextStyle = TmFonts.regular16.merge(const TextStyle(color: TmColors.primary));
+  final TextStyle errorStyle = TmFonts.regular12.merge(const TextStyle(color: TmColors.error));
   late TextStyle? mLabelStyle =
       widget.labelStyle ?? TmFonts.regular16.merge(const TextStyle(color: TmColors.textOnSurface));
   Color? mFocusedBorderColor;
   Color? mBorderColor;
 
+  String? errorText;
   String? mErrorText;
+
   late TextEditingController mTextEditingController = widget.textEditingController ?? TextEditingController();
 
   @override
   Widget build(BuildContext context) {
+    configureShowError();
     configureFocusNode();
-
     return Padding(
       padding: EdgeInsets.symmetric(horizontal: widget.horizontalSymmetricPadding),
-      child: Column(
-        mainAxisAlignment: MainAxisAlignment.center,
+      child: Stack(
+        overflow: Overflow.visible,
         children: [
           TextField(
             textInputAction: widget.textInputAction,
+            onTap: widget.onTap,
             cursorColor: widget.cursorColor,
             focusNode: widget.focusNode ?? _focus,
             keyboardType: widget.keyboardType,
@@ -100,11 +115,11 @@ class _TmDefaultTextFieldState extends State<TmDefaultTextField> {
             enabled: widget.enabled,
             style: widget.inputStyle == null ? inputTextStyle : inputTextStyle.merge(widget.inputStyle),
             decoration: InputDecoration(
+              errorText: mErrorText != null ? '' : null,
               enabledBorder: OutlineInputBorder(
                 borderRadius: BorderRadius.circular(widget.radius),
                 borderSide: BorderSide(
                   color: mTextEditingController.text.isNotEmpty ? TmColors.primary : widget.borderColor,
-                  //mBorderColor ?? widget.borderColor,
                   width: mTextEditingController.text.isNotEmpty ? 2 : widget.borderSize,
                 ),
               ),
@@ -124,7 +139,6 @@ class _TmDefaultTextFieldState extends State<TmDefaultTextField> {
               ),
               labelStyle: mLabelStyle,
               labelText: widget.label,
-              errorText: mErrorText,
               focusedErrorBorder: OutlineInputBorder(
                 borderRadius: BorderRadius.circular(widget.radius),
                 borderSide: const BorderSide(
@@ -140,12 +154,36 @@ class _TmDefaultTextFieldState extends State<TmDefaultTextField> {
               suffixIcon: widget.widget,
             ),
           ),
+          if (mErrorText != null)
+            Positioned(
+              top: 63,
+              left: -2,
+              child: Container(
+                alignment: Alignment.centerLeft,
+                margin: const EdgeInsets.only(left: 12, top: 4),
+                child: RichText(
+                  text: TextSpan(
+                    text: mErrorText != null ? mErrorText! : '',
+                    style: errorStyle,
+                    children: <TextSpan>[
+                      TextSpan(
+                        text: widget.clickableError,
+                        style: errorStyle.merge(const TextStyle(decoration: TextDecoration.underline)),
+                        recognizer: TapGestureRecognizer()..onTap = widget.onErrorClick,
+                      ),
+                    ],
+                  ),
+                ),
+              ),
+            )
+          else
+            Container()
         ],
       ),
     );
   }
 
-  void onChanged(String value){
+  void onChanged(String value) {
     configureFocusedBorderColor();
     widget.onChanged!(value);
   }
@@ -153,7 +191,7 @@ class _TmDefaultTextFieldState extends State<TmDefaultTextField> {
   void configureFocusedBorderColor() {
     setState(() {
       if (mTextEditingController.text.isNotEmpty) {
-         mFocusedBorderColor = TmColors.primary;
+        mFocusedBorderColor = TmColors.primary;
       } else {
         mFocusedBorderColor = widget.focusedBorderColor;
       }
@@ -161,21 +199,43 @@ class _TmDefaultTextFieldState extends State<TmDefaultTextField> {
   }
 
   void configureFocusNode() {
-    _focus.addListener(() {
-      setState(() {
-        if (!_focus.hasFocus) {
-          if (widget.isTextValid != null && !widget.isTextValid!(mTextEditingController.text)) {
-            mErrorText = widget.errorText;
-            mLabelStyle = labelTextStyle.merge(const TextStyle(color: TmColors.error));
-          } else if (mTextEditingController.text.isEmpty) {
-            mErrorText = null;
-            mLabelStyle = TmFonts.regular16.merge(const TextStyle(color: TmColors.textOnSurface));
-          }
-        } else {
+    _focus.addListener(() => onFocusInput(false));
+    widget.focusNode?.addListener(() => onFocusInput(true));
+  }
+
+  void onFocusInput(bool useWidgetFocus) {
+    setState(() {
+      if ((!useWidgetFocus && !_focus.hasFocus) ||
+          (useWidgetFocus && widget.focusNode != null && !widget.focusNode!.hasFocus)) {
+        if (widget.isTextValid != null && !widget.isTextValid!(mTextEditingController.text)) {
+          mErrorText = widget.errorText;
+          mLabelStyle = labelTextStyle.merge(const TextStyle(color: TmColors.error));
+        } else if (mTextEditingController.text.isEmpty) {
           mErrorText = null;
-          mLabelStyle = labelTextStyle;
+          mLabelStyle = TmFonts.regular16.merge(const TextStyle(color: TmColors.textOnSurface));
         }
-      });
+      } else {
+        mErrorText = null;
+        mLabelStyle = labelTextStyle;
+      }
     });
+  }
+
+  void configureShowError() {
+    if (mErrorText != null) {
+      errorText = '';
+      mErrorText = widget.errorText;
+      mLabelStyle = labelTextStyle.merge(const TextStyle(color: TmColors.error));
+    } else if (widget.showError == false) {
+      errorText = null;
+      mErrorText = null;
+      _focus.hasFocus
+          ? mLabelStyle = labelTextStyle
+          : TmFonts.regular16.merge(const TextStyle(color: TmColors.textOnSurface));
+    } else if (widget.showError == true) {
+      errorText = '';
+      mErrorText = widget.errorText;
+      mLabelStyle = labelTextStyle.merge(const TextStyle(color: TmColors.error));
+    }
   }
 }
