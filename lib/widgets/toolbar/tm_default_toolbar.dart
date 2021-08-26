@@ -50,7 +50,7 @@ class TmDefaultToolbar extends StatelessWidget {
               ],
             ),
             Center(child: Padding(
-              padding: const EdgeInsets.only(top: 13),
+              padding: const EdgeInsets.only(top: 16),
               child: centerWidget,
             )),
           ],

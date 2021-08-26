@@ -74,7 +74,7 @@ class _TmPercentageSliderState extends State<TmPercentageSlider> {
   void initState() {
     super.initState();
     sliderValue = widget.initialValue.round();
-    widget.textEditingController.text = widget.initialValue.round().toString();
+    widget.textEditingController.text = '${widget.initialValue.round().toString()}%';
   }
 
   void onPressedMinus() {
@@ -82,6 +82,7 @@ class _TmPercentageSliderState extends State<TmPercentageSlider> {
       sliderValue >= 25 ? sliderValue = sliderValue - 25 : sliderValue = 0;
     });
     widget.sliderCallback(sliderValue.roundToDouble());
+    includePercentage();
   }
 
   void onPressedPlus() {
@@ -89,6 +90,7 @@ class _TmPercentageSliderState extends State<TmPercentageSlider> {
       sliderValue <= 75 ? sliderValue = sliderValue + 25 : sliderValue = 100;
     });
     widget.sliderCallback(sliderValue.roundToDouble());
+    includePercentage();
   }
 
   void onChanged(double value) {
@@ -96,6 +98,7 @@ class _TmPercentageSliderState extends State<TmPercentageSlider> {
       sliderValue = value.round();
     });
     widget.sliderCallback(sliderValue.roundToDouble());
+    includePercentage();
   }
 
   void onChangedTextField(String? value) {
@@ -117,6 +120,7 @@ class _TmPercentageSliderState extends State<TmPercentageSlider> {
 
   @override
   Widget build(BuildContext context) {
+    unfocusedPercentage();
     return Padding(
       key: TmPercentageSlider.widgetPaddingKey,
       padding: EdgeInsets.only(
@@ -156,8 +160,9 @@ class _TmPercentageSliderState extends State<TmPercentageSlider> {
                       padding: EdgeInsets.only(right: MediaQuery.of(context).size.width * 0.02),
                       child: TextField(
                         inputFormatters: [
-                          FilteringTextInputFormatter.allow(RegExp(r'[0-9]+|\s')),
+                          FilteringTextInputFormatter.allow(RegExp(r'\d')),
                         ],
+                        onTap: (){widget.textEditingController.text = '${sliderValue.round()}';},
                         keyboardType: TextInputType.number,
                         focusNode: _focus,
                         textAlign: TextAlign.center,
@@ -296,5 +301,17 @@ class _TmPercentageSliderState extends State<TmPercentageSlider> {
         ),
       ),
     );
+  }
+
+  void unfocusedPercentage(){
+    _focus.addListener(() {
+      if (!_focus.hasFocus){
+        includePercentage();
+      }
+    });
+  }
+
+  void includePercentage(){
+    widget.textEditingController.text = '${sliderValue.round()}%';
   }
 }

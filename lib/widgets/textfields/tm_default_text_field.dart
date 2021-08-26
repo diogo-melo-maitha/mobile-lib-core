@@ -34,6 +34,7 @@ class TmDefaultTextField extends StatefulWidget {
   final List<TextInputFormatter>? inputFormatters;
   final String? errorText;
   final TextInputAction textInputAction;
+  final TextCapitalization? textCapitalization;
   final Function()? onErrorClick;
   final TextDecoration? textDecoration;
   final bool? showError;
@@ -65,6 +66,7 @@ class TmDefaultTextField extends StatefulWidget {
     this.inputFormatters,
     this.errorText,
     this.textInputAction = TextInputAction.done,
+    this.textCapitalization,
     this.onErrorClick,
     this.textDecoration,
     this.showError,
@@ -98,10 +100,11 @@ class _TmDefaultTextFieldState extends State<TmDefaultTextField> {
     return Padding(
       padding: EdgeInsets.symmetric(horizontal: widget.horizontalSymmetricPadding),
       child: Stack(
-        overflow: Overflow.visible,
+        clipBehavior: Clip.none,
         children: [
           TextField(
             textInputAction: widget.textInputAction,
+            textCapitalization: widget.textCapitalization ?? TextCapitalization.none,
             onTap: widget.onTap,
             cursorColor: widget.cursorColor,
             focusNode: widget.focusNode ?? _focus,
@@ -113,7 +116,11 @@ class _TmDefaultTextFieldState extends State<TmDefaultTextField> {
             autofocus: widget.autoFocus,
             obscureText: widget.obscure,
             enabled: widget.enabled,
-            style: widget.inputStyle == null ? inputTextStyle : inputTextStyle.merge(widget.inputStyle),
+            style: widget.enabled == false
+                ? inputTextStyle.merge(const TextStyle(color: TmColors.textOnSurface))
+                : widget.inputStyle == null
+                    ? inputTextStyle
+                    : inputTextStyle.merge(widget.inputStyle),
             decoration: InputDecoration(
               errorText: mErrorText != null ? '' : null,
               enabledBorder: OutlineInputBorder(
