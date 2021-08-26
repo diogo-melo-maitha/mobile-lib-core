@@ -24,10 +24,9 @@ class TmDefaultToolbar extends StatelessWidget {
     return Container(
       width: double.infinity,
       child: Padding(
-        padding: const EdgeInsets.only(
-          top: 6,
-          bottom: 16,
-          left: 14,
+        padding: EdgeInsets.only(
+          top: MediaQuery.of(context).size.height * 0.0607,
+          left: 7,
         ),
         child: Stack(
           children: [
@@ -50,7 +49,7 @@ class TmDefaultToolbar extends StatelessWidget {
               ],
             ),
             Center(child: Padding(
-              padding: const EdgeInsets.only(top: 16),
+              padding: const EdgeInsets.only(top: 15),
               child: centerWidget,
             )),
           ],

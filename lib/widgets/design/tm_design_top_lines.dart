@@ -1,18 +1,53 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_modular/flutter_modular.dart';
 import 'package:flutter_svg/svg.dart';
 
+import '../toolbar/tm_default_toolbar.dart';
+
 class TmDesignTopLines extends StatelessWidget {
-  const TmDesignTopLines({Key? key}) : super(key: key);
+  final double iconSize;
+  final VoidCallback? onPressed;
+  final Widget centerWidget;
+  final Widget rightWidget;
+  final bool light;
+  final bool toolbar;
+
+  const TmDesignTopLines({
+    Key? key,
+    this.onPressed,
+    this.iconSize = 38,
+    this.centerWidget = const Text(''),
+    this.rightWidget = const Text(''),
+    required this.light,
+    required this.toolbar,
+  }) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
-    return SvgPicture.asset(
-      'assets/images/line_top.svg',
-      package: 'tm_lib_core',
-      alignment: Alignment.topRight,
-      width: MediaQuery.of(context).size.width,
+    return Stack(
+      children: [
+        if (light)
+          SvgPicture.asset(
+            'assets/images/line_top_lighter.svg',
+            package: 'tm_lib_core',
+            alignment: Alignment.topRight,
+            width: MediaQuery.of(context).size.width,
+          ),
+        if (!light)
+          SvgPicture.asset(
+            'assets/images/line_top.svg',
+            package: 'tm_lib_core',
+            alignment: Alignment.topRight,
+            width: MediaQuery.of(context).size.width,
+          ),
+        if(toolbar)
+        TmDefaultToolbar(
+          centerWidget: centerWidget,
+          onPressed: onPressed ?? Modular.to.pop,
+          iconSize: iconSize,
+          rightWidget: rightWidget,
+        ),
+      ],
     );
   }
 }
-
-
