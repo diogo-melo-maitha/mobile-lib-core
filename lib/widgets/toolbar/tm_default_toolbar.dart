@@ -25,7 +25,7 @@ class TmDefaultToolbar extends StatelessWidget {
       width: double.infinity,
       child: Padding(
         padding: EdgeInsets.only(
-          top: MediaQuery.of(context).size.height * 0.0607,
+          top: MediaQuery.of(context).size.height * 0.0602,
           left: 7,
         ),
         child: Stack(

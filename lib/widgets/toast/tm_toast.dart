@@ -76,15 +76,19 @@ class TmToast {
         padding: const EdgeInsets.symmetric(vertical: 8, horizontal: 8),
         child: Row(
           children: [
-            Text(
-              title,
-              style: TmFonts.semiBold12.merge(TextStyle(color: textColor)),
+            Expanded(
+              child: Text(
+                title,
+                style: TmFonts.semiBold12.merge(TextStyle(color: textColor)),
+              ),
             ),
-            const Spacer(),
-            FaIcon(
-              FontAwesomeIcons.times,
-              color: TmColors.white.withAlpha(60),
-              size: 18,
+            Padding(
+              padding: const EdgeInsets.only(left: 10),
+              child: FaIcon(
+                FontAwesomeIcons.times,
+                color: TmColors.white.withAlpha(60),
+                size: 18,
+              ),
             ),
           ],
         ),

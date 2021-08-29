@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import '../design/tm_scaffold.dart';
 
 class TmLayoutColumn extends StatelessWidget {
   final List<Widget> children;
@@ -9,7 +10,7 @@ class TmLayoutColumn extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return Scaffold(
+    return TmScaffold(
       body: SingleChildScrollView(
         child: ConstrainedBox(
           constraints: BoxConstraints(
