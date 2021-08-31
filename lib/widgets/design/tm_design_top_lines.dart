@@ -11,6 +11,7 @@ class TmDesignTopLines extends StatelessWidget {
   final Widget rightWidget;
   final bool light;
   final bool toolbar;
+  final bool haveButton;
 
   const TmDesignTopLines({
     Key? key,
@@ -20,6 +21,7 @@ class TmDesignTopLines extends StatelessWidget {
     this.rightWidget = const Text(''),
     required this.light,
     required this.toolbar,
+    this.haveButton = true,
   }) : super(key: key);
 
   @override
@@ -42,6 +44,7 @@ class TmDesignTopLines extends StatelessWidget {
           ),
         if(toolbar)
         TmDefaultToolbar(
+          haveButton: haveButton,
           centerWidget: centerWidget,
           onPressed: onPressed ?? Modular.to.pop,
           iconSize: iconSize,

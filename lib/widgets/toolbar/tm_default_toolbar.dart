@@ -10,6 +10,7 @@ class TmDefaultToolbar extends StatelessWidget {
   final VoidCallback? onPressed;
   final Widget centerWidget;
   final Widget rightWidget;
+  final bool haveButton;
 
   const TmDefaultToolbar({
     Key? key,
@@ -17,6 +18,7 @@ class TmDefaultToolbar extends StatelessWidget {
     this.iconSize = 38,
     this.centerWidget = const Text(''),
     this.rightWidget = const Text(''),
+    this.haveButton = true,
   }) : super(key: key);
 
   @override
@@ -33,22 +35,25 @@ class TmDefaultToolbar extends StatelessWidget {
             Row(
               mainAxisAlignment: MainAxisAlignment.spaceBetween,
               children: [
-                IconButton(
-                  key: TmDefaultToolbar.popButtonKey,
-                  splashRadius: 0.1,
-                  iconSize: iconSize,
-                  onPressed: onPressed ?? Modular.to.pop,
-                  icon: SvgPicture.asset(
-                    'assets/images/left_chevron.svg',
-                    package: 'tm_lib_core',
-                    width: iconSize,
-                    height: iconSize,
+                if (haveButton)
+                  IconButton(
+                    key: TmDefaultToolbar.popButtonKey,
+                    splashRadius: 0.1,
+                    iconSize: iconSize,
+                    onPressed: onPressed ?? Modular.to.pop,
+                    icon: SvgPicture.asset(
+                      'assets/images/left_chevron.svg',
+                      package: 'tm_lib_core',
+                      width: iconSize,
+                      height: iconSize,
+                    ),
                   ),
-                ),
+                if (!haveButton) const Spacer(),
                 rightWidget,
               ],
             ),
-            Center(child: Padding(
+            Center(
+                child: Padding(
               padding: const EdgeInsets.only(top: 15),
               child: centerWidget,
             )),
