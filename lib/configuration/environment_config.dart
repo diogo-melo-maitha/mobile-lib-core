@@ -1,6 +1,6 @@
 import 'package:flutter/foundation.dart';
 
-enum Environment { DEV, PROD }
+enum Environment { DEV, PROD, HML }
 
 class EnvironmentConfig {
   final Environment? environment;
@@ -24,4 +24,6 @@ class EnvironmentConfig {
   static bool isProd() => _instance?.environment == Environment.PROD;
 
   static bool isDev() => _instance?.environment == Environment.DEV;
+
+  static bool isHml() => _instance?.environment == Environment.HML;
 }
