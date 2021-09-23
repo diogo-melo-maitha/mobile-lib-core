@@ -40,6 +40,7 @@ class TmDefaultTextField extends StatefulWidget {
   final bool? showError;
   final String? clickableError;
   final VoidCallback? onTap;
+  final int? maxLength;
   final int? maxLines;
   final int? minLines;
   final double errorTopPadding;
@@ -60,7 +61,7 @@ class TmDefaultTextField extends StatefulWidget {
     this.autoFocus = false,
     this.obscure = false,
     this.enabled = true,
-    this.widget,
+    this.widget = const Text(''),
     this.inputStyle,
     this.cursorColor = TmColors.primary,
     this.focusNode,
@@ -75,6 +76,7 @@ class TmDefaultTextField extends StatefulWidget {
     this.showError,
     this.clickableError,
     this.onTap,
+    this.maxLength,
     this.maxLines = 1,
     this.minLines,
     this.errorTopPadding = 4,
@@ -97,10 +99,13 @@ class _TmDefaultTextFieldState extends State<TmDefaultTextField> {
   String? errorText;
   String? mErrorText;
 
+  int? mMaxLength;
+
   late TextEditingController mTextEditingController = widget.textEditingController ?? TextEditingController();
 
   @override
   Widget build(BuildContext context) {
+    configureMaxLength();
     configureShowError();
     configureFocusNode();
     return Padding(
@@ -124,6 +129,7 @@ class _TmDefaultTextFieldState extends State<TmDefaultTextField> {
             autofocus: widget.autoFocus,
             obscureText: widget.obscure,
             enabled: widget.enabled,
+            maxLength: mMaxLength,
             style: widget.enabled == false
                 ? inputTextStyle.merge(const TextStyle(color: TmColors.textOnSurface))
                 : widget.inputStyle == null
@@ -131,6 +137,7 @@ class _TmDefaultTextFieldState extends State<TmDefaultTextField> {
                     : inputTextStyle.merge(widget.inputStyle),
             decoration: InputDecoration(
               errorText: mErrorText != null ? '' : null,
+              counterText: '',
               enabledBorder: OutlineInputBorder(
                 borderRadius: BorderRadius.circular(widget.radius),
                 borderSide: BorderSide(
@@ -252,6 +259,21 @@ class _TmDefaultTextFieldState extends State<TmDefaultTextField> {
       errorText = '';
       mErrorText = widget.errorText;
       mLabelStyle = labelTextStyle.merge(const TextStyle(color: TmColors.error));
+    }
+  }
+
+  void configureMaxLength() {
+    if (widget.inputFormatters == null ||
+        widget.inputFormatters!.isEmpty ||
+        (widget.inputFormatters!.isNotEmpty && widget.inputFormatters!.first is FilteringTextInputFormatter)) {
+      mMaxLength = widget.maxLength;
+      if (mMaxLength == null) {
+        if (widget.keyboardType == null || widget.keyboardType == TextInputType.emailAddress) {
+          mMaxLength = 150;
+        } else if (widget.keyboardType == TextInputType.number) {
+          mMaxLength = 10;
+        }
+      }
     }
   }
 }

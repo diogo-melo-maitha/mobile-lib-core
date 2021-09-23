@@ -1,5 +1,7 @@
 import 'package:flutter/services.dart';
 import 'package:flutter_test/flutter_test.dart';
+import 'package:mask_text_input_formatter/mask_text_input_formatter.dart';
+import 'package:tm_lib_core/utils/format_utils.dart';
 import 'package:tm_lib_core/widgets/textfields/tm_default_text_field.dart';
 import 'package:flutter/material.dart';
 import 'package:tm_lib_core/utils/test_utils.dart';
@@ -214,7 +216,6 @@ void main() {
     testWidgets('Given inputStyle is properly used', (tester) async {
       await tester.pumpWidget(TestUtils.buildTestableWidget(TmDefaultTextField(
         key: key,
-        enabled: false,
         autoFocus: true,
         radius: 10,
         onChanged: (value) {},
@@ -336,8 +337,7 @@ void main() {
     });
 
     testWidgets('Given inputFormatters is properly used', (tester) async {
-      final TextInputFormatter testRegex =
-      FilteringTextInputFormatter.deny(RegExp(r'[/\\]'));
+      final TextInputFormatter testRegex = FilteringTextInputFormatter.deny(RegExp(r'[/\\]'));
       await tester.pumpWidget(TestUtils.buildTestableWidget(TmDefaultTextField(
         key: key,
         autoFocus: true,
@@ -351,6 +351,90 @@ void main() {
       final textField = tester.widget<TextField>(find.byType(TextField));
 
       expect(textField.inputFormatters, [testRegex]);
+    });
+
+    testWidgets('Given maxLength is properly used when inputFormatters is empty', (tester) async {
+      await tester.pumpWidget(TestUtils.buildTestableWidget(TmDefaultTextField(
+        key: key,
+        onChanged: (value) {},
+        onSubmitted: (value) {},
+        maxLength: 35,
+      )));
+
+      final textField = tester.widget<TextField>(find.byType(TextField));
+
+      expect(textField.maxLength, 35);
+    });
+
+    testWidgets('maxLength is properly setted when inputFormatters is empty and keyboardType is alfanumeric',
+        (tester) async {
+      await tester.pumpWidget(TestUtils.buildTestableWidget(TmDefaultTextField(
+        key: key,
+        onChanged: (value) {},
+        onSubmitted: (value) {},
+      )));
+
+      final textField = tester.widget<TextField>(find.byType(TextField));
+
+      expect(textField.maxLength, 150);
+    });
+
+    testWidgets('maxLength is properly setted when inputFormatters is empty and keyboardType is emailAddress',
+        (tester) async {
+      await tester.pumpWidget(TestUtils.buildTestableWidget(TmDefaultTextField(
+        key: key,
+        onChanged: (value) {},
+        onSubmitted: (value) {},
+        keyboardType: TextInputType.emailAddress,
+      )));
+
+      final textField = tester.widget<TextField>(find.byType(TextField));
+
+      expect(textField.maxLength, 150);
+    });
+
+    testWidgets('maxLength is properly setted when inputFormatters is empty and keyboardType is numeric',
+        (tester) async {
+      await tester.pumpWidget(TestUtils.buildTestableWidget(TmDefaultTextField(
+        key: key,
+        onChanged: (value) {},
+        onSubmitted: (value) {},
+        keyboardType: TextInputType.number,
+      )));
+
+      final textField = tester.widget<TextField>(find.byType(TextField));
+
+      expect(textField.maxLength, 10);
+    });
+
+    testWidgets('Given maxLength is properly used when inputFormatters is RegExp', (tester) async {
+      final TextInputFormatter testRegex = FilteringTextInputFormatter.deny(RegExp(r'[/\\]'));
+      await tester.pumpWidget(TestUtils.buildTestableWidget(TmDefaultTextField(
+        key: key,
+        onChanged: (value) {},
+        onSubmitted: (value) {},
+        inputFormatters: [testRegex],
+        maxLength: 30,
+      )));
+
+      final textField = tester.widget<TextField>(find.byType(TextField));
+
+      expect(textField.maxLength, 30);
+    });
+
+    testWidgets('Given maxLength is unconsidered when inputFormatters is FilteringTextInputFormatter', (tester) async {
+      final MaskTextInputFormatter cepMaskFormatter = MaskTextInputFormatter(mask: FormatUtils.postalCodeMask);
+      await tester.pumpWidget(TestUtils.buildTestableWidget(TmDefaultTextField(
+        key: key,
+        onChanged: (value) {},
+        onSubmitted: (value) {},
+        inputFormatters: [cepMaskFormatter],
+        maxLength: 10,
+      )));
+
+      final textField = tester.widget<TextField>(find.byType(TextField));
+
+      expect(textField.maxLength, null);
     });
   });
 }
