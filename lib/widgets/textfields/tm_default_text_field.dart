@@ -25,7 +25,7 @@ class TmDefaultTextField extends StatefulWidget {
   final bool autoFocus;
   final bool obscure;
   final bool enabled;
-  final Widget widget;
+  final Widget? widget;
   final TextStyle? inputStyle;
   final Color? cursorColor;
   final FocusNode? focusNode;
@@ -40,6 +40,9 @@ class TmDefaultTextField extends StatefulWidget {
   final bool? showError;
   final String? clickableError;
   final VoidCallback? onTap;
+  final int? maxLines;
+  final int? minLines;
+  final double errorTopPadding;
 
   const TmDefaultTextField({
     Key? key,
@@ -57,7 +60,7 @@ class TmDefaultTextField extends StatefulWidget {
     this.autoFocus = false,
     this.obscure = false,
     this.enabled = true,
-    this.widget = const Text(''),
+    this.widget,
     this.inputStyle,
     this.cursorColor = TmColors.primary,
     this.focusNode,
@@ -72,6 +75,9 @@ class TmDefaultTextField extends StatefulWidget {
     this.showError,
     this.clickableError,
     this.onTap,
+    this.maxLines = 1,
+    this.minLines,
+    this.errorTopPadding = 4,
   }) : super(key: key);
 
   @override
@@ -103,6 +109,8 @@ class _TmDefaultTextFieldState extends State<TmDefaultTextField> {
         clipBehavior: Clip.none,
         children: [
           TextField(
+            minLines: widget.minLines,
+            maxLines: widget.maxLines,
             textInputAction: widget.textInputAction,
             textCapitalization: widget.textCapitalization ?? TextCapitalization.none,
             onTap: widget.onTap,
@@ -146,6 +154,7 @@ class _TmDefaultTextFieldState extends State<TmDefaultTextField> {
               ),
               labelStyle: mLabelStyle,
               labelText: widget.label,
+              alignLabelWithHint: true,
               focusedErrorBorder: OutlineInputBorder(
                 borderRadius: BorderRadius.circular(widget.radius),
                 borderSide: const BorderSide(
@@ -167,7 +176,7 @@ class _TmDefaultTextFieldState extends State<TmDefaultTextField> {
               left: -2,
               child: Container(
                 alignment: Alignment.centerLeft,
-                margin: const EdgeInsets.only(left: 12, top: 4),
+                margin: EdgeInsets.only(left: 12, top: widget.errorTopPadding),
                 child: RichText(
                   text: TextSpan(
                     text: mErrorText != null ? mErrorText! : '',
