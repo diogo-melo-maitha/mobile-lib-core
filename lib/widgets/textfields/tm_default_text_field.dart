@@ -118,7 +118,7 @@ class _TmDefaultTextFieldState extends State<TmDefaultTextField> {
             maxLines: widget.maxLines,
             textInputAction: widget.textInputAction,
             textCapitalization: widget.textCapitalization ?? TextCapitalization.none,
-            onTap: widget.onTap,
+            onTap: onTap,
             cursorColor: widget.cursorColor,
             focusNode: widget.focusNode ?? _focus,
             keyboardType: widget.keyboardType,
@@ -275,5 +275,24 @@ class _TmDefaultTextFieldState extends State<TmDefaultTextField> {
         }
       }
     }
+  }
+
+  void onTap() {
+    if (FocusScope.of(context).hasFocus) {
+      resetFocus();
+    }
+    if (widget.onTap != null) {
+      widget.onTap!();
+    }
+  }
+
+  void resetFocus() {
+    FocusScope.of(context).unfocus();
+    Future.delayed(
+      const Duration(microseconds: 1),
+      () {
+        FocusScope.of(context).requestFocus();
+      },
+    );
   }
 }
