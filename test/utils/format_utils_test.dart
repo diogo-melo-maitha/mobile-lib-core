@@ -6,7 +6,7 @@ void main() {
     test('removeSpecialCharacters correctly removes special chars', () {
       const text = '%¨¨Hello#@- World';
 
-      expect('Hello World', FormatUtils.removeSpecialCharacters(text));
+      expect('HelloWorld', FormatUtils.removeSpecialCharacters(text));
     });
 
     test('isPasswordValid is properly validating passwords', () {

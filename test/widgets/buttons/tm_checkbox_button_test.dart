@@ -1,7 +1,7 @@
-import 'package:flutter_test/flutter_test.dart';
-import 'package:tm_lib_core/widgets/buttons/tm_checkbox_button.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_test/flutter_test.dart';
 import 'package:tm_lib_core/utils/test_utils.dart';
+import 'package:tm_lib_core/widgets/buttons/tm_checkbox_button.dart';
 
 void main() {
   const key = Key('key');
@@ -13,7 +13,6 @@ void main() {
         TestUtils.buildTestableWidget(
           TmCheckboxButton(
             key: key,
-            backgroundColor: Colors.white,
             checkboxCallback: (value) {},
             onPressed: () {},
             primaryColor: Colors.blue,

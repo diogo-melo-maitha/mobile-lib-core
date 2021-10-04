@@ -1,7 +1,7 @@
-import 'package:flutter_test/flutter_test.dart';
-import 'package:tm_lib_core/widgets/sliders/tm_percentage_slider.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_test/flutter_test.dart';
 import 'package:tm_lib_core/utils/test_utils.dart';
+import 'package:tm_lib_core/widgets/sliders/tm_percentage_slider.dart';
 
 void main() {
   const key = Key('key');
@@ -248,6 +248,24 @@ void main() {
       final decoration = container.decoration as BoxDecoration;
 
       expect(decoration.color, Colors.red);
+    });
+
+		testWidgets('Given TextField change is properly used', (tester) async {
+			int testInputChange = 0;
+      await tester.pumpWidget(TestUtils.buildTestableWidget(TmPercentageSlider(
+        key: key,
+        iconColor: Colors.red,
+        sliderCallback: (value) {},
+        textEditingController: percentageController,
+        onChangedTextField: (value) {
+					testInputChange++;
+				},
+      )));
+      
+			await tester.enterText(find.byType(TextField), '');
+
+      expect(testInputChange, 1);
+			testInputChange = 0;
     });
   });
 }

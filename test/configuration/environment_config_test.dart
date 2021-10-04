@@ -36,5 +36,19 @@ void main() {
 
       expect(EnvironmentConfig.isDev(), false);
     });
+
+		test('true isHml correctly returns value', () {
+      EnvironmentConfig.instance = null;
+      EnvironmentConfig.instance = EnvironmentConfig(environment: Environment.HML, baseUrl: 'baseURL');
+
+      expect(EnvironmentConfig.isHml(), true);
+    });
+
+    test('false isHml correctly returns value', () {
+      EnvironmentConfig.instance = null;
+      EnvironmentConfig.instance = EnvironmentConfig(environment: Environment.PROD, baseUrl: 'baseURL');
+
+      expect(EnvironmentConfig.isHml(), false);
+    });
   });
 }

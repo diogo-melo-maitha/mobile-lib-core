@@ -1,8 +1,8 @@
+import 'package:flutter/material.dart';
 import 'package:flutter_test/flutter_test.dart';
 import 'package:tm_lib_core/configuration/tm_colors.dart';
-import 'package:tm_lib_core/widgets/stepper/tm_on_boarding_stepper.dart';
-import 'package:flutter/material.dart';
 import 'package:tm_lib_core/utils/test_utils.dart';
+import 'package:tm_lib_core/widgets/stepper/tm_on_boarding_stepper.dart';
 
 void main() {
   const key = Key('key');

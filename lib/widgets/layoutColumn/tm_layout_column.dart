@@ -5,8 +5,9 @@ class TmLayoutColumn extends StatelessWidget {
   final List<Widget> children;
 
   const TmLayoutColumn({
+		Key? key,
     this.children = const <Widget>[],
-  });
+  }) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
