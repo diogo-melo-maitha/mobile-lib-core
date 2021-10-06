@@ -278,7 +278,7 @@ class _TmDefaultTextFieldState extends State<TmDefaultTextField> {
   }
 
   void onTap() {
-    if (FocusScope.of(context).hasFocus) {
+    if (!FocusScope.of(context).hasFocus) {
       resetFocus();
     }
     if (widget.onTap != null) {
