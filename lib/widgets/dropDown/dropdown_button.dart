@@ -46,7 +46,9 @@ class _TmDropdownButtonState extends State<TmDropdownButton> {
   @override
   Widget build(BuildContext context) {
     dropdownController.text = ' ';
-    _updateValue();
+    WidgetsBinding.instance!.addPostFrameCallback((_) {
+      _updateValue();
+    });
     return Stack(
       children: [
         TmDefaultTextField(
