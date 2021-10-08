@@ -17,6 +17,7 @@ class TmDropdownButton extends StatefulWidget {
   final List list;
   final int initialValueIndex;
   final double menuMaxHeight;
+  final String? updateValue;
 
   const TmDropdownButton({
     Key? key,
@@ -30,6 +31,7 @@ class TmDropdownButton extends StatefulWidget {
     this.initialValueIndex = 0,
     required this.list,
     this.menuMaxHeight = double.infinity,
+    this.updateValue,
   }) : super(key: key);
 
   @override
@@ -44,6 +46,9 @@ class _TmDropdownButtonState extends State<TmDropdownButton> {
   @override
   Widget build(BuildContext context) {
     dropdownController.text = ' ';
+    WidgetsBinding.instance!.addPostFrameCallback((_) {
+      _updateValue();
+    });
     return Stack(
       children: [
         TmDefaultTextField(
@@ -97,5 +102,12 @@ class _TmDropdownButtonState extends State<TmDropdownButton> {
         ),
       ],
     );
+  }
+  void _updateValue(){
+    if(widget.updateValue != null){
+      setState(() {
+        hint = widget.updateValue;
+      });
+    }
   }
 }
