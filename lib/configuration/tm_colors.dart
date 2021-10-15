@@ -15,6 +15,7 @@ abstract class TmColors {
   static const Color inputText = Color(0xff383A3C);
 
   static const Color textOnSurface = Color(0xFF848688);
+  static const Color lightGrey = Color(0xff747474);
 
   static const Color error = Color(0xffde3822);
   static const Color success = Color(0xff64C19B);
