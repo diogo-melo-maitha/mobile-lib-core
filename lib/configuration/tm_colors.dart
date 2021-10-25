@@ -8,6 +8,7 @@ abstract class TmColors {
 
   static const Color white = Color(0xFFFFFFFF);
   static const Color ice = Color(0xffB8D0D3);
+  static const Color lightIce = Color(0xffF1F7F7);
 
   static const Color disabled = Color(0xffDBE8EA);
   static const Color disabledText = Color(0xff97AEB1);
@@ -20,4 +21,8 @@ abstract class TmColors {
   static const Color error = Color(0xffde3822);
   static const Color success = Color(0xff64C19B);
 
+	static const Color aquaHaze = Color(0xffF1F7F7);
+	static const Color porcelain = Color(0xffF8FAFA);
+
+	static const Color gainsboro = Color(0xffD8D8D8);
 }
