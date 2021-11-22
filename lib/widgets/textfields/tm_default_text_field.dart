@@ -44,6 +44,8 @@ class TmDefaultTextField extends StatefulWidget {
   final int? maxLines;
   final int? minLines;
   final double errorTopPadding;
+	final double? widthErrorMessage;
+	final bool useDefaultFocusNode;
 
   const TmDefaultTextField({
     Key? key,
@@ -80,6 +82,8 @@ class TmDefaultTextField extends StatefulWidget {
     this.maxLines = 1,
     this.minLines,
     this.errorTopPadding = 4,
+		this.widthErrorMessage,
+		this.useDefaultFocusNode = true
   }) : super(key: key);
 
   @override
@@ -184,6 +188,7 @@ class _TmDefaultTextFieldState extends State<TmDefaultTextField> {
               child: Container(
                 alignment: Alignment.centerLeft,
                 margin: EdgeInsets.only(left: 12, top: widget.errorTopPadding),
+								width: widget.widthErrorMessage != null ? widget.widthErrorMessage! : MediaQuery.of(context).size.width * 0.8,
                 child: RichText(
                   text: TextSpan(
                     text: mErrorText != null ? mErrorText! : '',
@@ -227,28 +232,30 @@ class _TmDefaultTextFieldState extends State<TmDefaultTextField> {
   }
 
   void onFocusInput(bool useWidgetFocus) {
-    setState(() {
-      if ((!useWidgetFocus && !_focus.hasFocus) ||
-          (useWidgetFocus && widget.focusNode != null && !widget.focusNode!.hasFocus)) {
-        if (widget.isTextValid != null && !widget.isTextValid!(mTextEditingController.text)) {
-          mErrorText = widget.errorText;
-          mLabelStyle = labelTextStyle.merge(const TextStyle(color: TmColors.error));
-        } else if (mTextEditingController.text.isEmpty) {
-          mErrorText = null;
-          mLabelStyle = TmFonts.regular16.merge(const TextStyle(color: TmColors.textOnSurface));
-        }
-      } else {
-        mErrorText = null;
-        mLabelStyle = labelTextStyle;
-      }
-    });
+		if (widget.useDefaultFocusNode) {
+			setState(() {
+				if ((!useWidgetFocus && !_focus.hasFocus) ||
+						(useWidgetFocus && widget.focusNode != null && !widget.focusNode!.hasFocus)) {
+					if (widget.isTextValid != null && !widget.isTextValid!(mTextEditingController.text)) {
+						mErrorText = widget.errorText;
+						mLabelStyle = labelTextStyle.merge(const TextStyle(color: TmColors.error));
+					} else if (mTextEditingController.text.isEmpty) {
+						mErrorText = null;
+						mLabelStyle = TmFonts.regular16.merge(const TextStyle(color: TmColors.textOnSurface));
+					}
+				} else {
+					mErrorText = null;
+					mLabelStyle = labelTextStyle;
+				}
+			});
+		}
   }
 
   void configureShowError() {
     if (mErrorText != null) {
       errorText = '';
       mErrorText = widget.errorText;
-      mLabelStyle = labelTextStyle.merge(const TextStyle(color: TmColors.error));
+      mLabelStyle = labelTextStyle.merge(const TextStyle(color: TmColors.textOnSurface));
     } else if (widget.showError == false) {
       errorText = null;
       mErrorText = null;
