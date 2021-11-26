@@ -25,4 +25,6 @@ abstract class TmColors {
 	static const Color porcelain = Color(0xffF8FAFA);
 
 	static const Color gainsboro = Color(0xffD8D8D8);
+
+	static const Color nobel = Color(0xff999999);
 }
