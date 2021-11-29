@@ -255,7 +255,7 @@ class _TmDefaultTextFieldState extends State<TmDefaultTextField> {
     if (mErrorText != null) {
       errorText = '';
       mErrorText = widget.errorText;
-      mLabelStyle = labelTextStyle.merge(const TextStyle(color: TmColors.textOnSurface));
+      mLabelStyle = labelTextStyle.merge(const TextStyle(color: TmColors.error));
     } else if (widget.showError == false) {
       errorText = null;
       mErrorText = null;
