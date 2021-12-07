@@ -140,6 +140,8 @@ class _TmDefaultTextFieldState extends State<TmDefaultTextField> {
                     ? inputTextStyle
                     : inputTextStyle.merge(widget.inputStyle),
             decoration: InputDecoration(
+              filled: true,
+              fillColor: TmColors.white,
               errorText: mErrorText != null ? '' : null,
               counterText: '',
               enabledBorder: OutlineInputBorder(
