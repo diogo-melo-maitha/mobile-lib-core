@@ -63,7 +63,7 @@ class TmDefaultTextField extends StatefulWidget {
     this.autoFocus = false,
     this.obscure = false,
     this.enabled = true,
-    this.widget = const Text(''),
+    this.widget,
     this.inputStyle,
     this.cursorColor = TmColors.primary,
     this.focusNode,
@@ -96,7 +96,7 @@ class _TmDefaultTextFieldState extends State<TmDefaultTextField> {
   final TextStyle labelTextStyle = TmFonts.regular16.merge(const TextStyle(color: TmColors.primary));
   final TextStyle errorStyle = TmFonts.regular12.merge(const TextStyle(color: TmColors.error));
   late TextStyle? mLabelStyle =
-      widget.labelStyle ?? TmFonts.regular16.merge(const TextStyle(color: TmColors.textOnSurface));
+      widget.labelStyle ?? (mTextEditingController.text.isEmpty ? TmFonts.regular16.merge(const TextStyle(color: TmColors.textOnSurface)) : TmFonts.regular16.merge(const TextStyle(color: TmColors.primary)));
   Color? mFocusedBorderColor;
   Color? mBorderColor;
 
