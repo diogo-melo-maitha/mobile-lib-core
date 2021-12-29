@@ -244,7 +244,10 @@ class _TmDefaultTextFieldState extends State<TmDefaultTextField> {
 					} else if (mTextEditingController.text.isEmpty) {
 						mErrorText = null;
 						mLabelStyle = TmFonts.regular16.merge(const TextStyle(color: TmColors.textOnSurface));
-					}
+					} else {
+            mErrorText = null;
+            mLabelStyle = TmFonts.regular16.merge(const TextStyle(color: TmColors.primary));
+          }
 				} else {
 					mErrorText = null;
 					mLabelStyle = labelTextStyle;
