@@ -63,7 +63,7 @@ class TmDefaultTextField extends StatefulWidget {
     this.autoFocus = false,
     this.obscure = false,
     this.enabled = true,
-    this.widget = const Text(''),
+    this.widget,
     this.inputStyle,
     this.cursorColor = TmColors.primary,
     this.focusNode,
@@ -96,7 +96,7 @@ class _TmDefaultTextFieldState extends State<TmDefaultTextField> {
   final TextStyle labelTextStyle = TmFonts.regular16.merge(const TextStyle(color: TmColors.primary));
   final TextStyle errorStyle = TmFonts.regular12.merge(const TextStyle(color: TmColors.error));
   late TextStyle? mLabelStyle =
-      widget.labelStyle ?? TmFonts.regular16.merge(const TextStyle(color: TmColors.textOnSurface));
+      widget.labelStyle ?? (mTextEditingController.text.isEmpty ? TmFonts.regular16.merge(const TextStyle(color: TmColors.textOnSurface)) : TmFonts.regular16.merge(const TextStyle(color: TmColors.primary)));
   Color? mFocusedBorderColor;
   Color? mBorderColor;
 
@@ -140,6 +140,8 @@ class _TmDefaultTextFieldState extends State<TmDefaultTextField> {
                     ? inputTextStyle
                     : inputTextStyle.merge(widget.inputStyle),
             decoration: InputDecoration(
+              filled: true,
+              fillColor: TmColors.white,
               errorText: mErrorText != null ? '' : null,
               counterText: '',
               enabledBorder: OutlineInputBorder(
@@ -242,7 +244,10 @@ class _TmDefaultTextFieldState extends State<TmDefaultTextField> {
 					} else if (mTextEditingController.text.isEmpty) {
 						mErrorText = null;
 						mLabelStyle = TmFonts.regular16.merge(const TextStyle(color: TmColors.textOnSurface));
-					}
+					} else {
+            mErrorText = null;
+            mLabelStyle = TmFonts.regular16.merge(const TextStyle(color: TmColors.primary));
+          }
 				} else {
 					mErrorText = null;
 					mLabelStyle = labelTextStyle;
@@ -255,7 +260,7 @@ class _TmDefaultTextFieldState extends State<TmDefaultTextField> {
     if (mErrorText != null) {
       errorText = '';
       mErrorText = widget.errorText;
-      mLabelStyle = labelTextStyle.merge(const TextStyle(color: TmColors.textOnSurface));
+      mLabelStyle = labelTextStyle.merge(const TextStyle(color: TmColors.error));
     } else if (widget.showError == false) {
       errorText = null;
       mErrorText = null;

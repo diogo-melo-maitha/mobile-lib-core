@@ -28,4 +28,5 @@ abstract class TmColors {
 
 	static const Color darkGrey = Color(0xffA5A5A5);
 	static const Color limeGreen = Color(0xff32D74B);
+	static const Color nobel = Color(0xff999999);
 }
