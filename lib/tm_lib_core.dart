@@ -6,6 +6,7 @@ export 'package:tm_lib_core/configuration/tm_fonts.dart';
 export 'package:tm_lib_core/widgets/buttons/tm_checkbox_button.dart';
 export 'package:tm_lib_core/widgets/buttons/tm_default_button.dart';
 export 'package:tm_lib_core/widgets/buttons/tm_text_button.dart';
+export 'package:tm_lib_core/widgets/clickableCard/default_clickable_card.dart';
 export 'package:tm_lib_core/widgets/design/tm_design_bottom_lines.dart';
 export 'package:tm_lib_core/widgets/design/tm_design_bottom_lines_logo.dart';
 export 'package:tm_lib_core/widgets/design/tm_design_bottom_lines_logo_secondary.dart';

@@ -1,3 +1,5 @@
+// ignore_for_file: use_full_hex_values_for_flutter_colors
+
 import 'package:flutter/material.dart';
 
 abstract class TmColors {
@@ -14,6 +16,9 @@ abstract class TmColors {
   static const Color disabledText = Color(0xff97AEB1);
 
   static const Color inputText = Color(0xff383A3C);
+
+  static const Color secondaryGrey = Color(0xff84868899);
+  static const Color primaryGrey = Color(0xff3c3c434d);
 
   static const Color textOnSurface = Color(0xFF848688);
   static const Color lightGrey = Color(0xff747474);
