@@ -3,16 +3,16 @@ import '../../configuration/tm_colors.dart';
 import '../../configuration/tm_fonts.dart';
 
 class DefaultClickableCard extends StatelessWidget {
-  final String title;
-  final String subtitle;
-  final VoidCallback onPressed;
+  final String primaryText;
+  final String secondaryText;
+  final VoidCallback onClick;
   final double elevation;
 
   const DefaultClickableCard({
     Key? key,
-    required this.onPressed,
-    required this.title,
-    required this.subtitle,
+    required this.onClick,
+    required this.primaryText,
+    required this.secondaryText,
     this.elevation = 0,
   }) : super(key: key);
 
@@ -39,18 +39,18 @@ class DefaultClickableCard extends StatelessWidget {
           ),
           child: ListTile(
             title: Text(
-              title,
+              primaryText,
               style: titleStyle,
             ),
             subtitle: Text(
-              subtitle,
+              secondaryText,
               style: subtitleStyle,
             ),
             trailing: const Icon(
               Icons.chevron_right,
               color: TmColors.primaryGrey,
             ),
-            onTap: onPressed,
+            onTap: onClick,
           ),
         ),
       ],

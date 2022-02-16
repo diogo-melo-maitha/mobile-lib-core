@@ -5,59 +5,59 @@ import 'package:tm_lib_core/widgets/clickableCard/default_clickable_card.dart';
 
 void main() {
   const key = Key('key');
-  const String title = 'TITLE';
+  const String primaryText = 'PrimaryText';
   group('DefaultClickableCard tests', () {
     testWidgets('DefaultClickableCard is properly created', (tester) async {
       await tester.pumpWidget(TestUtils.buildTestableWidget(DefaultClickableCard(
         key: key,
-        title: title,
-        onPressed: () {},
-        subtitle: '',
+        primaryText: primaryText,
+        onClick: () {},
+        secondaryText: '',
       )));
       expect(find.byKey(key), findsOneWidget);
     });
-    testWidgets('Given title is properly used', (tester) async {
+    testWidgets('Given primaryText is properly used', (tester) async {
       await tester.pumpWidget(TestUtils.buildTestableWidget(DefaultClickableCard(
         key: key,
-        title: 'TRADEMASTER',
-        onPressed: () {},
-        subtitle: '',
+        primaryText: 'TRADEMASTER',
+        onClick: () {},
+        secondaryText: '',
       )));
-      final title = tester.widget<Text>(find.byType(Text).first);
-      expect(title.data, 'TRADEMASTER');
+      final primaryText = tester.widget<Text>(find.byType(Text).first);
+      expect(primaryText.data, 'TRADEMASTER');
     });
-    testWidgets('Given subtitle is properly used', (tester) async {
+    testWidgets('Given secondaryText is properly used', (tester) async {
       await tester.pumpWidget(TestUtils.buildTestableWidget(DefaultClickableCard(
         key: key,
-        title: 'TRADEMASTER',
-        onPressed: () {},
-        subtitle: 'Subtitle',
+        primaryText: 'TRADEMASTER',
+        onClick: () {},
+        secondaryText: 'Subtitle',
       )));
-      final subtitle = tester.widget<Text>(find.byType(Text).last);
-      expect(subtitle.data, 'Subtitle');
+      final secondaryText = tester.widget<Text>(find.byType(Text).last);
+      expect(secondaryText.data, 'Subtitle');
     });
     testWidgets('Given elevation is properly used', (tester) async {
       await tester.pumpWidget(TestUtils.buildTestableWidget(DefaultClickableCard(
         key: key,
-        title: title,
-        onPressed: () {},
+        primaryText: primaryText,
+        onClick: () {},
         elevation: 3,
-        subtitle: '',
+        secondaryText: '',
       )));
 
       final container = tester.widget<Container>(find.byType(Container));
 
       expect(((container.decoration as BoxDecoration).boxShadow)!.single.blurRadius, 3);
     });
-    testWidgets('Given function onPressed is working', (tester) async {
+    testWidgets('Given function onClick is working', (tester) async {
         int functionCounter = 0;
         await tester.pumpWidget(TestUtils.buildTestableWidget(DefaultClickableCard(
           key: key,
-          title: title,
-          onPressed: () {
+          primaryText: primaryText,
+          onClick: () {
             functionCounter++;
           },
-          subtitle: '',
+          secondaryText: '',
         )));
         await tester.tap(find.byType(Container));
         await tester.pump();
