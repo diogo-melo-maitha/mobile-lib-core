@@ -8,7 +8,7 @@ void main() {
   const String primaryText = 'PrimaryText';
   group('DefaultClickableCard tests', () {
     testWidgets('DefaultClickableCard is properly created', (tester) async {
-      await tester.pumpWidget(TestUtils.buildTestableWidget(DefaultClickableCard(
+      await tester.pumpWidget(TestUtils.buildTestableWidget(TmDefaultClickableCard(
         key: key,
         primaryText: primaryText,
         onClick: () {},
@@ -17,7 +17,7 @@ void main() {
       expect(find.byKey(key), findsOneWidget);
     });
     testWidgets('Given primaryText is properly used', (tester) async {
-      await tester.pumpWidget(TestUtils.buildTestableWidget(DefaultClickableCard(
+      await tester.pumpWidget(TestUtils.buildTestableWidget(TmDefaultClickableCard(
         key: key,
         primaryText: 'TRADEMASTER',
         onClick: () {},
@@ -27,7 +27,7 @@ void main() {
       expect(primaryText.data, 'TRADEMASTER');
     });
     testWidgets('Given secondaryText is properly used', (tester) async {
-      await tester.pumpWidget(TestUtils.buildTestableWidget(DefaultClickableCard(
+      await tester.pumpWidget(TestUtils.buildTestableWidget(TmDefaultClickableCard(
         key: key,
         primaryText: 'TRADEMASTER',
         onClick: () {},
@@ -37,7 +37,7 @@ void main() {
       expect(secondaryText.data, 'Subtitle');
     });
     testWidgets('Given elevation is properly used', (tester) async {
-      await tester.pumpWidget(TestUtils.buildTestableWidget(DefaultClickableCard(
+      await tester.pumpWidget(TestUtils.buildTestableWidget(TmDefaultClickableCard(
         key: key,
         primaryText: primaryText,
         onClick: () {},
@@ -51,7 +51,7 @@ void main() {
     });
     testWidgets('Given function onClick is working', (tester) async {
         int functionCounter = 0;
-        await tester.pumpWidget(TestUtils.buildTestableWidget(DefaultClickableCard(
+        await tester.pumpWidget(TestUtils.buildTestableWidget(TmDefaultClickableCard(
           key: key,
           primaryText: primaryText,
           onClick: () {

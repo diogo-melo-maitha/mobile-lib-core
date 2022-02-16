@@ -2,13 +2,13 @@ import 'package:flutter/material.dart';
 import '../../configuration/tm_colors.dart';
 import '../../configuration/tm_fonts.dart';
 
-class DefaultClickableCard extends StatelessWidget {
+class TmDefaultClickableCard extends StatelessWidget {
   final String primaryText;
   final String secondaryText;
   final VoidCallback onClick;
   final double elevation;
 
-  const DefaultClickableCard({
+  const TmDefaultClickableCard({
     Key? key,
     required this.onClick,
     required this.primaryText,
