@@ -14,6 +14,7 @@ export 'package:tm_lib_core/widgets/design/tm_design_top_lines_secondary.dart';
 export 'package:tm_lib_core/widgets/design/tm_scaffold.dart';
 export 'package:tm_lib_core/widgets/dropDown/dropdown_button.dart';
 export 'package:tm_lib_core/widgets/layoutColumn/tm_layout_column.dart';
+export 'package:tm_lib_core/widgets/limitVisualizationCard/tm_limit_visualization_card.dart';
 export 'package:tm_lib_core/widgets/stepper/tm_on_boarding_stepper.dart';
 export 'package:tm_lib_core/widgets/textfields/tm_default_text_field.dart';
 export 'package:tm_lib_core/widgets/texts/tm_header_text.dart';
