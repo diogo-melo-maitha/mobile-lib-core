@@ -4,15 +4,15 @@ import '../../configuration/tm_fonts.dart';
 
 class TmDefaultClickableCard extends StatelessWidget {
   final String primaryText;
-  final String secondaryText;
-  final VoidCallback onClick;
+  final String? secondaryText;
+  final VoidCallback onTap;
   final double elevation;
 
   const TmDefaultClickableCard({
     Key? key,
-    required this.onClick,
+    required this.onTap,
     required this.primaryText,
-    required this.secondaryText,
+    this.secondaryText,
     this.elevation = 0,
   }) : super(key: key);
 
@@ -21,7 +21,7 @@ class TmDefaultClickableCard extends StatelessWidget {
     final TextStyle titleStyle = TmFonts.semiBold16
         .merge(const TextStyle(color: TmColors.textOnSurface));
     final TextStyle subtitleStyle =
-    TmFonts.regular12.merge(const TextStyle(color: TmColors.secondaryGrey));
+        TmFonts.regular12.merge(const TextStyle(color: TmColors.secondaryGrey));
 
     return Column(
       children: [
@@ -42,15 +42,17 @@ class TmDefaultClickableCard extends StatelessWidget {
               primaryText,
               style: titleStyle,
             ),
-            subtitle: Text(
-              secondaryText,
-              style: subtitleStyle,
-            ),
+            subtitle: secondaryText != null
+                ? Text(
+                    secondaryText!,
+                    style: subtitleStyle,
+                  )
+                : null,
             trailing: const Icon(
               Icons.chevron_right,
               color: TmColors.primaryGrey,
             ),
-            onTap: onClick,
+            onTap: onTap,
           ),
         ),
       ],
