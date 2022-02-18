@@ -1,3 +1,5 @@
+// ignore_for_file: use_full_hex_values_for_flutter_colors
+
 import 'package:flutter/material.dart';
 
 abstract class TmColors {
@@ -15,6 +17,9 @@ abstract class TmColors {
   static const Color disabledText = Color(0xff97AEB1);
 
   static const Color inputText = Color(0xff383A3C);
+
+  static const Color secondaryGrey = Color(0xff84868899);
+  static const Color primaryGrey = Color(0xff3c3c434d);
 
   static const Color textOnSurface = Color(0xFF848688);
   static const Color lightGrey = Color(0xff747474);
@@ -35,4 +40,9 @@ abstract class TmColors {
 	static const Color darkGrey = Color(0xffA5A5A5);
 	static const Color limeGreen = Color(0xff32D74B);
 	static const Color nobel = Color(0xff999999);
+
+	static const Color cascade = Color(0xff90A6A9);
+	static const Color genoa = Color(0xff368766);
+	static const Color darkGrey2 = Color(0xffA2A2A2);
+	static const Color trout = Color(0xff4b545529);
 }
