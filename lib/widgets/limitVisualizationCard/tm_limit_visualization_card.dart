@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_svg/svg.dart';
 import '../../extensions/tm_double_extension.dart';
 import '../../tm_lib_core.dart';
 
@@ -18,7 +19,7 @@ class TmLimitVisualizationCard extends StatefulWidget {
 		required this.availableLimit,
 		required this.onTap,
 		required this.takenLimit,
-		required this.elevation,
+		this.elevation = 5,
 		this.takenLimitBarColor = TmColors.cascade,
 		this.availableLimitBarColor = TmColors.genoa,
 		this.limitTextColor = TmColors.primary,
@@ -44,6 +45,7 @@ class _TmLimitVisualizationCardState extends State<TmLimitVisualizationCard> {
 		  child: Material(
 		  	color: TmColors.white,
 		  	elevation: widget.elevation,
+				shadowColor: TmColors.trout,
 		  	borderRadius: cardBorderRadius,
 		    child: InkWell(
 		  		onTap: widget.onTap,
@@ -59,19 +61,10 @@ class _TmLimitVisualizationCardState extends State<TmLimitVisualizationCard> {
 		  							Container(
 		  								child: widget.arrangementIcon,
 		  							),
-		  							Container(
-		  								width: 22,
-		  								height: 22,
-		  								decoration: BoxDecoration(
-		  									borderRadius: BorderRadius.circular(22),
-		  									border: Border.all(color: TmColors.cascade)
-		  								),
-		  								child: const Icon(
-		  									Icons.arrow_forward_ios_sharp,
-		  									size: 14,
-		  									color: TmColors.cascade
-		  								),
-		  							)
+		  							SvgPicture.asset(
+											'assets/images/arrow_right.svg',
+											package: 'tm_lib_core'
+										)
 		  						],
 		  					),
 		  					const SizedBox(height: 10),
@@ -81,13 +74,13 @@ class _TmLimitVisualizationCardState extends State<TmLimitVisualizationCard> {
 		  					  	mainAxisAlignment: MainAxisAlignment.spaceBetween,
 		  					  	children: [
 		  					  		Text(
-		  					  			'R\$${widget.takenLimit.toCurrency()}',
+		  					  			widget.takenLimit.toCurrency(),
 		  					  			style: TmFonts.semiBold16.merge(
 		  					  				TextStyle(color: widget.limitTextColor),
 		  					  			),
 		  					  		),
 		  					  		Text(
-		  					  			'R\$${widget.availableLimit.toCurrency()}',
+		  					  			widget.availableLimit.toCurrency(),
 		  					  			style: TmFonts.semiBold16.merge(
 		  					  				TextStyle(color: widget.limitTextColor),
 		  					  			),
