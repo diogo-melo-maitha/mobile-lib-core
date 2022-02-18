@@ -3,6 +3,7 @@ import 'package:flutter/material.dart';
 abstract class TmColors {
   static const Color primary = Color(0xFF09A2B6);
   static const Color accent = Color(0xFF64C19B);
+  static const Color waterBlue = Color(0xff067583);
 
   static const Color primaryDisabled = Color(0xFFB5E3E9);
 
@@ -17,6 +18,11 @@ abstract class TmColors {
 
   static const Color textOnSurface = Color(0xFF848688);
   static const Color lightGrey = Color(0xff747474);
+  static const Color mediumGrey = Color(0xff737373);
+  static const Color blackGrey = Color(0xff3F403F);
+
+  static const Color whiteGrey = Color(0xffA2A2A2);
+  static const Color iceGrey = Color(0xff90A6A9);
 
   static const Color error = Color(0xffde3822);
   static const Color success = Color(0xff64C19B);
