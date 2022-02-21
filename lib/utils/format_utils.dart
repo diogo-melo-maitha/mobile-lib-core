@@ -91,8 +91,4 @@ class FormatUtils {
   static bool isCNPJValid(String cnpj) {
     return CNPJValidator.isValid(cnpj);
   }
-
-  static String moneyFormat(double value) {
-    return NumberFormat.currency(locale: 'pt_BR', symbol: 'R\$').format(value);
-  }
 }

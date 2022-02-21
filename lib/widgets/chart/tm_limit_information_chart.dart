@@ -3,7 +3,7 @@ import 'package:flutter/material.dart';
 
 import '../../configuration/tm_colors.dart';
 import '../../configuration/tm_fonts.dart';
-import '../../utils/format_utils.dart';
+import '../../extensions/tm_double_extension.dart';
 
 class TmLimitInformationChart extends StatelessWidget {
   static const Key usedLimitTextKey = Key('usedLimitText');
@@ -104,7 +104,7 @@ class TmLimitInformationChart extends StatelessWidget {
                           style: titleStyle,
                         ),
                         Text(
-                          FormatUtils.moneyFormat(usedLimit),
+                          usedLimit.toCurrency(),
                           key: TmLimitInformationChart.usedLimitTextKey,
                           style: TmFonts.bold24.merge(const TextStyle(color: TmColors.waterBlue)),
                         ),
@@ -123,7 +123,7 @@ class TmLimitInformationChart extends StatelessWidget {
                             style: titleStyle,
                           ),
                           Text(
-                            FormatUtils.moneyFormat(availableLimit),
+                            availableLimit.toCurrency(),
                             key: TmLimitInformationChart.availableLimitTextKey,
                             style: TmFonts.bold24.merge(const TextStyle(color: TmColors.iceGrey)),
                           ),
@@ -155,7 +155,7 @@ class TmLimitInformationChart extends StatelessWidget {
       crossAxisAlignment: CrossAxisAlignment.start,
       children: [
         Text(
-          FormatUtils.moneyFormat(value),
+          value.toCurrency(),
           style: TmFonts.semiBold16.merge(const TextStyle(color: TmColors.blackGrey)),
         ),
         Padding(
