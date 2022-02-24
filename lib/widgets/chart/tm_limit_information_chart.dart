@@ -1,17 +1,14 @@
-import 'package:circular_chart_flutter/circular_chart_flutter.dart';
 import 'package:flutter/material.dart';
 
 import '../../configuration/tm_colors.dart';
 import '../../configuration/tm_fonts.dart';
 import '../../extensions/tm_double_extension.dart';
+import 'tm_pie_chart.dart';
 
 class TmLimitInformationChart extends StatelessWidget {
   static const Key usedLimitTextKey = Key('usedLimitText');
   static const Key availableLimitTextKey = Key('availableLimitText');
   static const Key availableLimitChartKey = Key('availableLimitChart');
-
-  static final GlobalKey<AnimatedCircularChartState> _chartKey = GlobalKey<AnimatedCircularChartState>();
-  static final GlobalKey<AnimatedCircularChartState> chartKey2 = GlobalKey<AnimatedCircularChartState>();
 
   final double availableLimit;
   final double usedLimit;
@@ -35,64 +32,8 @@ class TmLimitInformationChart extends StatelessWidget {
           padding: const EdgeInsets.only(top: 45, bottom: 57),
           child: Stack(
             children: [
-              Padding(
-                padding: const EdgeInsets.only(top: 25),
-                child: Container(
-                  alignment: Alignment.center,
-                  child: AnimatedCircularChart(
-                    key: _chartKey,
-                    holeRadius: 100,
-                    size: const Size(255, 100),
-                    initialChartData: const <CircularStackEntry>[
-                      CircularStackEntry(
-                        <CircularSegmentEntry>[
-                          CircularSegmentEntry(
-                            100,
-                            TmColors.iceGrey,
-                            rankKey: 'completed',
-                          ),
-                        ],
-                      ),
-                    ],
-                    edgeStyle: SegmentEdgeStyle.round,
-                    percentageValues: true,
-                  ),
-                ),
-              ),
-              Padding(
-                padding: const EdgeInsets.only(top: 25),
-                child: Container(
-                  alignment: Alignment.center,
-                  child: AnimatedCircularChart(
-                    key: chartKey2,
-                    holeRadius: 87,
-                    size: const Size(310, 100),
-                    initialChartData: <CircularStackEntry>[
-                      CircularStackEntry(
-                        <CircularSegmentEntry>[
-                          CircularSegmentEntry(
-                            purchaseToProcess,
-                            TmColors.accent,
-                            rankKey: 'completed',
-                          ),
-                          CircularSegmentEntry(
-                            processedPurchase,
-                            TmColors.waterBlue,
-                            rankKey: 'completed',
-                          ),
-                          CircularSegmentEntry(
-                            availableLimit,
-                            Colors.transparent,
-                            rankKey: 'remaining',
-                          ),
-                        ],
-                        rankKey: 'progress',
-                      ),
-                    ],
-                    edgeStyle: SegmentEdgeStyle.round,
-                  ),
-                ),
-              ),
+              TmPieChart(availableLimit: availableLimit, usedLimit: usedLimit, processedPurchase: processedPurchase, purchaseToProcess: purchaseToProcess),
+              // buildPieChart(),
               Container(
                 alignment: Alignment.center,
                 child: Column(
