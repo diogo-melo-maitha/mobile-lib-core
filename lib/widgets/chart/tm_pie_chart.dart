@@ -5,9 +5,9 @@ import 'package:flutter/material.dart';
 import '../../configuration/tm_colors.dart';
 
 class TmPieChart extends StatelessWidget {
-  static final GlobalKey<AnimatedCircularChartState> _chartKey = GlobalKey<AnimatedCircularChartState>();
-  static final GlobalKey<AnimatedCircularChartState> chartKey2 = GlobalKey<AnimatedCircularChartState>();
-  static final GlobalKey<AnimatedCircularChartState> chartKey3 = GlobalKey<AnimatedCircularChartState>();
+  static final GlobalKey<AnimatedCircularChartState> backGroundChartKey = GlobalKey<AnimatedCircularChartState>();
+  static final GlobalKey<AnimatedCircularChartState> toProcessChartKey = GlobalKey<AnimatedCircularChartState>();
+  static final GlobalKey<AnimatedCircularChartState> processedChartKey = GlobalKey<AnimatedCircularChartState>();
 
   final double availableLimit;
   final double usedLimit;
@@ -31,7 +31,7 @@ class TmPieChart extends StatelessWidget {
           child: Container(
             alignment: Alignment.center,
             child: AnimatedCircularChart(
-              key: _chartKey,
+              key: backGroundChartKey,
               holeRadius: 100,
               size: const Size(255, 100),
               initialChartData: const <CircularStackEntry>[
@@ -55,7 +55,7 @@ class TmPieChart extends StatelessWidget {
           child: Container(
             alignment: Alignment.center,
             child: AnimatedCircularChart(
-              key: chartKey2,
+              key: toProcessChartKey,
               holeRadius: 87,
               size: const Size(310, 100),
               initialChartData: <CircularStackEntry>[
@@ -84,7 +84,7 @@ class TmPieChart extends StatelessWidget {
           child: Container(
             alignment: Alignment.center,
             child: AnimatedCircularChart(
-              key: chartKey3,
+              key: processedChartKey,
               holeRadius: 87,
               startAngle: (purchaseToProcess / (usedLimit + availableLimit)) * 360 - 90,
               size: const Size(310, 100),
