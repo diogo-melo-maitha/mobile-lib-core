@@ -33,7 +33,6 @@ class TmLimitInformationChart extends StatelessWidget {
           child: Stack(
             children: [
               TmPieChart(availableLimit: availableLimit, usedLimit: usedLimit, processedPurchase: processedPurchase, purchaseToProcess: purchaseToProcess),
-              // buildPieChart(),
               Container(
                 alignment: Alignment.center,
                 child: Column(
