@@ -22,3 +22,5 @@ export 'package:tm_lib_core/widgets/texts/tm_header_text.dart';
 export 'package:tm_lib_core/widgets/timer/tm_default_timer.dart';
 export 'package:tm_lib_core/widgets/toast/tm_toast.dart';
 export 'package:tm_lib_core/widgets/toolbar/tm_default_toolbar.dart';
+export 'package:tm_lib_core/widgets/texts/tm_description_text.dart';
+

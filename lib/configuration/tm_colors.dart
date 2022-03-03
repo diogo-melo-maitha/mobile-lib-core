@@ -20,6 +20,7 @@ abstract class TmColors {
   static const Color secondaryGrey = Color(0xff84868899);
   static const Color primaryGrey = Color(0xff3c3c434d);
 
+  static const Color shadow = Color(0xFF4B4B4B);
   static const Color textOnSurface = Color(0xFF848688);
   static const Color lightGrey = Color(0xff747474);
 
