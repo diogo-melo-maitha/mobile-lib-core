@@ -29,7 +29,7 @@ class TmLimitInformationChart extends StatelessWidget {
     return Column(
       children: [
         Padding(
-          padding: const EdgeInsets.only(top: 45, bottom: 57),
+          padding: const EdgeInsets.only(top: 65, bottom: 57),
           child: Stack(
             children: [
               TmPieChart(availableLimit: availableLimit, usedLimit: usedLimit, processedPurchase: processedPurchase, purchaseToProcess: purchaseToProcess),
@@ -51,7 +51,7 @@ class TmLimitInformationChart extends StatelessWidget {
                       ],
                     ),
                     Padding(
-                      padding: const EdgeInsets.only(top: 15),
+                      padding: const EdgeInsets.only(top: 20),
                       child: Column(
                         children: [
                           Text(
