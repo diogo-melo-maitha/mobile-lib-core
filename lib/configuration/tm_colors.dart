@@ -40,4 +40,7 @@ abstract class TmColors {
 	static const Color genoa = Color(0xff368766);
 	static const Color darkGrey2 = Color(0xffA2A2A2);
 	static const Color trout = Color(0xff4b545529);
+
+	static const Color oysterBay = Color(0xffD3E6E8);
+	static const Color silver = Color(0xffBCBCBC);
 }
