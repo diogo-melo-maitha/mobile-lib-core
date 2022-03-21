@@ -43,4 +43,7 @@ abstract class TmColors {
 
 	static const Color oysterBay = Color(0xffD3E6E8);
 	static const Color silver = Color(0xffBCBCBC);
+
+	static const Color gainsboroShimmer = Color(0xffE0E0E0);
+	static const Color whiteSmoke = Color(0xffEFEFEF);
 }
