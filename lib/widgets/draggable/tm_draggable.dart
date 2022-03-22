@@ -30,11 +30,6 @@ class TmDraggable extends StatefulWidget {
 }
 
 class _TmDraggableState extends State<TmDraggable> {
-	late Size size = MediaQuery.of(context).size;
-	late double mMaxHeight = widget.maxHeight ?? size.height * 0.9;
-	late double mMinHeight = widget.minHeight ?? size.height * 0.9;
-	late String mTitle = widget.title ?? 'Filtrar';
-
 	@override
 	Widget build(BuildContext context) {
 		return Material(
@@ -126,6 +121,11 @@ class _TmDraggableState extends State<TmDraggable> {
 		  ),
 		);
 	}
+
+	late Size size = MediaQuery.of(context).size;
+	late double mMaxHeight = widget.maxHeight ?? size.height * 0.9;
+	late double mMinHeight = widget.minHeight ?? size.height * 0.9;
+	late String mTitle = widget.title ?? 'Filtrar';
 
 	void _onClose() {
 		if (widget.onClose != null) {
