@@ -30,13 +30,20 @@ class TmDraggable extends StatefulWidget {
 }
 
 class _TmDraggableState extends State<TmDraggable> {
+	late Size size = MediaQuery.of(context).size;
+	late double mMaxHeight = widget.maxHeight ?? size.height * 0.9;
+	late double mMinHeight = widget.minHeight ?? size.height * 0.9;
+	late String mTitle = widget.title ?? 'Filtrar';
+
+	void _onClose() {
+		if (widget.onClose != null) {
+			widget.onClose!();
+		}
+		Navigator.pop(context);
+	}
+
 	@override
 	Widget build(BuildContext context) {
-		final size = MediaQuery.of(context).size;
-		final mMaxHeight = widget.maxHeight ?? size.height * 0.9;
-		final mMinHeight = widget.minHeight ?? size.height * 0.9;
-		final mTitle = widget.title ?? 'Filtrar';
-
 		return Material(
 			color: Colors.transparent,
 		  child: Column(
@@ -44,13 +51,13 @@ class _TmDraggableState extends State<TmDraggable> {
 					Expanded(
 		  			child: GestureDetector(
 							key: TmDraggable.gestureDetectorKey,
-		  				onTap: widget.onClose,
+		  				onTap: _onClose,
 		  			)
 		  		),
 		      SlidingUpPanel(
 						maxHeight: mMaxHeight,
 		      	minHeight: mMinHeight,
-		      	onPanelClosed: widget.onClose,
+		      	onPanelClosed: _onClose,
 		      	borderRadius: const BorderRadius.only(
 							topLeft: Radius.circular(15),
 							topRight: Radius.circular(15)
@@ -96,7 +103,7 @@ class _TmDraggableState extends State<TmDraggable> {
 		      											),
 																if (widget.showCloseButton)
 																	IconButton(
-																		onPressed: widget.onClose,
+																		onPressed: _onClose,
 																		icon: const Icon(
 																			Icons.cancel,
 																			color: TmColors.lightGrey,
