@@ -35,13 +35,6 @@ class _TmDraggableState extends State<TmDraggable> {
 	late double mMinHeight = widget.minHeight ?? size.height * 0.9;
 	late String mTitle = widget.title ?? 'Filtrar';
 
-	void _onClose() {
-		if (widget.onClose != null) {
-			widget.onClose!();
-		}
-		Navigator.pop(context);
-	}
-
 	@override
 	Widget build(BuildContext context) {
 		return Material(
@@ -132,5 +125,12 @@ class _TmDraggableState extends State<TmDraggable> {
 		    ],
 		  ),
 		);
+	}
+
+	void _onClose() {
+		if (widget.onClose != null) {
+			widget.onClose!();
+		}
+		Navigator.pop(context);
 	}
 }
