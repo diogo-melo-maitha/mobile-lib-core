@@ -11,7 +11,7 @@ void main() {
       await tester.pumpWidget(TestUtils.buildTestableWidget(TmDefaultClickableCard(
         key: key,
         primaryText: primaryText,
-        onClick: () {},
+        onTap: () {},
         secondaryText: '',
       )));
       expect(find.byKey(key), findsOneWidget);
@@ -20,7 +20,7 @@ void main() {
       await tester.pumpWidget(TestUtils.buildTestableWidget(TmDefaultClickableCard(
         key: key,
         primaryText: 'TRADEMASTER',
-        onClick: () {},
+        onTap: () {},
         secondaryText: '',
       )));
       final primaryText = tester.widget<Text>(find.byType(Text).first);
@@ -30,7 +30,7 @@ void main() {
       await tester.pumpWidget(TestUtils.buildTestableWidget(TmDefaultClickableCard(
         key: key,
         primaryText: 'TRADEMASTER',
-        onClick: () {},
+        onTap: () {},
         secondaryText: 'Subtitle',
       )));
       final secondaryText = tester.widget<Text>(find.byType(Text).last);
@@ -40,7 +40,7 @@ void main() {
       await tester.pumpWidget(TestUtils.buildTestableWidget(TmDefaultClickableCard(
         key: key,
         primaryText: primaryText,
-        onClick: () {},
+        onTap: () {},
         elevation: 3,
         secondaryText: '',
       )));
@@ -49,12 +49,12 @@ void main() {
 
       expect(((container.decoration as BoxDecoration).boxShadow)!.single.blurRadius, 3);
     });
-    testWidgets('Given function onClick is working', (tester) async {
+    testWidgets('Given function onTap is working', (tester) async {
         int functionCounter = 0;
         await tester.pumpWidget(TestUtils.buildTestableWidget(TmDefaultClickableCard(
           key: key,
           primaryText: primaryText,
-          onClick: () {
+          onTap: () {
             functionCounter++;
           },
           secondaryText: '',
