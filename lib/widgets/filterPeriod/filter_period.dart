@@ -9,6 +9,7 @@ class TmFilterPeriod extends StatefulWidget {
 	final Function(DateTime) onChange;
 	final DateTime startDate;
 	final DateTime? maxDate;
+	final DateTime? minDate;
 
 	const TmFilterPeriod({
 		required this.dayController,
@@ -17,6 +18,7 @@ class TmFilterPeriod extends StatefulWidget {
 		required this.onChange,
 		required this.startDate,
 		this.maxDate,
+		this.minDate,
 		Key? key
 	}) : super(key: key);
 
@@ -27,7 +29,7 @@ class TmFilterPeriod extends StatefulWidget {
 class _TmFilterPeriodState extends State<TmFilterPeriod> {
 	late Size size = MediaQuery.of(context).size;
 
-	void _showDatePickerDialog(Function(DateTime) onChange, DateTime startDate, { DateTime? maxDate }) {
+	void _showDatePickerDialog(Function(DateTime) onChange, DateTime startDate) {
     showCupertinoModalPopup<void>(
 			context: context,
 			builder: (context) => Container(
@@ -45,7 +47,8 @@ class _TmFilterPeriodState extends State<TmFilterPeriod> {
 						use24hFormat: true,
 						dateOrder: DatePickerDateOrder.dmy,
 						onDateTimeChanged: onChange,
-						maximumDate: maxDate,
+						maximumDate: widget.maxDate,
+						minimumDate: widget.minDate
 					)
 				),
 			));
@@ -58,8 +61,7 @@ class _TmFilterPeriodState extends State<TmFilterPeriod> {
 			onTap: () {
 				_showDatePickerDialog(
 					widget.onChange,
-					widget.startDate,
-					maxDate: widget.maxDate
+					widget.startDate
 				);
 			},
 			child: AbsorbPointer(
