@@ -12,6 +12,7 @@ class TmDesignTopLines extends StatelessWidget {
   final bool light;
   final bool toolbar;
   final bool haveButton;
+	final Color? color;
 
   const TmDesignTopLines({
     Key? key,
@@ -22,6 +23,7 @@ class TmDesignTopLines extends StatelessWidget {
     required this.light,
     required this.toolbar,
     this.haveButton = true,
+		this.color
   }) : super(key: key);
 
   @override
@@ -34,6 +36,7 @@ class TmDesignTopLines extends StatelessWidget {
             package: 'tm_lib_core',
             alignment: Alignment.topRight,
             width: MediaQuery.of(context).size.width,
+						color: color,
           ),
         if (!light)
           SvgPicture.asset(
