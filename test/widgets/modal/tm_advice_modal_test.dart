@@ -1,5 +1,5 @@
-import 'package:flutter_test/flutter_test.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_test/flutter_test.dart';
 import 'package:tm_lib_core/utils/test_utils.dart';
 import 'package:tm_lib_core/widgets/modal/tm_advice_modal.dart';
 
@@ -9,7 +9,7 @@ void main() {
   group(
     'DefaultButton tests',
     () {
-      testWidgets('TmAdviceModal is properly used', (tester) async {
+      testWidgets('TmAdviceModal is properly created', (tester) async {
         await tester.pumpWidget(TestUtils.buildTestableWidget(TmAdviceModal(
           key: key,
           title: '',
@@ -35,12 +35,12 @@ void main() {
         await tester.pumpWidget(TestUtils.buildTestableWidget(TmAdviceModal(
           key: key,
           title: '',
-          clickableText: '',
+          clickableText: 'clickableText',
           onTap: () {
             functionCounter++;
           },
         )));
-        await tester.tap(find.byType(Container));
+        await tester.tap(find.byType(InkWell));
         await tester.pump();
         expect(functionCounter, 1);
         functionCounter = 0;
