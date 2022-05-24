@@ -7,6 +7,7 @@ abstract class TmColors {
   static const Color accent = Color(0xFF64C19B);
 
   static const Color primaryDisabled = Color(0xFFB5E3E9);
+  static const Color accentLight = Color(0xFF7BCAAA);
 
   static const Color white = Color(0xFFFFFFFF);
   static const Color ice = Color(0xffB8D0D3);
