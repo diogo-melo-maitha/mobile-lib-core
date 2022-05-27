@@ -56,3 +56,4 @@ abstract class TmFonts {
 
   static TextStyle extraBold20 = GoogleFonts.openSans(fontSize: 20, fontWeight: FontWeight.w800);
 }
+//
