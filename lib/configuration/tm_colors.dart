@@ -7,6 +7,7 @@ abstract class TmColors {
   static const Color accent = Color(0xFF64C19B);
 
   static const Color primaryDisabled = Color(0xFFB5E3E9);
+  static const Color accentLight = Color(0xFF7BCAAA);
 
   static const Color white = Color(0xFFFFFFFF);
   static const Color ice = Color(0xffB8D0D3);
@@ -27,25 +28,26 @@ abstract class TmColors {
   static const Color error = Color(0xffde3822);
   static const Color success = Color(0xff64C19B);
 
-	static const Color aquaHaze = Color(0xffF1F7F7);
-	static const Color porcelain = Color(0xffF8FAFA);
+  static const Color aquaHaze = Color(0xffF1F7F7);
+  static const Color porcelain = Color(0xffF8FAFA);
 
-	static const Color gainsboro = Color(0xffD8D8D8);
+  static const Color gainsboro = Color(0xffD8D8D8);
 
-	static const Color darkGrey = Color(0xffA5A5A5);
-	static const Color limeGreen = Color(0xff32D74B);
-	static const Color nobel = Color(0xff999999);
+  static const Color darkGrey = Color(0xffA5A5A5);
+  static const Color limeGreen = Color(0xff32D74B);
+  static const Color nobel = Color(0xff999999);
 
-	static const Color cascade = Color(0xff90A6A9);
-	static const Color genoa = Color(0xff368766);
-	static const Color darkGrey2 = Color(0xffA2A2A2);
-	static const Color trout = Color(0xff4b545529);
+  static const Color cascade = Color(0xff90A6A9);
+  static const Color genoa = Color(0xff368766);
+  static const Color darkGrey2 = Color(0xffA2A2A2);
+  static const Color trout = Color(0xff4b545529);
 
-	static const Color oysterBay = Color(0xffD3E6E8);
-	static const Color silver = Color(0xffBCBCBC);
+  static const Color oysterBay = Color(0xffD3E6E8);
+  static const Color silver = Color(0xffBCBCBC);
 
-	static const Color gainsboroShimmer = Color(0xffE0E0E0);
-	static const Color whiteSmoke = Color(0xffEFEFEF);
+  static const Color gainsboroShimmer = Color(0xffE0E0E0);
+  static const Color whiteSmoke = Color(0xffEFEFEF);
 
-	static const Color monteCarlo = Color(0xff7BCAAA);
+  static const Color adviceYellow = Color(0xFFFFDE84);
+  static const Color turquoise = Color(0xff0B5964);
 }
