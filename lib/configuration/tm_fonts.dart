@@ -18,6 +18,8 @@ abstract class TmFonts {
 
   static TextStyle regular48 = GoogleFonts.openSans(fontSize: 48, fontWeight: FontWeight.w400);
 
+  static TextStyle medium16 = GoogleFonts.openSans(fontSize: 16, fontWeight: FontWeight.w500);
+
   static TextStyle semiBold10 = GoogleFonts.openSans(fontSize: 10, fontWeight: FontWeight.w600);
 
   static TextStyle semiBold12 = GoogleFonts.openSans(fontSize: 12, fontWeight: FontWeight.w600);
@@ -51,4 +53,7 @@ abstract class TmFonts {
   static TextStyle bold20 = GoogleFonts.openSans(fontSize: 20, fontWeight: FontWeight.w700);
 
   static TextStyle extraBold12 = GoogleFonts.openSans(fontSize: 12, fontWeight: FontWeight.w800);
+
+  static TextStyle extraBold20 = GoogleFonts.openSans(fontSize: 20, fontWeight: FontWeight.w800);
 }
+//
