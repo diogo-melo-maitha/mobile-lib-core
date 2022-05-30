@@ -11,6 +11,7 @@ class TmDefaultToolbar extends StatelessWidget {
   final Widget centerWidget;
   final Widget rightWidget;
   final bool haveButton;
+  final bool useWhite;
 
   const TmDefaultToolbar({
     Key? key,
@@ -19,6 +20,7 @@ class TmDefaultToolbar extends StatelessWidget {
     this.centerWidget = const Text(''),
     this.rightWidget = const Text(''),
     this.haveButton = true,
+    this.useWhite = false,
   }) : super(key: key);
 
   @override
@@ -42,7 +44,7 @@ class TmDefaultToolbar extends StatelessWidget {
                     iconSize: iconSize,
                     onPressed: onPressed ?? Modular.to.pop,
                     icon: SvgPicture.asset(
-                      'assets/images/left_chevron.svg',
+                      useWhite ? 'assets/images/left_chevron_white.svg' : 'assets/images/left_chevron.svg',
                       package: 'tm_lib_core',
                       width: iconSize,
                       height: iconSize,
