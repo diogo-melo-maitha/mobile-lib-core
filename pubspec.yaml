@@ -18,7 +18,7 @@ dependencies:
   intl: ^0.17.0
   cpf_cnpj_validator: ^2.0.0
   permission_handler: ^7.1.0
-  another_flushbar: ^1.10.24
+  another_flushbar: 1.10.24
   font_awesome_flutter: ^9.1.0
   json_serializable: ^4.1.4
   dots_indicator: ^2.0.0
