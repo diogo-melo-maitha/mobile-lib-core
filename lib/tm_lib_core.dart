@@ -2,6 +2,10 @@ library tm_lib_core;
 
 export 'package:tm_lib_core/configuration/environment_config.dart';
 export 'package:tm_lib_core/configuration/tm_colors.dart';
+export 'package:tm_lib_core/widgets/buttons/tm_default_button.dart';
+export 'package:tm_lib_core/widgets/buttons/tm_checkbox_button.dart';
+export 'package:tm_lib_core/widgets/sliders/percentage_slider.dart';
+export 'package:tm_lib_core/configuration/tm_colors.dart';
 export 'package:tm_lib_core/configuration/tm_fonts.dart';
 export 'package:tm_lib_core/extensions/tm_double_extension.dart';
 export 'package:tm_lib_core/widgets/buttons/tm_checkbox_button.dart';
