@@ -1,10 +1,6 @@
 import 'package:flutter/material.dart';
-import 'package:flutter/src/foundation/key.dart';
-import 'package:flutter/src/widgets/framework.dart';
 import 'package:flutter_modular/flutter_modular.dart';
 
-import '../../configuration/tm_colors.dart';
-import '../../configuration/tm_fonts.dart';
 import '../../tm_lib_core.dart';
 
 class TmDialogModal extends StatefulWidget {
@@ -69,13 +65,15 @@ class _TmDialogModalState extends State<TmDialogModal> {
               Expanded(
                 child: Padding(
                   padding: const EdgeInsets.only(right: 9, left: 24, bottom: 30),
-                  child: TmDefaultButton(
-                    onPressed: () => widget.secondaryAction ?? Modular.to.pop(),
-                    title: widget.secondaryActionTitle ?? '',
-                    textStyle: TmFonts.bold12.merge(const TextStyle(color: TmColors.primary)),
-                    backgroundColor: TmColors.white,
-                    borderColor: TmColors.primary,
-                  ),
+                  child: widget.secondaryAction != null
+                      ? TmDefaultButton(
+                          onPressed: () => widget.secondaryAction ?? Modular.to.pop(),
+                          title: widget.secondaryActionTitle ?? '',
+                          textStyle: TmFonts.bold12.merge(const TextStyle(color: TmColors.primary)),
+                          backgroundColor: TmColors.white,
+                          borderColor: TmColors.primary,
+                        )
+                      : Container(),
                 ),
               ),
               Expanded(
