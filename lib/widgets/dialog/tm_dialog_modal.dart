@@ -62,6 +62,7 @@ class _TmDialogModalState extends State<TmDialogModal> {
           Row(
             mainAxisAlignment: MainAxisAlignment.spaceEvenly,
             children: [
+              Divider(color: TmColors.accent),
               Expanded(
                 child: Padding(
                   padding: const EdgeInsets.only(right: 9, left: 24, bottom: 30),
