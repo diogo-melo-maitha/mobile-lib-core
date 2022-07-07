@@ -18,9 +18,9 @@ class TmDialogModal extends StatefulWidget {
   }) : super(key: key);
   final String title;
   final String? subtitle;
-  final Function mainAction;
+  final Function() mainAction;
   final String mainActionTitle;
-  final Function? secondaryAction;
+  final Function()? secondaryAction;
   final String? secondaryActionTitle;
   final EdgeInsets? titlePadding;
   final EdgeInsets? insetPadding;
@@ -37,60 +37,80 @@ class TmDialogModal extends StatefulWidget {
 class _TmDialogModalState extends State<TmDialogModal> {
   @override
   Widget build(BuildContext context) {
-    return Dialog(
-      key: const Key('TmDialogModel'),
-      child: AlertDialog(
-        title: Center(
-            child: Text(
-          widget.title,
-          style: TmFonts.bold17.merge(const TextStyle(color: TmColors.primary)),
-        )),
-        titlePadding: widget.titlePadding ?? const EdgeInsets.only(bottom: 60, top: 30),
-        insetPadding: widget.insetPadding ??
-            EdgeInsets.only(left: 14, right: 14, bottom: MediaQuery.of(context).size.height * 0.25),
-        shape: RoundedRectangleBorder(
-          borderRadius: BorderRadius.circular(5),
-        ),
-        content: widget.subtitle != null
-            ? Center(
-                child: Text(
-                widget.subtitle!,
-                style: TmFonts.regular14.merge(const TextStyle(color: TmColors.textOnSurface)),
-              ))
-            : Container(),
-        actions: [
-          Row(
-            mainAxisAlignment: MainAxisAlignment.spaceEvenly,
-            children: [
-              const Divider(color: TmColors.lineGrey),
-              Expanded(
-                child: Padding(
-                  padding: const EdgeInsets.only(right: 9, left: 24, bottom: 30),
-                  child: widget.secondaryAction != null
-                      ? TmDefaultButton(
-                          onPressed: () => widget.secondaryAction ?? Modular.to.pop(),
-                          title: widget.secondaryActionTitle ?? '',
-                          textStyle: TmFonts.bold12.merge(const TextStyle(color: TmColors.primary)),
-                          backgroundColor: TmColors.white,
-                          borderColor: TmColors.primary,
-                        )
-                      : Container(),
-                ),
+    return AlertDialog(
+      title: Padding(
+        padding: EdgeInsets.only(left: 12, right: 12),
+        child: Column(
+          crossAxisAlignment: CrossAxisAlignment.start,
+          mainAxisAlignment: MainAxisAlignment.spaceAround,
+          children: [
+            Center(
+              child: Text(
+                widget.title,
+                style: TmFonts.semiBold24.merge(const TextStyle(color: TmColors.textBlack)),
               ),
-              Expanded(
-                child: Padding(
-                  padding: const EdgeInsets.only(left: 9, right: 24, bottom: 30),
-                  child: TmDefaultButton(
-                    onPressed: () => widget.mainAction,
-                    title: widget.mainActionTitle,
-                    textStyle: TmFonts.bold12,
+            ),
+            if (widget.subtitle != null) ...{
+              Center(
+                child: Text(
+                  widget.subtitle!,
+                  style: TmFonts.regular14.merge(const TextStyle(color: TmColors.textGrey)),
+                ),
+              )
+            }
+          ],
+        ),
+      ),
+      titlePadding: widget.titlePadding ?? const EdgeInsets.only(bottom: 60, top: 30),
+      insetPadding: widget.insetPadding ??
+          EdgeInsets.only(left: 14, right: 14, bottom: MediaQuery.of(context).size.height * 0.25),
+      shape: RoundedRectangleBorder(
+        borderRadius: BorderRadius.circular(20),
+      ),
+      actions: [
+        Container(
+          width: double.infinity,
+          child: IntrinsicWidth(
+            child: Column(
+              children: [
+                const Divider(color: TmColors.lineGrey, indent: 0, endIndent: 0),
+                IntrinsicHeight(
+                  child: Row(
+                    mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+                    children: [
+                      Expanded(
+                        child: widget.secondaryAction != null
+                            ? TmTextButton(
+                                onPressed: widget.secondaryAction!,
+                                title: widget.secondaryActionTitle ?? '',
+                                textStyle: TmFonts.semiBold16.merge(const TextStyle(color: TmColors.accentLight)),
+                              )
+                            : Container(),
+                      ),
+                      const VerticalDivider(
+                        color: TmColors.lineGrey,
+                        indent: 0,
+                        endIndent: 0,
+                        width: 2,
+                      ),
+                      Expanded(
+                        child: TmTextButton(
+                          onPressed: () {
+                            widget.mainAction();
+                            Modular.to.pop();
+                          },
+                          title: widget.mainActionTitle,
+                          textStyle: TmFonts.semiBold16.merge(const TextStyle(color: TmColors.accentLight)),
+                        ),
+                      ),
+                    ],
                   ),
                 ),
-              ),
-            ],
+              ],
+            ),
           ),
-        ],
-      ),
+        ),
+      ],
     );
   }
 }
