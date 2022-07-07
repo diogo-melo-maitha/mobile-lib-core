@@ -16,10 +16,14 @@ abstract class TmColors {
   static const Color disabled = Color(0xffDBE8EA);
   static const Color disabledText = Color(0xff97AEB1);
 
+  static const Color textBlack = Color(0xff414141);
+  static const Color textGrey = Color(0xff848688);
+
   static const Color inputText = Color(0xff383A3C);
 
   static const Color secondaryGrey = Color(0xff84868899);
   static const Color primaryGrey = Color(0xff3c3c434d);
+  static const Color lineGrey = Color(0xffEDEDED);
 
   static const Color shadow = Color(0xFF4B4B4B);
   static const Color textOnSurface = Color(0xFF848688);
