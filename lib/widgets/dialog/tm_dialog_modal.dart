@@ -46,10 +46,11 @@ class _TmDialogModalState extends State<TmDialogModal> {
         mainAxisAlignment: MainAxisAlignment.spaceBetween,
         children: [
           Padding(
-            padding: widget.titlePadding??EdgeInsets.zero,
+            padding: widget.titlePadding ?? EdgeInsets.zero,
             child: Center(
                 child: Text(
               widget.title,
+              textAlign: TextAlign.center,
               style: widget.titleStyle ?? TmFonts.bold17.merge(const TextStyle(color: TmColors.primary)),
             )),
           ),
@@ -57,16 +58,18 @@ class _TmDialogModalState extends State<TmDialogModal> {
             Center(
               child: Text(
                 widget.subtitle!,
+                textAlign: TextAlign.center,
                 style: widget.subtitleStyle ?? TmFonts.regular14.merge(const TextStyle(color: TmColors.textGrey)),
               ),
             )
           }
         ],
       ),
-
-      titlePadding: const EdgeInsets.only(bottom: 60, top: 30),
-      insetPadding: widget.insetPadding ??
-          EdgeInsets.only(left: 14, right: 14, bottom: MediaQuery.of(context).size.height * 0.25),
+      titlePadding: EdgeInsets.only(
+          bottom: MediaQuery.of(context).size.height * 0.04,
+          top: MediaQuery.of(context).size.height * 0.04,
+          right: 10,
+          left: 10),
       shape: RoundedRectangleBorder(
         borderRadius: BorderRadius.circular(5),
       ),
