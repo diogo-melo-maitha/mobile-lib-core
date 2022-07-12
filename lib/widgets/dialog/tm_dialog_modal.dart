@@ -1,9 +1,11 @@
 import 'package:flutter/material.dart';
-import 'package:flutter_modular/flutter_modular.dart';
 
 import '../../tm_lib_core.dart';
 
 class TmDialogModal extends StatefulWidget {
+  static const Key titleKey = Key('titleKey');
+  static const Key subtitleKey = Key('subtitleKey');
+
   const TmDialogModal({
     Key? key,
     required this.title,
@@ -50,6 +52,7 @@ class _TmDialogModalState extends State<TmDialogModal> {
             child: Center(
                 child: Text(
               widget.title,
+              key: TmDialogModal.titleKey,
               textAlign: TextAlign.center,
               style: widget.titleStyle ?? TmFonts.bold17.merge(const TextStyle(color: TmColors.primary)),
             )),
@@ -58,6 +61,7 @@ class _TmDialogModalState extends State<TmDialogModal> {
             Center(
               child: Text(
                 widget.subtitle!,
+                key: TmDialogModal.subtitleKey,
                 textAlign: TextAlign.center,
                 style: widget.subtitleStyle ?? TmFonts.regular14.merge(const TextStyle(color: TmColors.textGrey)),
               ),
