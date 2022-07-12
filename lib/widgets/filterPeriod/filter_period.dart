@@ -10,6 +10,7 @@ class TmFilterPeriod extends StatefulWidget {
 	final DateTime startDate;
 	final DateTime? maxDate;
 	final DateTime? minDate;
+	final double? height;
 
 	const TmFilterPeriod({
 		required this.dayController,
@@ -19,6 +20,7 @@ class TmFilterPeriod extends StatefulWidget {
 		required this.startDate,
 		this.maxDate,
 		this.minDate,
+		this.height,
 		Key? key
 	}) : super(key: key);
 
@@ -56,45 +58,48 @@ class _TmFilterPeriodState extends State<TmFilterPeriod> {
 	
 	@override
 	Widget build(BuildContext context) {
-		return GestureDetector(
-			key: widget.key,
-			onTap: () {
-				_showDatePickerDialog(
-					widget.onChange,
-					widget.startDate
-				);
-			},
-			child: AbsorbPointer(
-				child: Row(
-					mainAxisAlignment: MainAxisAlignment.spaceBetween,
-					children: [
-						Container(
-							width: size.width * 0.2,
-							child: TmDefaultTextField(
-								textEditingController: widget.dayController,
-								horizontalSymmetricPadding: 0,
-								borderColor: TmColors.primary
-							)
-						),
-						Container(
-							width: size.width * 0.4,
-							child: TmDefaultTextField(
-								textEditingController: widget.monthController,
-								horizontalSymmetricPadding: 0,
-								borderColor: TmColors.primary
-							)
-						),
-						Container(
-							width: size.width * 0.2,
-							child: TmDefaultTextField(
-								textEditingController: widget.yearController,
-								horizontalSymmetricPadding: 0,
-								borderColor: TmColors.primary
-							)
-						)
-					],
-				),
-			),
+		return SizedBox(
+			height: widget.height,
+		  child: GestureDetector(
+		  	key: widget.key,
+		  	onTap: () {
+		  		_showDatePickerDialog(
+		  			widget.onChange,
+		  			widget.startDate
+		  		);
+		  	},
+		  	child: AbsorbPointer(
+		  		child: Row(
+		  			mainAxisAlignment: MainAxisAlignment.spaceBetween,
+		  			children: [
+		  				Container(
+		  					width: size.width * 0.2,
+		  					child: TmDefaultTextField(
+		  						textEditingController: widget.dayController,
+		  						horizontalSymmetricPadding: 0,
+		  						borderColor: TmColors.primary
+		  					)
+		  				),
+		  				Container(
+		  					width: size.width * 0.4,
+		  					child: TmDefaultTextField(
+		  						textEditingController: widget.monthController,
+		  						horizontalSymmetricPadding: 0,
+		  						borderColor: TmColors.primary
+		  					)
+		  				),
+		  				Container(
+		  					width: size.width * 0.2,
+		  					child: TmDefaultTextField(
+		  						textEditingController: widget.yearController,
+		  						horizontalSymmetricPadding: 0,
+		  						borderColor: TmColors.primary
+		  					)
+		  				)
+		  			],
+		  		),
+		  	),
+		  ),
 		);
 	}
 }

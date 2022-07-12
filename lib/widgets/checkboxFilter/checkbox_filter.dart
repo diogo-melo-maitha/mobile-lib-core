@@ -6,12 +6,14 @@ class TmCheckboxFilter extends StatefulWidget {
 	final String text;
 	final bool value;
 	final Function(bool) onChange;
+	final double? height;
 
 	const TmCheckboxFilter({
 		Key? key,
 		required this.text,
 		required this.value,
-		required this.onChange
+		required this.onChange,
+		this.height
 	}) : super(key: key);
 
 	@override
@@ -21,21 +23,24 @@ class TmCheckboxFilter extends StatefulWidget {
 class _TmCheckboxFilterState extends State<TmCheckboxFilter> {
 	@override
 	Widget build(BuildContext context) {
-		return Row(
-			mainAxisAlignment: MainAxisAlignment.spaceBetween,
-			children: [
-				Text(
-					widget.text,
-					style: TmFonts.regular14,
-				),
-				Checkbox(
-					shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(5)),
-					activeColor: TmColors.ice,
-					value: widget.value,
-					onChanged: (value) => widget.onChange(value!),
-					side: const BorderSide(color: TmColors.ice),
-				)
-			],
+		return SizedBox(
+			height: widget.height,
+		  child: Row(
+		  	mainAxisAlignment: MainAxisAlignment.spaceBetween,
+		  	children: [
+		  		Text(
+		  			widget.text,
+		  			style: TmFonts.regular14,
+		  		),
+		  		Checkbox(
+		  			shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(5)),
+		  			activeColor: TmColors.ice,
+		  			value: widget.value,
+		  			onChanged: (value) => widget.onChange(value!),
+		  			side: const BorderSide(color: TmColors.ice),
+		  		)
+		  	],
+		  ),
 		);
 	}
 }
