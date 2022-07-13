@@ -1,13 +1,17 @@
 import 'package:flutter/material.dart';
-import 'package:flutter_modular/flutter_modular.dart';
 
 import '../../tm_lib_core.dart';
 
 class TmDialogModal extends StatefulWidget {
+  static const Key titleKey = Key('titleKey');
+  static const Key subtitleKey = Key('subtitleKey');
+
   const TmDialogModal({
     Key? key,
     required this.title,
+    this.titleStyle,
     this.subtitle,
+    this.subtitleStyle,
     required this.mainAction,
     required this.mainActionTitle,
     this.secondaryAction,
@@ -17,7 +21,9 @@ class TmDialogModal extends StatefulWidget {
     this.isDismissible = false,
   }) : super(key: key);
   final String title;
+  final TextStyle? titleStyle;
   final String? subtitle;
+  final TextStyle? subtitleStyle;
   final Function() mainAction;
   final String mainActionTitle;
   final Function()? secondaryAction;
@@ -38,77 +44,68 @@ class _TmDialogModalState extends State<TmDialogModal> {
   @override
   Widget build(BuildContext context) {
     return AlertDialog(
-      title: Padding(
-        padding: EdgeInsets.only(left: 12, right: 12),
-        child: Column(
-          crossAxisAlignment: CrossAxisAlignment.start,
-          mainAxisAlignment: MainAxisAlignment.spaceAround,
-          children: [
+      title: Column(
+        mainAxisAlignment: MainAxisAlignment.spaceBetween,
+        children: [
+          Padding(
+            padding: widget.titlePadding ?? EdgeInsets.zero,
+            child: Center(
+                child: Text(
+              widget.title,
+              key: TmDialogModal.titleKey,
+              textAlign: TextAlign.center,
+              style: widget.titleStyle ?? TmFonts.bold17.merge(const TextStyle(color: TmColors.primary)),
+            )),
+          ),
+          if (widget.subtitle != null) ...{
             Center(
               child: Text(
-                widget.title,
-                style: TmFonts.semiBold24.merge(const TextStyle(color: TmColors.textBlack)),
+                widget.subtitle!,
+                key: TmDialogModal.subtitleKey,
+                textAlign: TextAlign.center,
+                style: widget.subtitleStyle ?? TmFonts.regular14.merge(const TextStyle(color: TmColors.textGrey)),
               ),
-            ),
-            if (widget.subtitle != null) ...{
-              Center(
-                child: Text(
-                  widget.subtitle!,
-                  style: TmFonts.regular14.merge(const TextStyle(color: TmColors.textGrey)),
-                ),
-              )
-            }
-          ],
-        ),
+            )
+          }
+        ],
       ),
-      titlePadding: widget.titlePadding ?? const EdgeInsets.only(bottom: 60, top: 30),
-      insetPadding: widget.insetPadding ??
-          EdgeInsets.only(left: 14, right: 14, bottom: MediaQuery.of(context).size.height * 0.25),
+      titlePadding: EdgeInsets.only(
+          bottom: MediaQuery.of(context).size.height * 0.04,
+          top: MediaQuery.of(context).size.height * 0.04,
+          right: 10,
+          left: 10),
       shape: RoundedRectangleBorder(
-        borderRadius: BorderRadius.circular(20),
+        borderRadius: BorderRadius.circular(5),
       ),
       actions: [
-        Container(
-          width: double.infinity,
-          child: IntrinsicWidth(
-            child: Column(
-              children: [
-                const Divider(color: TmColors.lineGrey, indent: 0, endIndent: 0),
-                IntrinsicHeight(
-                  child: Row(
-                    mainAxisAlignment: MainAxisAlignment.spaceEvenly,
-                    children: [
-                      Expanded(
-                        child: widget.secondaryAction != null
-                            ? TmTextButton(
-                                onPressed: widget.secondaryAction!,
-                                title: widget.secondaryActionTitle ?? '',
-                                textStyle: TmFonts.semiBold16.merge(const TextStyle(color: TmColors.accentLight)),
-                              )
-                            : Container(),
-                      ),
-                      const VerticalDivider(
-                        color: TmColors.lineGrey,
-                        indent: 0,
-                        endIndent: 0,
-                        width: 2,
-                      ),
-                      Expanded(
-                        child: TmTextButton(
-                          onPressed: () {
-                            widget.mainAction();
-                            Modular.to.pop();
-                          },
-                          title: widget.mainActionTitle,
-                          textStyle: TmFonts.semiBold16.merge(const TextStyle(color: TmColors.accentLight)),
-                        ),
-                      ),
-                    ],
-                  ),
+        Row(
+          mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+          children: [
+            Expanded(
+              child: Padding(
+                padding: const EdgeInsets.only(right: 9, left: 24, bottom: 30),
+                child: TmDefaultButton(
+                  onPressed: widget.mainAction,
+                  title: widget.mainActionTitle,
+                  textStyle: TmFonts.bold12.merge(const TextStyle(color: TmColors.primary)),
+                  backgroundColor: TmColors.white,
+                  borderColor: TmColors.primary,
                 ),
-              ],
+              ),
             ),
-          ),
+            Expanded(
+              child: widget.secondaryAction != null
+                  ? Padding(
+                      padding: const EdgeInsets.only(left: 9, right: 24, bottom: 30),
+                      child: TmDefaultButton(
+                        onPressed: widget.secondaryAction!,
+                        title: widget.secondaryActionTitle ?? '',
+                        textStyle: TmFonts.bold12,
+                      ),
+                    )
+                  : Container(),
+            ),
+          ],
         ),
       ],
     );
