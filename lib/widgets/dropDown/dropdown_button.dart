@@ -1,4 +1,3 @@
-import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 
 import '../../configuration/tm_colors.dart';
@@ -48,7 +47,7 @@ class _TmDropdownButtonState extends State<TmDropdownButton> {
   @override
   Widget build(BuildContext context) {
     dropdownController.text = ' ';
-    WidgetsBinding.instance!.addPostFrameCallback((_) {
+    WidgetsBinding.instance.addPostFrameCallback((_) {
       _updateValue();
     });
     return Stack(
@@ -108,8 +107,9 @@ class _TmDropdownButtonState extends State<TmDropdownButton> {
       ],
     );
   }
-  void _updateValue(){
-    if(widget.updateValue != null){
+
+  void _updateValue() {
+    if (widget.updateValue != null) {
       setState(() {
         hint = widget.updateValue;
       });

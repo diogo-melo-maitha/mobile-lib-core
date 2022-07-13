@@ -4,39 +4,40 @@ import 'package:tm_lib_core/utils/test_utils.dart';
 import 'package:tm_lib_core/widgets/checkboxFilter/checkbox_filter.dart';
 
 void main() {
-	const key = Key('key');
+  const key = Key('key');
 
-	int aux = 0;
+  int aux = 0;
 
-	final onChange = (value) {
-		 aux++;
-	};
+  Null Function(bool value) onChange;
+  onChange = (value) {
+    aux++;
+  };
 
-	group('TmCheckboxFilter', () {
-		testWidgets('TmCheckboxFilter is properly created', (tester) async {
+  group('TmCheckboxFilter', () {
+    testWidgets('TmCheckboxFilter is properly created', (tester) async {
       await tester.pumpWidget(TestUtils.buildTestableWidget(TmCheckboxFilter(
         key: key,
         text: 'Test',
-				value: false,
-				onChange: onChange,
+        value: false,
+        onChange: onChange,
       )));
-			
+
       expect(find.byKey(key), findsOneWidget);
     });
 
-		testWidgets('TmCheckboxFilter on change value', (tester) async {
+    testWidgets('TmCheckboxFilter on change value', (tester) async {
       await tester.pumpWidget(TestUtils.buildTestableWidget(TmCheckboxFilter(
         key: key,
         text: 'Test',
-				value: false,
-				onChange: onChange,
+        value: false,
+        onChange: onChange,
       )));
 
-			await tester.tap(find.byKey(key));
+      await tester.tap(find.byType(Checkbox));
       await tester.pump();
-			
+
       expect(aux, 1);
-			aux = 0;
+      aux = 0;
     });
-	});
+  });
 }
