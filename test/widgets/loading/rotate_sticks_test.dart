@@ -6,6 +6,10 @@ import 'package:tm_lib_core/widgets/loading/rotate_sticks.dart';
 
 void main() {
   const key = Key('key');
+  final AnimationController controller = AnimationController(
+    duration: const Duration(milliseconds: 500),
+    vsync: const TestVSync(),
+  );
 
   setUp(() {
     WidgetsFlutterBinding.ensureInitialized();
@@ -18,9 +22,11 @@ void main() {
     testWidgets('RotateSticks properly created', (tester) async {
       await tester.pumpWidget(
         TestUtils.buildTestableWidget(
-          const RotateSticks(
+          RotateSticks(
             key: key,
-            duration: Duration(seconds: 1),
+            duration: const Duration(seconds: 1),
+            controller: controller,
+            size: 41,
           ),
         ),
       );
