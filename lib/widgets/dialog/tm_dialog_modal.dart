@@ -14,6 +14,8 @@ class TmDialogModal extends StatefulWidget {
     this.subtitleStyle,
     required this.mainAction,
     required this.mainActionTitle,
+    this.mainActionTitleStyle,
+    this.mainActionButtonColor,
     this.secondaryAction,
     this.secondaryActionTitle,
     this.titlePadding,
@@ -26,6 +28,8 @@ class TmDialogModal extends StatefulWidget {
   final TextStyle? subtitleStyle;
   final Function() mainAction;
   final String mainActionTitle;
+  final TextStyle? mainActionTitleStyle;
+  final Color? mainActionButtonColor;
   final Function()? secondaryAction;
   final String? secondaryActionTitle;
   final EdgeInsets? titlePadding;
@@ -79,7 +83,7 @@ class _TmDialogModalState extends State<TmDialogModal> {
       ),
       actions: [
         Row(
-          mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+          mainAxisAlignment: MainAxisAlignment.spaceAround,
           children: [
             Expanded(
               child: Padding(
@@ -87,24 +91,25 @@ class _TmDialogModalState extends State<TmDialogModal> {
                 child: TmDefaultButton(
                   onPressed: widget.mainAction,
                   title: widget.mainActionTitle,
-                  textStyle: TmFonts.bold12.merge(const TextStyle(color: TmColors.primary)),
-                  backgroundColor: TmColors.white,
-                  borderColor: TmColors.primary,
+                  textStyle: widget.mainActionTitleStyle ?? TmFonts.bold12.merge(const TextStyle(color: TmColors.primary)),
+                  backgroundColor: widget.mainActionButtonColor ?? TmColors.white,
+                  borderColor: widget.mainActionButtonColor ?? TmColors.primary,
                 ),
               ),
             ),
-            Expanded(
-              child: widget.secondaryAction != null
-                  ? Padding(
-                      padding: const EdgeInsets.only(left: 9, right: 24, bottom: 30),
-                      child: TmDefaultButton(
-                        onPressed: widget.secondaryAction!,
-                        title: widget.secondaryActionTitle ?? '',
-                        textStyle: TmFonts.bold12,
-                      ),
-                    )
-                  : Container(),
-            ),
+            if (widget.secondaryAction != null)
+              Expanded(
+                child: Padding(
+                  padding: const EdgeInsets.only(left: 9, right: 24, bottom: 30),
+                  child: TmDefaultButton(
+                    onPressed: widget.secondaryAction!,
+                    title: widget.secondaryActionTitle ?? '',
+                    textStyle: TmFonts.bold12,
+                  ),
+                ),
+              )
+            else
+              Container(),
           ],
         ),
       ],
