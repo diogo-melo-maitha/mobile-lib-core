@@ -15,6 +15,7 @@ export 'package:tm_lib_core/widgets/checkboxFilter/checkbox_filter.dart';
 export 'package:tm_lib_core/widgets/clickableCard/default_clickable_card.dart';
 export 'package:tm_lib_core/widgets/design/tm_design_bottom_lines.dart';
 export 'package:tm_lib_core/widgets/design/tm_design_bottom_lines_logo.dart';
+export 'package:tm_lib_core/widgets/error/tm_error_advice.dart';
 export 'package:tm_lib_core/widgets/design/tm_design_bottom_lines_logo_secondary.dart';
 export 'package:tm_lib_core/widgets/design/tm_design_top_lines.dart';
 export 'package:tm_lib_core/widgets/design/tm_design_top_lines_secondary.dart';
