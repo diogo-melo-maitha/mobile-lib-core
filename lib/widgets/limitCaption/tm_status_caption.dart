@@ -26,7 +26,9 @@ class TmStatusCaption extends StatelessWidget {
         const SizedBox(width: 11),
         Text(
           status,
-          style: const TextStyle(fontSize: 12, color: TmColors.softGrey),
+          style: TmFonts.regular12.merge(
+            const TextStyle(color: TmColors.softGrey),
+          ),
         ),
       ],
     );
