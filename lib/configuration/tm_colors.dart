@@ -54,4 +54,6 @@ abstract class TmColors {
 
   static const Color adviceYellow = Color(0xFFFFDE84);
   static const Color turquoise = Color(0xff0B5964);
+
+  static const Color softGrey = Color(0xff8A8A8A);
 }
