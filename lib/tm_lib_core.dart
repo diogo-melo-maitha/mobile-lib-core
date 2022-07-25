@@ -24,7 +24,7 @@ export 'package:tm_lib_core/widgets/filterPeriod/filter_period.dart';
 export 'package:tm_lib_core/widgets/layoutColumn/tm_layout_column.dart';
 export 'package:tm_lib_core/widgets/limitCaption/tm_status_caption.dart';
 export 'package:tm_lib_core/widgets/limitVisualizationCard/tm_limit_visualization_card.dart';
-export 'package:tm_lib_core/widgets/sliders/percentage_slider.dart';
+export 'package:tm_lib_core/widgets/sliders/tm_percentage_slider.dart';
 export 'package:tm_lib_core/widgets/stepper/tm_on_boarding_stepper.dart';
 export 'package:tm_lib_core/widgets/textfields/tm_default_text_field.dart';
 export 'package:tm_lib_core/widgets/texts/tm_description_text.dart';
