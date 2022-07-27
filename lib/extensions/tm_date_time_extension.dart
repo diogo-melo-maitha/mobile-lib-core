@@ -20,4 +20,9 @@ extension TmDateTimeExtension on DateTime {
     final DateFormat formatter = DateFormat('dd/MM/yyyy - HH:mm');
     return formatter.format(this);
   }
+
+	String toDefaultApiFormat() {
+    final DateFormat formatter = DateFormat('yyyy-MM-dd');
+    return formatter.format(this);
+  }
 }

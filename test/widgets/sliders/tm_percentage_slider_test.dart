@@ -193,7 +193,6 @@ void main() {
 
       expect((subtitleText.style as TextStyle).color, Colors.green);
     });
-
     testWidgets('Given iconSize is properly used on plus button', (tester) async {
       await tester.pumpWidget(TestUtils.buildTestableWidget(TmPercentageSlider(
         key: key,

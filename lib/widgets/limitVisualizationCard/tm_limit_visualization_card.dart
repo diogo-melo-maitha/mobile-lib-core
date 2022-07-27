@@ -40,94 +40,96 @@ class _TmLimitVisualizationCardState extends State<TmLimitVisualizationCard> {
 		final progressBarBorderRadius = BorderRadius.circular(100);
 		final progressBarWidth = defaultWidth - 40;
 
-		return Container(
-			margin: const EdgeInsets.only(top: 12),
-		  child: Material(
-		  	color: TmColors.white,
-		  	elevation: widget.elevation,
-				shadowColor: TmColors.trout,
-		  	borderRadius: cardBorderRadius,
-		    child: InkWell(
-		  		onTap: widget.onTap,
-		  		borderRadius: cardBorderRadius,
-		      child: Container(
-		      	width: defaultWidth,
-		  			padding: const EdgeInsets.all(20),
-		  			child: Column(
-		  				children: [
-		  					Row(
-		  						mainAxisAlignment: MainAxisAlignment.spaceBetween,
-		  						children: [
-		  							Container(
-		  								child: widget.arrangementIcon,
-		  							),
-		  							SvgPicture.asset(
-											'assets/images/arrow_right.svg',
-											package: 'tm_lib_core'
-										)
-		  						],
-		  					),
-		  					const SizedBox(height: 10),
-		  					Padding(
-		  					  padding: const EdgeInsets.symmetric(horizontal: 2),
-		  					  child: Row(
-		  					  	mainAxisAlignment: MainAxisAlignment.spaceBetween,
-		  					  	children: [
-		  					  		Text(
-		  					  			widget.takenLimit.toCurrency(),
-		  					  			style: TmFonts.semiBold16.merge(
-		  					  				TextStyle(color: widget.limitTextColor),
-		  					  			),
-		  					  		),
-		  					  		Text(
-		  					  			widget.availableLimit.toCurrency(),
-		  					  			style: TmFonts.semiBold16.merge(
-		  					  				TextStyle(color: widget.limitTextColor),
-		  					  			),
-		  					  		)
-		  					  	],
-		  					  ),
-		  					),
-		  					const SizedBox(height: 3),
-		  					Container(
-		  						alignment: Alignment.centerLeft,
-		  						width: progressBarWidth,
-		  						height: 9,
-		  						decoration: BoxDecoration(
-		  							borderRadius: progressBarBorderRadius,
-		  							color: widget.takenLimitBarColor
-		  						),
-		  						child: Container(
-		  							width: progressBarWidth * (widget.takenLimit / (widget.takenLimit + widget.availableLimit)),
-		  							height: 9,
-		  							decoration: BoxDecoration(
-		  								borderRadius: progressBarBorderRadius,
-		  								color: widget.availableLimitBarColor 
-		  							),
-		  						),
-		  					),
-		  					const SizedBox(height: 5),
-		  					Row(
-		  						mainAxisAlignment: MainAxisAlignment.spaceBetween,
-		  						children: [
-		  							Text(
-		  								'Limite utilizado',
-		  								style: TextStyle(
-		  									color: widget.labelTextColor,
-		  									fontSize: 10
-		  								),
-		  							),
-		  							Text(
-		  								'Limite disponível',
-		  								style: TextStyle(
-		  									color: widget.labelTextColor,
-		  									fontSize: 10
-		  								),
-		  							)
-		  						],
-		  					)
-		  				],
-		  			),
+		return Align(
+		  child: Container(
+		  	margin: const EdgeInsets.only(top: 12),
+		    child: Material(
+		    	color: TmColors.white,
+		    	elevation: widget.elevation,
+		  		shadowColor: TmColors.trout,
+		    	borderRadius: cardBorderRadius,
+		      child: InkWell(
+		    		onTap: widget.onTap,
+		    		borderRadius: cardBorderRadius,
+		        child: Container(
+		        	width: defaultWidth,
+		    			padding: const EdgeInsets.all(20),
+		    			child: Column(
+		    				children: [
+		    					Row(
+		    						mainAxisAlignment: MainAxisAlignment.spaceBetween,
+		    						children: [
+		    							Container(
+		    								child: widget.arrangementIcon,
+		    							),
+		    							SvgPicture.asset(
+		  									'assets/images/arrow_right.svg',
+		  									package: 'tm_lib_core'
+		  								)
+		    						],
+		    					),
+		    					const SizedBox(height: 10),
+		    					Padding(
+		    					  padding: const EdgeInsets.symmetric(horizontal: 2),
+		    					  child: Row(
+		    					  	mainAxisAlignment: MainAxisAlignment.spaceBetween,
+		    					  	children: [
+		    					  		Text(
+		    					  			widget.takenLimit.toCurrency(),
+		    					  			style: TmFonts.semiBold16.merge(
+		    					  				TextStyle(color: widget.limitTextColor),
+		    					  			),
+		    					  		),
+		    					  		Text(
+		    					  			widget.availableLimit.toCurrency(),
+		    					  			style: TmFonts.semiBold16.merge(
+		    					  				TextStyle(color: widget.limitTextColor),
+		    					  			),
+		    					  		)
+		    					  	],
+		    					  ),
+		    					),
+		    					const SizedBox(height: 3),
+		    					Container(
+		    						alignment: Alignment.centerLeft,
+		    						width: progressBarWidth,
+		    						height: 9,
+		    						decoration: BoxDecoration(
+		    							borderRadius: progressBarBorderRadius,
+		    							color: widget.takenLimitBarColor
+		    						),
+		    						child: Container(
+		    							width: progressBarWidth * (widget.takenLimit / (widget.takenLimit + widget.availableLimit)),
+		    							height: 9,
+		    							decoration: BoxDecoration(
+		    								borderRadius: progressBarBorderRadius,
+		    								color: widget.availableLimitBarColor 
+		    							),
+		    						),
+		    					),
+		    					const SizedBox(height: 5),
+		    					Row(
+		    						mainAxisAlignment: MainAxisAlignment.spaceBetween,
+		    						children: [
+		    							Text(
+		    								'Limite utilizado',
+		    								style: TextStyle(
+		    									color: widget.labelTextColor,
+		    									fontSize: 10
+		    								),
+		    							),
+		    							Text(
+		    								'Limite disponível',
+		    								style: TextStyle(
+		    									color: widget.labelTextColor,
+		    									fontSize: 10
+		    								),
+		    							)
+		    						],
+		    					)
+		    				],
+		    			),
+		        ),
 		      ),
 		    ),
 		  ),
