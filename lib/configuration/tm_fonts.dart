@@ -52,6 +52,8 @@ abstract class TmFonts {
 
   static TextStyle bold20 = GoogleFonts.openSans(fontSize: 20, fontWeight: FontWeight.w700);
 
+  static TextStyle bold24 = GoogleFonts.openSans(fontSize: 24, fontWeight: FontWeight.w700);
+
   static TextStyle extraBold12 = GoogleFonts.openSans(fontSize: 12, fontWeight: FontWeight.w800);
 
   static TextStyle extraBold20 = GoogleFonts.openSans(fontSize: 20, fontWeight: FontWeight.w800);

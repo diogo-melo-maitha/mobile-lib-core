@@ -1,6 +1,7 @@
-import 'package:mask_text_input_formatter/mask_text_input_formatter.dart';
 import 'package:cpf_cnpj_validator/cnpj_validator.dart';
 import 'package:cpf_cnpj_validator/cpf_validator.dart';
+import 'package:intl/intl.dart';
+import 'package:mask_text_input_formatter/mask_text_input_formatter.dart';
 
 class FormatUtils {
   static const cpfMask = '###.###.###-##';
@@ -82,6 +83,7 @@ class FormatUtils {
         return code;
     }
   }
+
   static bool isCPFValid(String cpf) {
     return CPFValidator.isValid(cpf);
   }

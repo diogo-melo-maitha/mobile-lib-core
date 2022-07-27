@@ -10,6 +10,7 @@ export 'package:tm_lib_core/widgets/buttons/tm_checkbox_button.dart';
 export 'package:tm_lib_core/widgets/buttons/tm_default_button.dart';
 export 'package:tm_lib_core/widgets/buttons/tm_default_button.dart';
 export 'package:tm_lib_core/widgets/buttons/tm_text_button.dart';
+export 'package:tm_lib_core/widgets/chart/tm_limit_information_chart.dart';
 export 'package:tm_lib_core/widgets/checkboxFilter/checkbox_filter.dart';
 export 'package:tm_lib_core/widgets/clickableCard/default_clickable_card.dart';
 export 'package:tm_lib_core/widgets/design/tm_design_bottom_lines.dart';
